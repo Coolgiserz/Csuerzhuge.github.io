@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="OOP,GAME,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x00 整体思路寫一個簡單的五子棋，基本的思路如下：  绘制棋盘 准备棋子 完成落子逻辑 判断输赢用面向对象的思想来看，可以准备一个类来管理棋盘和棋子的绘制等、一个类负责UI、一个类负责处理事件（鼠标事件、按钮事件等）。具体功能的安排并不唯一，主要看你是如何看待五子棋游戏中的“对象”。上一个基础效果图：  0x01 所需知识以java为例编写程序，则所需知识包括  swing窗体及元素组件JFr">
+<meta name="keywords" content="OOP,GAME">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五子棋系列（一）">
+<meta property="og:url" content="http://yoursite.com/2018/10/02/五子棋系列（一）/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="0x00 整体思路寫一個簡單的五子棋，基本的思路如下：  绘制棋盘 准备棋子 完成落子逻辑 判断输赢用面向对象的思想来看，可以准备一个类来管理棋盘和棋子的绘制等、一个类负责UI、一个类负责处理事件（鼠标事件、按钮事件等）。具体功能的安排并不唯一，主要看你是如何看待五子棋游戏中的“对象”。上一个基础效果图：  0x01 所需知识以java为例编写程序，则所需知识包括  swing窗体及元素组件JFr">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/Gobang1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/definition_1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/chess3D.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/chess3D1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/drawChess1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/checkWin1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/huo1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/huo2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/huo3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/mian3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/10/images/mian4.jpg">
+<meta property="og:updated_time" content="2018-10-28T10:54:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="五子棋系列（一）">
+<meta name="twitter:description" content="0x00 整体思路寫一個簡單的五子棋，基本的思路如下：  绘制棋盘 准备棋子 完成落子逻辑 判断输赢用面向对象的思想来看，可以准备一个类来管理棋盘和棋子的绘制等、一个类负责UI、一个类负责处理事件（鼠标事件、按钮事件等）。具体功能的安排并不唯一，主要看你是如何看待五子棋游戏中的“对象”。上一个基础效果图：  0x01 所需知识以java为例编写程序，则所需知识包括  swing窗体及元素组件JFr">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/images/Gobang1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/02/五子棋系列（一）/">
+
+
+
+
+
+  <title>五子棋系列（一） | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/02/五子棋系列（一）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">五子棋系列（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-02T06:32:28+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/02/五子棋系列（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/02/五子棋系列（一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/02/五子棋系列（一）/" class="leancloud_visitors" data-flag-title="五子棋系列（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2,376
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00-整体思路"><a href="#0x00-整体思路" class="headerlink" title="0x00 整体思路"></a>0x00 整体思路</h2><p>寫一個簡單的五子棋，基本的思路如下：</p>
+<ol>
+<li>绘制棋盘</li>
+<li>准备棋子</li>
+<li>完成落子逻辑</li>
+<li>判断输赢<br>用面向对象的思想来看，可以准备一个类来管理棋盘和棋子的绘制等、一个类负责UI、一个类负责处理事件（鼠标事件、按钮事件等）。具体功能的安排并不唯一，主要看你是如何看待五子棋游戏中的“对象”。上一个基础效果图：<br><img src="../../images/Gobang1.jpg" alt="棋盤常量"></li>
+</ol>
+<h2 id="0x01-所需知识"><a href="#0x01-所需知识" class="headerlink" title="0x01 所需知识"></a>0x01 所需知识</h2><p>以java为例编写程序，则所需知识包括</p>
+<ul>
+<li><p>swing窗体及元素组件<br>JFrame类：构建游戏窗体<br>JButton类：构建按钮组件，承载如悔棋、更换模式等事件</p>
+</li>
+<li><p>事件监听机制<br>主要搞清楚三个问题：</p>
+</li>
+</ul>
+<ol>
+<li>事件源对象是谁？即是哪个对象将要触发事件</li>
+<li>事件监听方法是啥？一般来说事件有鼠标事件、Action事件、键盘事件等。不同的事件其监听方法不同，要在addActionListener、addMouseListener等监听方法中选择正确的方法。</li>
+<li>事件处理类是？事件监听方法所接的参数实现了事件接口中抽象方法的类对象。</li>
+</ol>
+<ul>
+<li>绘图与重绘<br>使用Graphics对象对游戏对象进行绘制，并且要在刷新时重绘相应的元素。需要理解paint()方法。<br>因屏幕为液晶屏，所以屏幕上所显示的界面：包括操作系统本身的桌面、各类应用程序的界面等，无一不是逐像素绘制出来的。对于java而言，默认的paint方法就用于绘制各种ui控件，当移动、放大、缩小窗口时，paint方法都会进行重绘，以实现我们看到的窗体变化的神奇效果，而如果是自己绘制棋盘、棋子等，默认的paint方法是不会对其进行重绘的，除非重写paint方法，把要重绘的内容保存在内存中或者记录在文件中，待刷新时则会重绘。<br>正如在画图程序中绘制几何图形，如果不将所绘制的数据（坐标、属性等）保存在内存/文件中，一刷新或一退出就没了。但要实现几何要素的存储，又是个数据结构的问题，后期补充。</li>
+<li>一点数学逻辑<br>一点点数学逻辑在绘制棋盘棋子、判断输赢时会用到</li>
+</ul>
+<h2 id="0x02-人人对战五子棋项目分析"><a href="#0x02-人人对战五子棋项目分析" class="headerlink" title="0x02 人人对战五子棋项目分析"></a>0x02 人人对战五子棋项目分析</h2><ol>
+<li><p>绘制棋盘<br>棋盘是网格，定义好行、列数和格网间隔，即可用两个for循环绘制出五子棋盘。<br><img src="../../images/definition_1.jpg" alt="棋盤常量"></p>
+</li>
+<li><p>绘制棋子<br>绘制棋子可使用图片，也可通过迭代绘制的方式绘制出具有立体感的图像。立体感的物體其實只是人的一種立體感覺，通過颜色、线型等的變化组合即生成一幅具有立體感的圖片，計算機中可通过迭代的方式改变坐标值及不同坐標值処的顔色等屬性創造出具有立體感的東西。下圖展示了一種立體棋子的畫法<br><img src="../../images/chess3D.jpg" alt="繪製棋子"><br><img src="../../images/chess3D1.jpg" alt="繪製棋子"><br>每一次的迭代都更改画笔的颜色，同时不停改变圆的圆心以及半径，重复绘制了五十个圆，得出的黑子便具有了立体感。</p>
+</li>
+<li><p>落子判断<br>落子判断所要实现的目标是，当玩家点击棋盘上某个交叉点附近的某个点时，要能够把棋子落在适当的交叉点上。实现思路有<br>1）设置一个误差值，遍历棋盘格子，定位出棋子所应落在的交叉点，并在其中绘制棋子，不过此方法的复杂度太高，每一次落子都要进行几百次的计算，效率过低。<br>2）设置一个误差值，当用户点击棋盘上某个点时，计算该点坐标与棋盘起始点的差值，这个差值在与棋盘的宽度作比，即可得到大致的行列坐标，对这一过程中得到的坐标小数位作判断确定真正的行列坐标应该是进一还是退一，从而绘制出棋子。<br>当然，还需要考虑到用户可能会在棋盘外的范围点击，处理这一情况，以免出现落子到棋盘外的”尴尬局“。一种处理方法可以是这样的<br><img src="../../images/drawChess1.jpg" alt="落子判断"></p>
+</li>
+</ol>
+<ol start="4">
+<li>输赢判断<br>游戏，一般都会有个输赢，对于五子棋而言，如果不算上认输操作，那么从第五个回合开始，就每一步都可能会出现赢家，所以，从第五回合开始，应该每下一步棋就对棋局做一个判断，看胜者是否已经出现。<br>要判断输赢，只需要看在四个方向上判断是否有五颗连续相同花色的棋子，如果有，则决出胜方。因此，可考虑用一个二维数组存储棋子的位置，判断连续棋子得问题就转化成对二维数组进行操作问题。大体思路如下:<br><img src="../../images/checkWin1.jpg" alt="输赢判断"></li>
+</ol>
+<h2 id="0x03-AI下法"><a href="#0x03-AI下法" class="headerlink" title="0x03 AI下法"></a>0x03 AI下法</h2><p>所谓AI对战，其实也就是一个用一个算法去寻找一个“最佳”的落子点，当然这个最佳取决于算法的优劣，正如人下棋，能考虑得越全面，所找出的最佳落子点就越高质量。当然，这还需要考虑时间上的限制，如果为了考虑全面而导致下一步棋要思考<br>几天，那这样的棋手也是失败的，这样的算法的实用意义微乎其微。所以，AI算法的核心在于，构造一个算法，在可接受的时间容差内能找出相对优质的落子点（起码不会犯很明显的错误，该堵的眠四活三都要堵上），至于AI能有多智能，就要看算法有多优秀。</p>
+<ol>
+<li>权值法<br>首先以权值法来实现一个最简单的AI棋手。权值法之名为“权值”，不难想象，就是要在棋盘中空的位置中找到一个权值最大的点并在其中落子，这个权值最大的点即是在这个算法体系下所认为的最佳落子点。<br>于是乎，这就涉及到权值的计算方法。要如何计算棋盘上各点的权值会比较好？<br>对于策略型棋类游戏而言，棋形是一个很重要的概念，不管是中国象棋、围棋、国际象棋还是五子棋，棋局中一方的棋形可以表征该方的棋子效率。所以，可以考虑以棋形来计算权值。<br>而五子棋在那么多棋类游戏中算是简单的了，先接受一些基本的棋形概念（附部分图）：</li>
+</ol>
+<ul>
+<li><p>活一<br>能够形成活二的单子<br><img src="../../images/huo1.jpg" alt="活一"></p>
+</li>
+<li><p>眠一</p>
+</li>
+<li><p>活二<br><img src="../../images/huo2.jpg" alt="活二"></p>
+</li>
+<li><p>眠二</p>
+</li>
+<li><p>活三<br>可形成活四<br><img src="../../images/huo3.jpg" alt="活三"></p>
+</li>
+<li><p>眠三<br><img src="../../images/mian3.jpg" alt="眠三"></p>
+</li>
+<li><p>活四<br>两端点均可形成的五子连珠</p>
+</li>
+<li>眠四<br>一边可形成的五子连珠，另一边被封堵<br><img src="../../images/mian4.jpg" alt="眠四"></li>
+</ul>
+<p>注意，以上棋形都要针对每一行、列、斜向来综合考虑，也就是说棋盘上一个位置点受不同方向上棋形的不同，最终会得到权值的叠加，而权值法要做的就是找出权值最大的点，在该处下子。<br>然后，问题就来了：如何为每种棋形确定一个合适的权值？<br>一个感性的认识是，对方威胁性大的棋形附件点要赋予高权值（如果你认为高权值的点是该下的点的话），比如说对方有活三快要形成活四了，这一着算是致命棋了，所以活三这种棋形要赋予高权值，保证AI棋手遇到这种情形时要及时封堵。<br>但是，如果说当前棋局中对手最大威胁的棋形是活三，而自己在此之前已经形成了活三，那么就可以不去堵对方的棋，直接给对手致命一击———形成活四将军。这可以通过调整两方棋形的权值来完成。<br>简单来说，想让AI棋手具有何种下棋风格，是通过权值的调整来决定的，同样，权值的合理与否也决定了AI棋手的”智商“。</p>
+<h2 id="0x04-经验总结"><a href="#0x04-经验总结" class="headerlink" title="0x04 经验总结"></a>0x04 经验总结</h2><ol>
+<li>Debug过程中遇到的一些坑</li>
+</ol>
+<ul>
+<li>画笔对象的坑<br>在处理画笔对象的过程，一度遇到”绘不出来“的情况，报的错误是空指针型的，但代码中确实有获取画笔对象这样的代码实现，为何就获取不到画笔对象呢？程序是忠实的，代码怎么写他就怎么运行。后面发现，错误的原因在于获取画笔对象的代码写到了窗体.setVisible(true)这一行代码前面去了，而这样写获取不到画笔对象的原因在于：画笔对象还没有被创建！<br>画笔对象的创建是在程序窗体被绘制的过程中或者说是要绘制窗体的时候，这个过程隐藏在背后的”黑盒子里“，但是确实是这么个顺序，所以在绘制出窗体前获取到的画笔对象当然就是空的对象了。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
+          
+            <a href="/tags/GAME/" rel="tag"># GAME</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/01/Linux基础知识持续总结篇/" rel="next" title="Linux基础知识持续总结篇">
+                <i class="fa fa-chevron-left"></i> Linux基础知识持续总结篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/13/线性表总结/" rel="prev" title="线性表总结">
+                线性表总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-整体思路"><span class="nav-number">1.</span> <span class="nav-text">0x00 整体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-所需知识"><span class="nav-number">2.</span> <span class="nav-text">0x01 所需知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-人人对战五子棋项目分析"><span class="nav-number">3.</span> <span class="nav-text">0x02 人人对战五子棋项目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-AI下法"><span class="nav-number">4.</span> <span class="nav-text">0x03 AI下法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-经验总结"><span class="nav-number">5.</span> <span class="nav-text">0x04 经验总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

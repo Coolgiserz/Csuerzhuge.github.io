@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Summary,OOP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Scrapy For Distributed Spider Summary前期准备官网：https://scrapy.org/ 开发环境 Pycharm virtualenv创建python虚拟环境豆瓣源：https://pypi.doubanio.com/simple创建虚拟环境：virtualenv -p PYTHON_PATH VITUAL_PAT激活虚拟环境：activate.bat退出虚">
+<meta name="keywords" content="Summary,OOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy For Distributed Spider Summary">
+<meta property="og:url" content="http://yoursite.com/2019/02/11/Scrapy For Distributed Spider Summary/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="Scrapy For Distributed Spider Summary前期准备官网：https://scrapy.org/ 开发环境 Pycharm virtualenv创建python虚拟环境豆瓣源：https://pypi.doubanio.com/simple创建虚拟环境：virtualenv -p PYTHON_PATH VITUAL_PAT激活虚拟环境：activate.bat退出虚">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/Z6MmxHK.png">
+<meta property="og:image" content="https://i.imgur.com/QuIXkDg.png">
+<meta property="og:image" content="https://i.imgur.com/Byi0KYM.png">
+<meta property="og:image" content="https://i.imgur.com/CzvZvBW.png">
+<meta property="og:image" content="https://i.imgur.com/TCn2X8q.png">
+<meta property="og:image" content="https://i.imgur.com/coeboer.png">
+<meta property="og:image" content="https://i.imgur.com/mB9Zs1t.png">
+<meta property="og:image" content="https://i.imgur.com/DPoH765.png">
+<meta property="og:image" content="https://i.imgur.com/ibK2GBo.png">
+<meta property="og:image" content="https://i.imgur.com/Eu0q6DR.png">
+<meta property="og:image" content="https://i.imgur.com/00TqQIt.png">
+<meta property="og:image" content="https://i.imgur.com/Lwqfhug.png">
+<meta property="og:image" content="https://i.imgur.com/9XsRrLN.png">
+<meta property="og:image" content="https://i.imgur.com/e36K1ga.png">
+<meta property="og:image" content="https://i.imgur.com/HTIyFoo.png">
+<meta property="og:image" content="https://i.imgur.com/Q2H92zT.png">
+<meta property="og:image" content="https://i.imgur.com/evbDbos.png">
+<meta property="og:image" content="https://i.imgur.com/TmoQXvq.png">
+<meta property="og:image" content="https://i.imgur.com/tnBTu2n.png">
+<meta property="og:image" content="https://i.imgur.com/qOc1Ico.png">
+<meta property="og:updated_time" content="2019-04-08T06:35:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scrapy For Distributed Spider Summary">
+<meta name="twitter:description" content="Scrapy For Distributed Spider Summary前期准备官网：https://scrapy.org/ 开发环境 Pycharm virtualenv创建python虚拟环境豆瓣源：https://pypi.doubanio.com/simple创建虚拟环境：virtualenv -p PYTHON_PATH VITUAL_PAT激活虚拟环境：activate.bat退出虚">
+<meta name="twitter:image" content="https://i.imgur.com/Z6MmxHK.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/11/Scrapy For Distributed Spider Summary/">
+
+
+
+
+
+  <title>Scrapy For Distributed Spider Summary | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/Scrapy For Distributed Spider Summary/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scrapy For Distributed Spider Summary</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-11T00:06:19+08:00">
+                2019-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/11/Scrapy For Distributed Spider Summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/11/Scrapy For Distributed Spider Summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/11/Scrapy For Distributed Spider Summary/" class="leancloud_visitors" data-flag-title="Scrapy For Distributed Spider Summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2,446
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Scrapy-For-Distributed-Spider-Summary"><a href="#Scrapy-For-Distributed-Spider-Summary" class="headerlink" title="Scrapy For Distributed Spider Summary"></a>Scrapy For Distributed Spider Summary</h1><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>官网：<a href="https://scrapy.org/" target="_blank" rel="noopener">https://scrapy.org/</a></p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h3><ul>
+<li>Pycharm<ul>
+<li>virtualenv<br>创建python虚拟环境<br>豆瓣源：<a href="https://pypi.doubanio.com/simple" target="_blank" rel="noopener">https://pypi.doubanio.com/simple</a><br>创建虚拟环境：virtualenv -p PYTHON_PATH VITUAL_PAT<br>激活虚拟环境：activate.bat<br>退出虚拟环境：deactivate.bat</li>
+<li>virtualenvwrapper<br>官网：<a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://virtualenvwrapper.readthedocs.io/en/latest/</a><br>管理虚拟环境的工具,windows系统下安装命令为pip install virtualenvwrapper-win<br>添加虚拟环境：mkvirtualenv -p PYTHON.EXE WORK_PATH<br>管理虚拟环境：workon<br>退出虚拟环境：deactivate</li>
+</ul>
+</li>
+<li>MySQL</li>
+<li>Navicat<br><a href="https://www.navicat.com/en/products/navicat-for-mysql" target="_blank" rel="noopener">https://www.navicat.com/en/products/navicat-for-mysql</a></li>
+<li>Twisted<br><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted" target="_blank" rel="noopener">https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted</a><br>选择相应的版本，另行安装，否则安装scrapy可能出错，如“Failed building wheel for Twisted”</li>
+<li>pypiwin32<br>windows环境下需要</li>
+<li>pillow<br>使用pipeline读写图片文件需要<br>pip -i <a href="https://pypi.douban.com/simple" target="_blank" rel="noopener">https://pypi.douban.com/simple</a> pillow</li>
+</ul>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h4 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h4><ul>
+<li>scrapy vs requests+beautifulsoup<br>scrapy框架基于twisted（异步IO特点），性能较高，scrapy内置的css、xpath selector，本身的功能足以完成beautifulsoup所有功能（bs4是纯python写出来的，scrapy相关功能是由C写的）<br>twisted：<a href="https://twistedmatrix.com/trac/" target="_blank" rel="noopener">https://twistedmatrix.com/trac/</a><h4 id="常见网页分类？"><a href="#常见网页分类？" class="headerlink" title="常见网页分类？"></a>常见网页分类？</h4></li>
+<li>静态网页</li>
+<li>动态网页</li>
+<li>webservice（restapi）<h4 id="爬虫用武之地？"><a href="#爬虫用武之地？" class="headerlink" title="爬虫用武之地？"></a>爬虫用武之地？</h4></li>
+<li>百度/谷歌类搜索引擎</li>
+<li>垂直领域搜索引擎</li>
+<li>推荐引擎<br>今日头条</li>
+<li>机器学习的数据样本</li>
+<li>数据分析<br>金融数据分析、舆情分析</li>
+</ul>
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><p>维基百科：<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F</a></p>
+<ul>
+<li>特殊字符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>起始字符</td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td>任意字符</td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td>出现多次</td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>结尾字符</td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td>出现至少一次</td>
+</tr>
+<tr>
+<td></td>
+<td>非贪婪匹配</td>
+</tr>
+<tr>
+<td>{10}</td>
+<td>限定其前一字符出现频率为10</td>
+</tr>
+<tr>
+<td>{10,}</td>
+<td>限定其前一字符出现频率为10次以上</td>
+</tr>
+<tr>
+<td>{10,20}</td>
+<td>限定其前一字符出现频率为10到20次</td>
+</tr>
+<tr>
+<td>pattern1\</td>
+<td>pattern2</td>
+<td>匹配pattern1或pattern2，优先匹配前者</td>
+</tr>
+<tr>
+<td>[2134]</td>
+<td>其中字符任选其一</td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td>区间</td>
+</tr>
+<tr>
+<td>[.*]</td>
+<td>中括号中的*和.只是单纯的字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td></td>
+</tr>
+<tr>
+<td>\S</td>
+<td></td>
+</tr>
+<tr>
+<td>\w</td>
+<td></td>
+</tr>
+<tr>
+<td>\W</td>
+<td></td>
+</tr>
+<tr>
+<td>\d</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>[\u4E00-\u9FA5]</td>
+<td>汉字unicode编码</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>python api<br>python有内置模块re用于正则表达式。<br><a href="https://docs.python.org/3/library/re.html" target="_blank" rel="noopener">https://docs.python.org/3/library/re.html</a></li>
+</ul>
+<h4 id="深度优先-amp-amp-广度优先"><a href="#深度优先-amp-amp-广度优先" class="headerlink" title="深度优先&amp;&amp;广度优先"></a>深度优先&amp;&amp;广度优先</h4><ul>
+<li>网站的树结构<br>网站URl设计是分层的，绘制出URL层次结构图就得到了一棵“树”（一级域名、二级域名、…），针对“树”结构，常用策略就是深度优先和广度优先。<strong>但要注意URL环路</strong></li>
+<li>深度优先<br>递归</li>
+<li>广度优先<br>利用队列</li>
+</ul>
+<h4 id="URL去重策略"><a href="#URL去重策略" class="headerlink" title="URL去重策略"></a>URL去重策略</h4><ul>
+<li>将访问过的url保存到数据库中<br>效率较低</li>
+<li>将访问过的url保存到set中，以o(1)的代价查询url，但占用内存比较大</li>
+<li>url经过md5等哈希方法后保存到set中<br>md5将任意长度的url映射到固定长度且不重复的字符串</li>
+<li>用bitmap方法，将访问过的url通过hash函数映射到某一位<br>冲突可能较高，将2个url映射到同一个位置</li>
+<li>bloomfilter方法对bitmap进行改进，多重hash函数降低冲突<br><a href="https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8</a></li>
+</ul>
+<h4 id="字符串编码"><a href="#字符串编码" class="headerlink" title="字符串编码"></a>字符串编码</h4><p>写文件、网络传输时常出现字符串编码相关的错误。采用sys.getdefaultencoding()可得环境默认字符串编码。Window Python3默认utf8，Python2默认ascii。Linux环境下又有所不同。</p>
+<ul>
+<li>ASCII<br>美国标准编码，一个字节表示所有英文字符</li>
+<li>GB2312<br>两个字节表示一个汉字。Window环境下python默认gb2312编码。</li>
+<li>Unicode<br><a href="https://zh.wikipedia.org/zh-hans/Unicode" target="_blank" rel="noopener">https://zh.wikipedia.org/zh-hans/Unicode</a><br>将所有语言统一到一套编码，16 bit或32 bit囊括所有字符。如果内容全是英文时，unicode便会比ASCII需要多一倍+的存储空间，传输也需要更多时间。内存中读取文件采用unicode会较简单。</li>
+<li>utf-8<br>可变长的编码。把英文表示为一个字节。汉字3个字节。特别生僻的汉字以4-6个字节表示，传输大量英文。文件保存/网络传输时采用utf8更有效率</li>
+</ul>
+<h4 id="网络文件下载"><a href="#网络文件下载" class="headerlink" title="网络文件下载"></a>网络文件下载</h4><p>urllib.request模块下的urlretrieve函数可用于下载远程服务器中的资源。<br>urlretrieve(url, filename=None, reporthook=None, data=None)</p>
+<h3 id="scrapy"><a href="#scrapy" class="headerlink" title="scrapy"></a>scrapy</h3><p>github地址：<a href="https://github.com/scrapy/scrapy" target="_blank" rel="noopener">https://github.com/scrapy/scrapy</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>可直接使用pip进行安装：pip install -i <a href="https://pypi.douban.com/simple" target="_blank" rel="noopener">https://pypi.douban.com/simple</a><br><img src="https://i.imgur.com/Z6MmxHK.png" alt=""></p>
+<h4 id="开启征程"><a href="#开启征程" class="headerlink" title="开启征程"></a>开启征程</h4><p>startproject即可建立scrapy项目，可选择模板、自定义模板<br><img src="https://i.imgur.com/QuIXkDg.png" alt=""><br>查看现有模板方式:scrapy genspider –list<br>建立爬虫子任务命令：scrapy genspider SUB_TASK<br>指定模板创建爬虫任务：scrapy genspider -t TEMPLATE_NAME TASK_NAME DOMAIN,如<br><img src="https://i.imgur.com/Byi0KYM.png" alt=""></p>
+<h4 id="Spider调试"><a href="#Spider调试" class="headerlink" title="Spider调试"></a>Spider调试</h4><ul>
+<li>pycharm debug</li>
+<li>scrapy shell<br>示例：scrapy shell -s USER_AGENT=”Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36” <a href="https://www.lagou.com/jobs/5602462.html" target="_blank" rel="noopener">https://www.lagou.com/jobs/5602462.html</a></li>
+</ul>
+<h4 id="xpath选择器"><a href="#xpath选择器" class="headerlink" title="xpath选择器"></a>xpath选择器</h4><p>官网:<a href="https://www.w3.org/TR/1999/REC-xpath-19991116/" target="_blank" rel="noopener">https://www.w3.org/TR/1999/REC-xpath-19991116/</a><br>w3cschool：<a href="http://www.w3school.com.cn/xpath/xpath_syntax.ASP" target="_blank" rel="noopener">http://www.w3school.com.cn/xpath/xpath_syntax.ASP</a></p>
+<ul>
+<li><p>特点&amp;&amp;用途<br>可使用路径表达式在xml和html中进行导航；包含标准函数库；w3c标准</p>
+</li>
+<li><p>术语</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>父节点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>子节点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>同胞节点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>先辈节点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>后代节点</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>语法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>article</td>
+<td>选取所有article元素的所有子节点</td>
+<td></td>
+</tr>
+<tr>
+<td>/article</td>
+<td>选取根元素article</td>
+<td></td>
+</tr>
+<tr>
+<td>article/a</td>
+<td>选取所有属于article的子元素的a节点</td>
+<td></td>
+</tr>
+<tr>
+<td>//div</td>
+<td>选取文档中所有div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>article//div</td>
+<td>article下所有div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>//@class</td>
+<td>选取所有名为class的属性</td>
+<td></td>
+</tr>
+<tr>
+<td>/article/div[1]</td>
+<td>属于article子元素的第一个div</td>
+<td></td>
+</tr>
+<tr>
+<td>/article/div[last()]</td>
+<td>属于article子元素的最后一个div</td>
+<td></td>
+</tr>
+<tr>
+<td>/article/div[last()-1]</td>
+<td></td>
+</tr>
+<tr>
+<td>//div[@lang]</td>
+<td>选择所有拥有lang属性的div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>//div[@lang=’eng’]</td>
+<td>选择所有lang属性为eng的div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>/div/*</td>
+<td>选取所有属于div元素的所有子节点</td>
+<td></td>
+</tr>
+<tr>
+<td>//*</td>
+<td>选取所有元素</td>
+<td></td>
+</tr>
+<tr>
+<td>//div[@*]</td>
+<td>选取所有带属性的div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>/div/a\</td>
+<td>//div/p</td>
+<td>选取所有div元素的a和p元素</td>
+<td></td>
+</tr>
+<tr>
+<td>//span\</td>
+<td>//ul</td>
+<td>选取文档中的span和ul元素</td>
+<td></td>
+</tr>
+<tr>
+<td>article/div/p&#124;//span</td>
+<td>选取所有属于article元素的div元素的p元素和所有span元素</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>常用函数<ul>
+<li>text()</li>
+<li>extract()</li>
+<li>extract_first()</li>
+<li>contains()</li>
+<li>strip()</li>
+<li>replace()</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>注意<br>选取xpath路径时，注意警惕ajax动态生成的标签，推荐使用chrome或firefox中copy xpath功能</li>
+</ul>
+<h4 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h4><p><a href="http://www.w3school.com.cn/cssref/css_selectors.ASP" target="_blank" rel="noopener">http://www.w3school.com.cn/cssref/css_selectors.ASP</a></p>
+<ul>
+<li>语法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.classname</td>
+<td>选取class为classname的元素</td>
+<td></td>
+</tr>
+<tr>
+<td>#idname</td>
+<td>选取id=idname的元素</td>
+<td></td>
+</tr>
+<tr>
+<td>div p</td>
+<td>选取div元素下的所有p子元素</td>
+<td></td>
+</tr>
+<tr>
+<td>div+p</td>
+<td>选取紧跟在div后的p</td>
+<td>p和div是兄弟节点</td>
+<td></td>
+</tr>
+<tr>
+<td>div&gt;p</td>
+<td>选取div下第一个子元素p</td>
+<td></td>
+</tr>
+<tr>
+<td>div,p</td>
+<td>选取所有名为class的属性</td>
+<td></td>
+</tr>
+<tr>
+<td>div#container&gt;ul</td>
+<td>选择id=container的div元素后的第一个ul元素</td>
+<td></td>
+</tr>
+<tr>
+<td>ul~p</td>
+<td>选择与ul相邻的所有p元素</td>
+<td></td>
+</tr>
+<tr>
+<td>a[title]</td>
+<td>选择所有有title属性的a元素</td>
+<td></td>
+</tr>
+<tr>
+<td>a[href=”<a href="http://www.baidu.com&quot;]" target="_blank" rel="noopener">http://www.baidu.com&quot;]</a></td>
+<td>选择href属性为<a href="http://www.baidu.com的a元素" target="_blank" rel="noopener">http://www.baidu.com的a元素</a></td>
+<td></td>
+</tr>
+<tr>
+<td>a[href*=”baidu”]</td>
+<td>选择href属性中包含baidu的a元素</td>
+<td></td>
+</tr>
+<tr>
+<td>a[href^=”baidu”]</td>
+<td>选择href属性中以baidu开头的a元素</td>
+<td></td>
+</tr>
+<tr>
+<td>a[href$=”baidu”]</td>
+<td>选择href属性中以baidu结尾的a元素</td>
+<td></td>
+</tr>
+<tr>
+<td>input[type=radio]:checked</td>
+<td>选择所有处于选中状态的radio</td>
+<td></td>
+</tr>
+<tr>
+<td>div:not(#container)</td>
+<td>选取所有id非container的div元素</td>
+<td></td>
+</tr>
+<tr>
+<td>li:nth-child(3)</td>
+<td>选取第三个li元素</td>
+<td></td>
+</tr>
+<tr>
+<td>tr:nth-child(2n)</td>
+<td>第偶数个tr</td>
+</tr>
+</tbody>
+</table>
+<h4 id="session和cookie自动登录机制"><a href="#session和cookie自动登录机制" class="headerlink" title="session和cookie自动登录机制"></a>session和cookie自动登录机制</h4><p>理解模拟登陆和网站交互的基础。<br>cookie中包含着标识用户的信息，但还存在隐患，session用于解决此隐患：对用户信息（账号密码等）作一定处理生成session_data存放在服务端，而后返回给客户端一个可用于检索session_data的session_key作为cookie，并设置session过期时间。<br><img src="https://i.imgur.com/CzvZvBW.png" alt=""></p>
+<ul>
+<li>cookielib</li>
+<li>cookJar</li>
+<li>session</li>
+</ul>
+<h4 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h4><p>SEO优化需要了解，以免误导搜索引擎</p>
+<ul>
+<li>200<br>请求被成功处理</li>
+<li>301/302<br>永久性重定向/临时性重定向</li>
+<li>403<br>没有权限访问</li>
+<li>404<br>表示没有对应的资源。如遇到404页面，爬虫应不对其进行爬取</li>
+<li>500<br>服务器错误</li>
+<li>503<br>服务器停机或正在维护</li>
+</ul>
+<h4 id="selenium模拟"><a href="#selenium模拟" class="headerlink" title="selenium模拟"></a>selenium模拟</h4><h4 id="cmder"><a href="#cmder" class="headerlink" title="cmder"></a>cmder</h4><p>在windows下可使用部分linux命令<br><a href="https://cmder.net/" target="_blank" rel="noopener">https://cmder.net/</a></p>
+<h3 id="实战1——爬取伯乐在线所有技术文章"><a href="#实战1——爬取伯乐在线所有技术文章" class="headerlink" title="实战1——爬取伯乐在线所有技术文章"></a>实战1——爬取伯乐在线所有技术文章</h3><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><p>爬取所有技术文章的标题、正文、点赞数、评论数、发表时间、标签</p>
+<h4 id="爬取一篇文章的所需内容"><a href="#爬取一篇文章的所需内容" class="headerlink" title="爬取一篇文章的所需内容"></a>爬取一篇文章的所需内容</h4><h4 id="实现翻页"><a href="#实现翻页" class="headerlink" title="实现翻页"></a>实现翻页</h4><p>寻找“下一页”的url</p>
+<h4 id="items设计"><a href="#items设计" class="headerlink" title="items设计"></a>items设计</h4><p>item即所要爬取的数据项，相当于数据需求</p>
+<h4 id="通过pipeline保存数据到mysql"><a href="#通过pipeline保存数据到mysql" class="headerlink" title="通过pipeline保存数据到mysql"></a>通过pipeline保存数据到mysql</h4><p>pipeline拦截item，将拦截下的item保存到mysql即可</p>
+<ul>
+<li>python库<ul>
+<li>codecs<br>与普通方式的区别在于文件编码</li>
+<li>ItemExporter<br>scrapy自带的item exporter，源码位于scrapy.exporters中，有各种类型的exporter<br><img src="https://i.imgur.com/TCn2X8q.png" alt=""></li>
+</ul>
+</li>
+<li>数据库设计<br>数据库表与item中内容一一对应</li>
+<li>数据保存的mysql中<br>需要驱动如mysqlclient，如在ubuntu下还需要sudo apt-get install libmysqlclient-dev,centos下需要sudo yum install python-devel mysql-devel，否则可能安装失败。</li>
+<li>异步操作——MySQL连接池<br>上一步中插入mysql的方法有较大局限，scrapy解析速度大于数据库插入速度，所以可能会产生阻塞，采用twisted框架可较方便地实现MySQL插入异步化</li>
+</ul>
+<h4 id="scrapi-item-loader机制"><a href="#scrapi-item-loader机制" class="headerlink" title="scrapi item loader机制"></a>scrapi item loader机制</h4><p>提供一个容器方便模块化，方便后期维护item</p>
+<h4 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h4><ul>
+<li>ValueError：Missing scheme in request url：h</li>
+</ul>
+<hr>
+<h3 id="实战2——拉勾网职位信息爬取"><a href="#实战2——拉勾网职位信息爬取" class="headerlink" title="实战2——拉勾网职位信息爬取"></a>实战2——拉勾网职位信息爬取</h3><h4 id="Crawlspider剖析"><a href="#Crawlspider剖析" class="headerlink" title="Crawlspider剖析"></a>Crawlspider剖析</h4><p><a href="https://docs.scrapy.org/en/latest/" target="_blank" rel="noopener">https://docs.scrapy.org/en/latest/</a></p>
+<h4 id="需求分析及策略"><a href="#需求分析及策略" class="headerlink" title="需求分析及策略"></a>需求分析及策略</h4><p>以 <a href="https://www.lagou.com/jobs/5602462.html" target="_blank" rel="noopener">https://www.lagou.com/jobs/5602462.html</a> 为例，需要公司名称、招聘职位、薪资、工作城市、学历要求、工作经验要求、工作类型、职位诱惑、职位描述等数据</p>
+<ul>
+<li><p>公司名称<br><img src="https://i.imgur.com/coeboer.png" alt=""><br>公司名称写在一个logo的alt属性内<br><img src="https://i.imgur.com/mB9Zs1t.png" alt=""></p>
+</li>
+<li><p>招聘职位<br><img src="https://i.imgur.com/DPoH765.png" alt=""><br><img src="https://i.imgur.com/ibK2GBo.png" alt=""></p>
+</li>
+<li><p>工作要求<br><img src="https://i.imgur.com/Eu0q6DR.png" alt=""><br>可见薪资范围、工作城市、学历要求、工作经验要求、工作类型等都在此可获得，在scrapy shell中测试如下：<br><img src="https://i.imgur.com/00TqQIt.png" alt=""></p>
+</li>
+<li><p>职位信息发布时间<br><img src="https://i.imgur.com/Lwqfhug.png" alt=""><br><img src="https://i.imgur.com/9XsRrLN.png" alt=""></p>
+</li>
+<li><p>标签<br><img src="https://i.imgur.com/e36K1ga.png" alt=""><br><img src="https://i.imgur.com/HTIyFoo.png" alt=""></p>
+</li>
+<li><p>职位诱惑<br><img src="https://i.imgur.com/Q2H92zT.png" alt=""><br><img src="https://i.imgur.com/evbDbos.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>职位描述<br><img src="https://i.imgur.com/TmoQXvq.png" alt=""></li>
+</ul>
+<ul>
+<li>工作地址<br><img src="https://i.imgur.com/tnBTu2n.png" alt=""><br><img src="https://i.imgur.com/qOc1Ico.png" alt=""></li>
+</ul>
+<h4 id="Item-Loader及数据入库"><a href="#Item-Loader及数据入库" class="headerlink" title="Item Loader及数据入库"></a>Item Loader及数据入库</h4><p>拉勾网目前会根据user-agent判断是否为爬虫，在chrome浏览器输入about:version可获得User-Agent信息。下面这个网站也可直接返回当前user-agent： <a href="https://helloacm.com/api/user-agent/" target="_blank" rel="noopener">https://helloacm.com/api/user-agent/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Summary/" rel="tag"># Summary</a>
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/31/Critical-Thinkging-Reading-Note/" rel="next" title="Critical Thinkging Reading Note">
+                <i class="fa fa-chevron-left"></i> Critical Thinkging Reading Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/16/SUMO-notes/" rel="prev" title="SUMO notes">
+                SUMO notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scrapy-For-Distributed-Spider-Summary"><span class="nav-number">1.</span> <span class="nav-text">Scrapy For Distributed Spider Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">1.1.</span> <span class="nav-text">前期准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发环境"><span class="nav-number">1.1.1.</span> <span class="nav-text">开发环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.1.2.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#技术选型"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">技术选型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见网页分类？"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">常见网页分类？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#爬虫用武之地？"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">爬虫用武之地？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先-amp-amp-广度优先"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">深度优先&amp;&amp;广度优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL去重策略"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">URL去重策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串编码"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">字符串编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络文件下载"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">网络文件下载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrapy"><span class="nav-number">1.1.3.</span> <span class="nav-text">scrapy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启征程"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">开启征程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spider调试"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Spider调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xpath选择器"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">xpath选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css选择器"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">css选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session和cookie自动登录机制"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">session和cookie自动登录机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP状态码"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">HTTP状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#selenium模拟"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">selenium模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cmder"><span class="nav-number">1.1.3.9.</span> <span class="nav-text">cmder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战1——爬取伯乐在线所有技术文章"><span class="nav-number">1.1.4.</span> <span class="nav-text">实战1——爬取伯乐在线所有技术文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需求分析"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#爬取一篇文章的所需内容"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">爬取一篇文章的所需内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现翻页"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">实现翻页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#items设计"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">items设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过pipeline保存数据到mysql"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">通过pipeline保存数据到mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrapi-item-loader机制"><span class="nav-number">1.1.4.6.</span> <span class="nav-text">scrapi item loader机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见错误"><span class="nav-number">1.1.4.7.</span> <span class="nav-text">常见错误</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战2——拉勾网职位信息爬取"><span class="nav-number">1.1.5.</span> <span class="nav-text">实战2——拉勾网职位信息爬取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Crawlspider剖析"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">Crawlspider剖析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#需求分析及策略"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">需求分析及策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Item-Loader及数据入库"><span class="nav-number">1.1.5.3.</span> <span class="nav-text">Item Loader及数据入库</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

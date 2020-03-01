@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GIS,OOP,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="GIS工程文档编写工程文档分类 开发文档   需求说明书 数据要求说明书 总体说明书 可行性研究报告 项目开发计划   管理文档   项目开发计划 测试计划 测试报告 开发进度月报 项目开发总结   用户文档   产品用户手册  可行性研究报告 引言   系统简介 参考资料   对现行系统的分析   组织结构 业务流程 工作负荷 费用 人员 设备 计算机应用情况 问题和要求   拟建系统的候选规模">
+<meta name="keywords" content="GIS,OOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GIS工程与应用notes">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/GIS工程与应用notes/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="GIS工程文档编写工程文档分类 开发文档   需求说明书 数据要求说明书 总体说明书 可行性研究报告 项目开发计划   管理文档   项目开发计划 测试计划 测试报告 开发进度月报 项目开发总结   用户文档   产品用户手册  可行性研究报告 引言   系统简介 参考资料   对现行系统的分析   组织结构 业务流程 工作负荷 费用 人员 设备 计算机应用情况 问题和要求   拟建系统的候选规模">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/dataflowlegend.jpg">
+<meta property="og:updated_time" content="2019-04-26T02:59:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GIS工程与应用notes">
+<meta name="twitter:description" content="GIS工程文档编写工程文档分类 开发文档   需求说明书 数据要求说明书 总体说明书 可行性研究报告 项目开发计划   管理文档   项目开发计划 测试计划 测试报告 开发进度月报 项目开发总结   用户文档   产品用户手册  可行性研究报告 引言   系统简介 参考资料   对现行系统的分析   组织结构 业务流程 工作负荷 费用 人员 设备 计算机应用情况 问题和要求   拟建系统的候选规模">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/images/dataflowlegend.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/GIS工程与应用notes/">
+
+
+
+
+
+  <title>GIS工程与应用notes | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/GIS工程与应用notes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GIS工程与应用notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T20:36:19+08:00">
+                2019-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/13/GIS工程与应用notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/13/GIS工程与应用notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/13/GIS工程与应用notes/" class="leancloud_visitors" data-flag-title="GIS工程与应用notes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2,819
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="GIS工程文档编写"><a href="#GIS工程文档编写" class="headerlink" title="GIS工程文档编写"></a>GIS工程文档编写</h2><h3 id="工程文档分类"><a href="#工程文档分类" class="headerlink" title="工程文档分类"></a>工程文档分类</h3><ol>
+<li>开发文档</li>
+</ol>
+<ul>
+<li>需求说明书</li>
+<li>数据要求说明书</li>
+<li>总体说明书</li>
+<li>可行性研究报告</li>
+<li>项目开发计划</li>
+</ul>
+<ol start="2">
+<li>管理文档</li>
+</ol>
+<ul>
+<li>项目开发计划</li>
+<li>测试计划</li>
+<li>测试报告</li>
+<li>开发进度月报</li>
+<li>项目开发总结</li>
+</ul>
+<ol start="3">
+<li>用户文档</li>
+</ol>
+<ul>
+<li>产品用户手册</li>
+</ul>
+<h3 id="可行性研究报告"><a href="#可行性研究报告" class="headerlink" title="可行性研究报告"></a>可行性研究报告</h3><ol>
+<li>引言</li>
+</ol>
+<ul>
+<li>系统简介</li>
+<li>参考资料</li>
+</ul>
+<ol start="2">
+<li>对现行系统的分析</li>
+</ol>
+<ul>
+<li>组织结构</li>
+<li>业务流程</li>
+<li>工作负荷</li>
+<li>费用</li>
+<li>人员</li>
+<li>设备</li>
+<li>计算机应用情况</li>
+<li>问题和要求</li>
+</ul>
+<ol start="3">
+<li>拟建系统的候选规模及方案</li>
+</ol>
+<ul>
+<li>拟建系统目标</li>
+<li>建设规模和初步设计方案</li>
+<li>系统建设的实施计划</li>
+<li>投资方案</li>
+<li>补充方案</li>
+</ul>
+<ol start="4">
+<li>可行性研究</li>
+</ol>
+<ul>
+<li>技术可行性</li>
+<li>经济可行性</li>
+<li>运行可行性</li>
+<li>比较研究</li>
+<li>建设性结论</li>
+</ul>
+<h2 id="工程调研"><a href="#工程调研" class="headerlink" title="工程调研"></a>工程调研</h2><h3 id="现有关于校友平台的系统"><a href="#现有关于校友平台的系统" class="headerlink" title="现有关于校友平台的系统"></a>现有关于校友平台的系统</h3><p>北京大学校友网：<a href="http://www.pku.org.cn/" target="_blank" rel="noopener">http://www.pku.org.cn/</a><br>清华大学校友总会：<a href="http://www.tsinghua.org.cn/publish/alumni/index.html" target="_blank" rel="noopener">http://www.tsinghua.org.cn/publish/alumni/index.html</a><br>武汉大学校友总会：<a href="http://alumni.whu.edu.cn/" target="_blank" rel="noopener">http://alumni.whu.edu.cn/</a><br>浙江大学校友网：<a href="http://zuaa.zju.edu.cn/" target="_blank" rel="noopener">http://zuaa.zju.edu.cn/</a><br>上海交大校友网：<a href="http://www.sjtu.org/newalu/" target="_blank" rel="noopener">http://www.sjtu.org/newalu/</a><br>复旦大学校友网：<a href="http://www.fudan.org.cn/site/fddxxyw/xyh/index/" target="_blank" rel="noopener">http://www.fudan.org.cn/site/fddxxyw/xyh/index/</a><br>四川大学校友总会：<a href="http://scuaa.scu.edu.cn/" target="_blank" rel="noopener">http://scuaa.scu.edu.cn/</a><br>电子科技大学校友总会：<a href="http://www.alumni.uestc.edu.cn/index/alumniorg" target="_blank" rel="noopener">http://www.alumni.uestc.edu.cn/index/alumniorg</a><br>华中科技大学校友总会：<a href="http://xyh.hust.edu.cn/" target="_blank" rel="noopener">http://xyh.hust.edu.cn/</a><br>中南财经政法大学校友总会：<a href="http://alumni.zuel.edu.cn/" target="_blank" rel="noopener">http://alumni.zuel.edu.cn/</a><br>北京师范大学校友网：<a href="http://xyh.bnu.edu.cn/" target="_blank" rel="noopener">http://xyh.bnu.edu.cn/</a><br>北京邮电大学校友会：<a href="https://xyh.bupt.edu.cn/" target="_blank" rel="noopener">https://xyh.bupt.edu.cn/</a><br>天津大学校友会：<a href="http://www.tju.edu.cn/xyh/" target="_blank" rel="noopener">http://www.tju.edu.cn/xyh/</a><br>同济大学校友网：<a href="http://www.tongjiren.org/" target="_blank" rel="noopener">http://www.tongjiren.org/</a><br>南京大学校友网：<a href="http://www.nju.org.cn/" target="_blank" rel="noopener">http://www.nju.org.cn/</a><br>………………………………………………………….<br>斯坦福大学：<a href="https://alumni.stanford.edu/get/page/home?pgnPageCode=370&amp;indexredir=r" target="_blank" rel="noopener">https://alumni.stanford.edu/get/page/home?pgnPageCode=370&amp;indexredir=r</a><br>哈佛大学：<a href="https://alumni.harvard.edu/" target="_blank" rel="noopener">https://alumni.harvard.edu/</a><br>牛津大学：<a href="https://www.alumni.ox.ac.uk/" target="_blank" rel="noopener">https://www.alumni.ox.ac.uk/</a><br>耶鲁大学：<a href="https://alumni.yale.edu/" target="_blank" rel="noopener">https://alumni.yale.edu/</a><br>剑桥大学：<a href="http://www.cambridgealumni.com/" target="_blank" rel="noopener">http://www.cambridgealumni.com/</a><br>麻省理工学院：<br>奥尔巴尼大学：<a href="https://www.albany.edu/" target="_blank" rel="noopener">https://www.albany.edu/</a><br>伊利诺伊大学厄巴纳-香槟分校：<a href="https://illinois.edu/alumni/index.html" target="_blank" rel="noopener">https://illinois.edu/alumni/index.html</a><br>···································································<br>校友通？（已挂）<br>雨课堂？（没用过）<br>超级课程表？（无潜力）<br>易班？（花样太多，体验不好）<br>Summer？（活力少，适合年轻人）<br>学信网：<a href="https://www.chsi.com.cn/？（信息多，可扩展？）" target="_blank" rel="noopener">https://www.chsi.com.cn/？（信息多，可扩展？）</a></p>
+<h4 id="外部实体"><a href="#外部实体" class="headerlink" title="外部实体"></a>外部实体</h4><ul>
+<li>校友联络员<ul>
+<li>校友<br><a href="https://www.merriam-webster.com/dictionary/alumni" target="_blank" rel="noopener">https://www.merriam-webster.com/dictionary/alumni</a></li>
+<li>志愿者（校友等经过培训的人）</li>
+<li>校方管理人员</li>
+</ul>
+</li>
+<li>毕业校友</li>
+<li>在校学生</li>
+</ul>
+<h4 id="有哪些业务"><a href="#有哪些业务" class="headerlink" title="有哪些业务"></a>有哪些业务</h4><ul>
+<li>校友聚会</li>
+<li>校友捐赠</li>
+<li>专属校友卡（*）</li>
+<li>教学资源和图书馆开放（*）<br>yale for life：<a href="http://yaleforlife.org/" target="_blank" rel="noopener">http://yaleforlife.org/</a><br><a href="https://ivy.yale.edu/yet/participants/new" target="_blank" rel="noopener">https://ivy.yale.edu/yet/participants/new</a><br><a href="https://guides.library.yale.edu/borrow/alumni" target="_blank" rel="noopener">https://guides.library.yale.edu/borrow/alumni</a></li>
+<li>校友企业采访</li>
+<li>校友线下联络（*）</li>
+<li>毕业校友信息收集业务？</li>
+<li>校友会活动？</li>
+<li>出国证明材料申请</li>
+<li>职业网络career network<br><a href="https://ocs.yale.edu/get-connected" target="_blank" rel="noopener">https://ocs.yale.edu/get-connected</a><br><a href="https://ocs.yale.edu/video/networking" target="_blank" rel="noopener">https://ocs.yale.edu/video/networking</a><br><a href="https://ocs.yale.edu/get-hired/professional-experiences-internships" target="_blank" rel="noopener">https://ocs.yale.edu/get-hired/professional-experiences-internships</a><br>了解职业路线、寻找合作者；职业经历</li>
+</ul>
+<h4 id="业务流向"><a href="#业务流向" class="headerlink" title="业务流向"></a>业务流向</h4><h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul>
+<li><p>校友基本信息<br>姓名、学院、学位、出生日期、籍贯、身份证/护照/驾照信息</p>
+</li>
+<li><p>联系信息<br>电话、通信地址、邮政编码、邮箱</p>
+</li>
+<li><p>校友现状信息<br>工作单位、职位、现居国家及城市、配偶</p>
+</li>
+<li><p>类别数据<br>学历学位类别：<a href="http://www.cdgdc.edu.cn/xwyyjsjyxx/xwbl/xwzd/xwlx/" target="_blank" rel="noopener">http://www.cdgdc.edu.cn/xwyyjsjyxx/xwbl/xwzd/xwlx/</a><br>中国标准在线服务网：<a href="http://www.spc.org.cn/standardonline" target="_blank" rel="noopener">http://www.spc.org.cn/standardonline</a></p>
+</li>
+</ul>
+<h3 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h3><ul>
+<li>用户账户信息(user_account)</li>
+<li>用户详细信息(user_details)（职业信息、工作地点等）</li>
+<li>用户关系(user_relation)</li>
+<li>招聘信息(job_opptunity)(企业名、行业、岗位、要求、工作地点等等)</li>
+<li>简历信息(resume)()</li>
+<li>统计表()</li>
+<li>校友反馈（反馈内容、回复、反馈时间等）</li>
+</ul>
+<p>#### </p>
+<h3 id="提供高校信息的网站"><a href="#提供高校信息的网站" class="headerlink" title="提供高校信息的网站"></a>提供高校信息的网站</h3><p><a href="http://cuaa.net/cur/2010xyjz/" target="_blank" rel="noopener">http://cuaa.net/cur/2010xyjz/</a></p>
+<h3 id="问卷设计"><a href="#问卷设计" class="headerlink" title="问卷设计"></a>问卷设计</h3><h4 id="主要目标调查对象"><a href="#主要目标调查对象" class="headerlink" title="主要目标调查对象"></a>主要目标调查对象</h4><ul>
+<li>在校学生</li>
+<li>毕业校友</li>
+<li>有择校需求的家长、在读高中生等</li>
+</ul>
+<h4 id="调查目的"><a href="#调查目的" class="headerlink" title="调查目的"></a>调查目的</h4><ol>
+<li>了解人们对于当前校友信息收录工作的反映</li>
+<li>了解人们对于校友信息统计工作的期望</li>
+<li>了解人们最大限度愿意在校友社交平台公开的信息<br>选项应涵盖工作经历、工作地点、求学经历、专业方向、性别、年龄、婚姻状况、</li>
+</ol>
+<h3 id="采访"><a href="#采访" class="headerlink" title="采访"></a>采访</h3><h4 id="采访对象"><a href="#采访对象" class="headerlink" title="采访对象"></a>采访对象</h4><ul>
+<li>校友会</li>
+<li>高校毕业生联络员</li>
+</ul>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p>一个包含校友信息的平台。（就业信息：就业地、就业单位、）</p>
+<h4 id="潜在用户"><a href="#潜在用户" class="headerlink" title="潜在用户"></a>潜在用户</h4><ul>
+<li>普通群众</li>
+<li>在读学生</li>
+<li>毕业生</li>
+</ul>
+<h4 id="潜在应用场景"><a href="#潜在应用场景" class="headerlink" title="潜在应用场景"></a>潜在应用场景</h4><ul>
+<li><p>可供促进已毕业校友之间的认识、交流</p>
+</li>
+<li><p>为在校人员择业提供信息参考</p>
+</li>
+<li><p>对于校外人员（择校高中生、家长、普通群众等），为其提供了解本校校友发展状况、流向等统计信息</p>
+</li>
+<li><p>等等等等等等等等等等</p>
+</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="具体问题"><a href="#具体问题" class="headerlink" title="具体问题"></a>具体问题</h4><ul>
+<li>校友信息收集整理工作重要吗？现在已经做到什么程度了？现在还存在什么问题？</li>
+<li>如何能收集到校友的信息？</li>
+<li>如何让校友自愿提供信息？</li>
+<li>我自己是否愿意为平台提供信息？</li>
+<li>我愿意为何种平台提供到什么程度的信息？</li>
+<li>当一个平台提供什么服务的时候我才愿意为其提供个人详细/不详细信息？</li>
+</ul>
+<h4 id="抽象问题"><a href="#抽象问题" class="headerlink" title="抽象问题"></a>抽象问题</h4><ul>
+<li>谁负责提供、使用或删除信息？（校友、管理员）</li>
+<li>谁将使用某功能？（吸引校友使用某功能）</li>
+<li>谁对某个特定功能感兴趣?（让校友对某个功能感兴趣）</li>
+<li>在组织中的什么地方使用系统？</li>
+<li>谁负责支持和维护系统？（校内校友部门）</li>
+<li>系统有哪些外部资源？</li>
+<li>其他还有哪些系统将要与该系统进行交互？（学生数据库）</li>
+</ul>
+<h2 id="数据流程图"><a href="#数据流程图" class="headerlink" title="数据流程图"></a>数据流程图</h2><h3 id="数据流图图例"><a href="#数据流图图例" class="headerlink" title="数据流图图例"></a>数据流图图例</h3><p><img src="../../images/dataflowlegend.jpg" alt="数据流程图图例"></p>
+<ul>
+<li>外部实体</li>
+<li>数据处理过程<br>比如订单处理、注册信息处理</li>
+<li>数据流<br>数据流反映做什么，不反映如何做。通常数据流名称只是名词或者名词短语</li>
+<li>数据存储</li>
+</ul>
+<h3 id="基本绘制原则"><a href="#基本绘制原则" class="headerlink" title="基本绘制原则"></a>基本绘制原则</h3><ul>
+<li>数据流程图上所有图形符号必须是前面所述的四种基本元素</li>
+<li>数据流程图的主图必须含有前面所述的四种基本元素，缺一不可</li>
+<li>处理过程至少有一个输入数据流和一个输出数据流</li>
+<li>数据流程图上的每个元素都必须有名字，名字应该反映该成分的实际含义</li>
+</ul>
+<h2 id="数据字典-1"><a href="#数据字典-1" class="headerlink" title="数据字典"></a>数据字典</h2><h2 id="层次图（H图）"><a href="#层次图（H图）" class="headerlink" title="层次图（H图）"></a>层次图（H图）</h2><h2 id="HIPO图"><a href="#HIPO图" class="headerlink" title="HIPO图"></a>HIPO图</h2><h2 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h2><h3 id="系统总体设计说明书"><a href="#系统总体设计说明书" class="headerlink" title="系统总体设计说明书"></a>系统总体设计说明书</h3><p>至少包含以下内容：</p>
+<ol>
+<li>系统建设目标</li>
+<li>系统体系结构</li>
+<li>系统软硬件环境</li>
+<li>系统功能模块结构</li>
+<li>系统安全设计</li>
+</ol>
+<h3 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h3><ol>
+<li>进一步明确系统建设目标</li>
+<li>确定系统体系结构和系统软硬件环境</li>
+<li>设计系统功能模块结构</li>
+<li>归纳、编写总体设计说明书</li>
+</ol>
+<h3 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h3><h4 id="概念设计"><a href="#概念设计" class="headerlink" title="概念设计"></a>概念设计</h4><p>学校数据<br>企业数据<br>校友个人<br>图形数据<br>类别数据<br>发布数据</p>
+<h4 id="逻辑设计"><a href="#逻辑设计" class="headerlink" title="逻辑设计"></a>逻辑设计</h4><p>（Convert Entity-Relationship diagrams into relational tables）</p>
+<p>数据库逻辑设计要决定如何将一定应用环境下的实体属性安置到数据库中，如关系数据库的表设计。数据库逻辑设计的目标是创建设计良好的数据表，使其很好地反映应用场景。设计的追求是无冗余地创建数据实体，并且适当设计外键使得实体间的关系得到充分体现</p>
+<ul>
+<li>描述数据标准化过程</li>
+<li>执行数据标准化</li>
+<li></li>
+</ul>
+<h4 id="物理设计"><a href="#物理设计" class="headerlink" title="物理设计"></a>物理设计</h4><p>更改逻辑数据库设计以提高数据库性能</p>
+<p>发展现状<br>任务概述<br>标准化设计<br>系统总体架构</p>
+<p>实名制-&gt;扩展功能<br>教育经历-&gt;约束</p>
+<h3 id="系统安全设计"><a href="#系统安全设计" class="headerlink" title="系统安全设计"></a>系统安全设计</h3><h2 id="工程实施"><a href="#工程实施" class="headerlink" title="工程实施"></a>工程实施</h2><h3 id="工程实施阶段的任务"><a href="#工程实施阶段的任务" class="headerlink" title="工程实施阶段的任务"></a>工程实施阶段的任务</h3><ul>
+<li><p>准备工作</p>
+<ul>
+<li>软硬件准备</li>
+<li>人员准备</li>
+<li>数据准备</li>
+<li>制定实施计划</li>
+</ul>
+</li>
+<li><p>程序的编写与测试</p>
+<ul>
+<li><p>程序编制</p>
+<p>系统实施的主要内容与核心工作。一般要求：</p>
+<ol>
+<li>尽量使用已有编程资源</li>
+<li>注意系统配置要求</li>
+<li>良好的程序设计风格</li>
+<li>程序容错性强</li>
+<li>采用版本控制管理程序编码</li>
+</ol>
+</li>
+<li><p>编程语言的选择</p>
+<ol>
+<li>项目特征</li>
+<li>历史沿革</li>
+<li>个人习惯</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>系统的安装与培训</p>
+</li>
+<li><p>工程验收</p>
+</li>
+</ul>
+<h2 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h2><h3 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h3><ul>
+<li>与业务工人的关系</li>
+<li>与涉众的关系</li>
+<li>与用户的关系</li>
+<li>与角色的关系</li>
+</ul>
+<p>参与者对系统的要求，对系统的标数完全决定系统的功能性</p>
+<h3 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h3><p>要描述一个系统的功能性需求，就要找到对这个系统有愿望的人，让他们来说明他们会在这个系统里做什么事，想要什么结果。<br>用例就是与参与者交互的，并且给参与者提供可观测的有意义结果的一系列活动的几何。当全部参与者的所有愿望都能通过用例来达到，这个系统就被确定下来了。可以说用例的作用就是捕获功能性需求。</p>
+<ul>
+<li><p>举例<br>校友-&gt;获得永久访问学校图书馆资源的权限<br>校友-&gt;选修学校的优质在线课程<br>校友-&gt;参与学校组织的教学旅游-&gt;与其他校友交流<br>校友-&gt;参与校友聚会-&gt;与其他校友交流<br>校友-&gt;加入职业网络-&gt;寻找职业机会、寻找合作机会</p>
+</li>
+<li><p>社交网络分析算法<br><a href="http://mockjs.com/examples.html#String" target="_blank" rel="noopener">http://mockjs.com/examples.html#String</a></p>
+</li>
+</ul>
+<h4 id="用例的特征"><a href="#用例的特征" class="headerlink" title="用例的特征"></a>用例的特征</h4><ul>
+<li><p>用例的执行结果对参与者来说是可观测的和有意义的<br>如后台进程监控在需求阶段不应该作为用例出现，因为它对参与者来说不可观测。它属于系统需求而非用户需求。登陆系统是一个有效的用例而输入密码则不是。</p>
+</li>
+<li><p>不存在没有参与者的用例，用例应该由参与者发起而不应该自动启动，也不应该主动启动另一个用例</p>
+</li>
+<li><p>一个用例就是一个需求单元、分析单元、设计单元、开发单元、测试单元，甚至部署单元</p>
+</li>
+</ul>
+<h4 id="用例的粒度"><a href="#用例的粒度" class="headerlink" title="用例的粒度"></a>用例的粒度</h4><p>每个用例说明一件完整的事情。</p>
+<ul>
+<li><p>概念建模阶段<br>描述一个完整的事件流</p>
+</li>
+<li><p>系统建模阶段<br>用例视角针对计算机，要能描述计算机的一次完整交互</p>
+</li>
+</ul>
+<h4 id="如何获得用例"><a href="#如何获得用例" class="headerlink" title="如何获得用例"></a>如何获得用例</h4><p>捕捉参与者对于系统的期望。引导业务代表回答以下问题：</p>
+<ul>
+<li>对系统有何期望？</li>
+<li>打算在系统中做什么？</li>
+<li>做这件事的目的是？</li>
+<li>做完这件事希望有何结果？</li>
+</ul>
+<h4 id="描述事物"><a href="#描述事物" class="headerlink" title="描述事物"></a>描述事物</h4><ul>
+<li><p>结构性观点<br>这个东西是什么？</p>
+</li>
+<li><p>功能性观点<br>这个东西能做什么？</p>
+</li>
+<li><p>使用者观点<br>人们能用它做什么？要想不偏离用户预期，需求收集人员应从使用者观点出发来描述系统</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GIS/" rel="tag"># GIS</a>
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/05/MapServer-Summary/" rel="next" title="MapServer Summary">
+                <i class="fa fa-chevron-left"></i> MapServer Summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/postgis-notes/" rel="prev" title="PostGIS notes">
+                PostGIS notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIS工程文档编写"><span class="nav-number">1.</span> <span class="nav-text">GIS工程文档编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工程文档分类"><span class="nav-number">1.1.</span> <span class="nav-text">工程文档分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可行性研究报告"><span class="nav-number">1.2.</span> <span class="nav-text">可行性研究报告</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程调研"><span class="nav-number">2.</span> <span class="nav-text">工程调研</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现有关于校友平台的系统"><span class="nav-number">2.1.</span> <span class="nav-text">现有关于校友平台的系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#外部实体"><span class="nav-number">2.1.1.</span> <span class="nav-text">外部实体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有哪些业务"><span class="nav-number">2.1.2.</span> <span class="nav-text">有哪些业务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#业务流向"><span class="nav-number">2.1.3.</span> <span class="nav-text">业务流向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据存储"><span class="nav-number">2.1.4.</span> <span class="nav-text">数据存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据字典"><span class="nav-number">2.2.</span> <span class="nav-text">数据字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供高校信息的网站"><span class="nav-number">2.3.</span> <span class="nav-text">提供高校信息的网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问卷设计"><span class="nav-number">2.4.</span> <span class="nav-text">问卷设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要目标调查对象"><span class="nav-number">2.4.1.</span> <span class="nav-text">主要目标调查对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调查目的"><span class="nav-number">2.4.2.</span> <span class="nav-text">调查目的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采访"><span class="nav-number">2.5.</span> <span class="nav-text">采访</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#采访对象"><span class="nav-number">2.5.1.</span> <span class="nav-text">采访对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求分析"><span class="nav-number">2.6.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#潜在用户"><span class="nav-number">2.6.1.</span> <span class="nav-text">潜在用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#潜在应用场景"><span class="nav-number">2.6.2.</span> <span class="nav-text">潜在应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">2.7.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#具体问题"><span class="nav-number">2.7.1.</span> <span class="nav-text">具体问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象问题"><span class="nav-number">2.7.2.</span> <span class="nav-text">抽象问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据流程图"><span class="nav-number">3.</span> <span class="nav-text">数据流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据流图图例"><span class="nav-number">3.1.</span> <span class="nav-text">数据流图图例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本绘制原则"><span class="nav-number">3.2.</span> <span class="nav-text">基本绘制原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据字典-1"><span class="nav-number">4.</span> <span class="nav-text">数据字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次图（H图）"><span class="nav-number">5.</span> <span class="nav-text">层次图（H图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HIPO图"><span class="nav-number">6.</span> <span class="nav-text">HIPO图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总体设计"><span class="nav-number">7.</span> <span class="nav-text">总体设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统总体设计说明书"><span class="nav-number">7.1.</span> <span class="nav-text">系统总体设计说明书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验步骤"><span class="nav-number">7.2.</span> <span class="nav-text">实验步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库设计"><span class="nav-number">7.3.</span> <span class="nav-text">数据库设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念设计"><span class="nav-number">7.3.1.</span> <span class="nav-text">概念设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑设计"><span class="nav-number">7.3.2.</span> <span class="nav-text">逻辑设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#物理设计"><span class="nav-number">7.3.3.</span> <span class="nav-text">物理设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统安全设计"><span class="nav-number">7.4.</span> <span class="nav-text">系统安全设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程实施"><span class="nav-number">8.</span> <span class="nav-text">工程实施</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工程实施阶段的任务"><span class="nav-number">8.1.</span> <span class="nav-text">工程实施阶段的任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML"><span class="nav-number">9.</span> <span class="nav-text">UML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参与者"><span class="nav-number">9.1.</span> <span class="nav-text">参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用例"><span class="nav-number">9.2.</span> <span class="nav-text">用例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用例的特征"><span class="nav-number">9.2.1.</span> <span class="nav-text">用例的特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用例的粒度"><span class="nav-number">9.2.2.</span> <span class="nav-text">用例的粒度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何获得用例"><span class="nav-number">9.2.3.</span> <span class="nav-text">如何获得用例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述事物"><span class="nav-number">9.2.4.</span> <span class="nav-text">描述事物</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

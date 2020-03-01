@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Summary,SUMO,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="了解用途https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/ 相关论文 Optimized Sensor Network and Multi-Agent DecisionSupport for Smart Traffic Light Management：https://pdfs.semanticscho">
+<meta name="keywords" content="Summary,SUMO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SUMO notes">
+<meta property="og:url" content="http://yoursite.com/2019/02/16/SUMO-notes/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="了解用途https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/ 相关论文 Optimized Sensor Network and Multi-Agent DecisionSupport for Smart Traffic Light Management：https://pdfs.semanticscho">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/AIBv4av.png">
+<meta property="og:image" content="https://i.imgur.com/gEmdbpt.png">
+<meta property="og:image" content="https://i.imgur.com/tQISDwU.png">
+<meta property="og:image" content="https://i.imgur.com/zUSvf3W.png">
+<meta property="og:image" content="https://i.imgur.com/lCTgRYA.png">
+<meta property="og:image" content="https://i.imgur.com/lOhQ5tk.png">
+<meta property="og:image" content="https://i.imgur.com/mQqkMFx.png">
+<meta property="og:image" content="https://i.imgur.com/7H6zoUQ.png">
+<meta property="og:updated_time" content="2019-02-24T13:41:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SUMO notes">
+<meta name="twitter:description" content="了解用途https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/ 相关论文 Optimized Sensor Network and Multi-Agent DecisionSupport for Smart Traffic Light Management：https://pdfs.semanticscho">
+<meta name="twitter:image" content="https://i.imgur.com/AIBv4av.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/16/SUMO-notes/">
+
+
+
+
+
+  <title>SUMO notes | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/SUMO-notes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SUMO notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-16T18:53:36+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/16/SUMO-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/16/SUMO-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/16/SUMO-notes/" class="leancloud_visitors" data-flag-title="SUMO notes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2,360
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="了解"><a href="#了解" class="headerlink" title="了解"></a>了解</h2><h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p><a href="https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/" target="_blank" rel="noopener">https://www.dlr.de/ts/en/desktopdefault.aspx/tabid-9883/16931_read-41000/</a></p>
+<h3 id="相关论文"><a href="#相关论文" class="headerlink" title="相关论文"></a>相关论文</h3><ul>
+<li>Optimized Sensor Network and Multi-Agent Decision<br>Support for Smart Traffic Light Management：<a href="https://pdfs.semanticscholar.org/59e8/ceba039b8e33d1eb2c66c4595bf474bf1dc8.pdf" target="_blank" rel="noopener">https://pdfs.semanticscholar.org/59e8/ceba039b8e33d1eb2c66c4595bf474bf1dc8.pdf</a></li>
+<li><p>Optimazation of Traffic Light Controlling with Reinforcement Learning COMP 3211 Final Project, Group 9, Fall 2017-2018：<a href="https://home.cse.ust.hk/~yqsong/teaching/comp3211/projects/2017Fall/G17.pdf" target="_blank" rel="noopener">https://home.cse.ust.hk/~yqsong/teaching/comp3211/projects/2017Fall/G17.pdf</a></p>
+</li>
+<li><p>Uppaal Stratego for Intelligent Traffic Lights ：<a href="http://people.cs.aau.dk/~muniz/strategoTraffic.pdf" target="_blank" rel="noopener">http://people.cs.aau.dk/~muniz/strategoTraffic.pdf</a></p>
+</li>
+<li>Reinforcement Learning for Traffic Optimization：<br><a href="http://cs229.stanford.edu/proj2016spr/report/047.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/proj2016spr/report/047.pdf</a></li>
+</ul>
+<hr>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="学习平台"><a href="#学习平台" class="headerlink" title="学习平台"></a>学习平台</h3><ul>
+<li>Wiki Tutorial<br><a href="https://sumo.dlr.de/wiki/SUMO_User_Documentation" target="_blank" rel="noopener">https://sumo.dlr.de/wiki/SUMO_User_Documentation</a><ul>
+<li>TraCI在线互动<br><a href="https://sumo.dlr.de/wiki/TraCI" target="_blank" rel="noopener">https://sumo.dlr.de/wiki/TraCI</a></li>
+<li>TraCI4Traffic Lights<br><a href="https://sumo.dlr.de/wiki/Tutorials/TraCI4Traffic_Lights" target="_blank" rel="noopener">https://sumo.dlr.de/wiki/Tutorials/TraCI4Traffic_Lights</a></li>
+</ul>
+</li>
+<li><p>DLR</p>
+</li>
+<li><p>Youtube<br>Dynamic Traffic Light Simulation：<a href="https://www.youtube.com/watch?v=s6tfcSIBjsU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=s6tfcSIBjsU</a></p>
+</li>
+<li>Other Plamforms<br><a href="https://wenku.baidu.com/view/dd44decec8d376eeaeaa31a1.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/dd44decec8d376eeaeaa31a1.html</a><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3></li>
+<li>netconvert<br>可将来源于OpenStreetMap的.osm文件转成.net.xml文件，生成交通场景；</li>
+<li>polyconvert<br>生成.poly.xml文件<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3></li>
+<li>.con.xml</li>
+<li><p>.net.xml</p>
+<ul>
+<li>tlLogic<br><img src="https://i.imgur.com/AIBv4av.png" alt=""></li>
+</ul>
+</li>
+<li><p>.rou.xml</p>
+</li>
+<li>.nod.xml</li>
+<li>.edg.xml</li>
+<li>.det.xml</li>
+<li>.sumocfg<br>总配置文件，指定网络、路线等配置文件。如：<img src="https://i.imgur.com/gEmdbpt.png" alt=""></li>
+</ul>
+<h3 id="常用python模块"><a href="#常用python模块" class="headerlink" title="常用python模块"></a>常用python模块</h3><ul>
+<li>traci<ul>
+<li>TLS（Traffic Light Signal for a sumo network）<br><a href="https://sumo.dlr.de/daily/pydoc/sumolib.net.html#TLS" target="_blank" rel="noopener">https://sumo.dlr.de/daily/pydoc/sumolib.net.html#TLS</a></li>
+<li>TLSProgram</li>
+</ul>
+</li>
+<li>tensorflow<br>tensorflow官网：<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">https://www.tensorflow.org/</a><br>安装后numpy出现问题：<br><img src="https://i.imgur.com/tQISDwU.png" alt=""><br>更新numpy至1.16解决此错误：<a href="https://github.com/alpacahq/pylivetrader/issues/73" target="_blank" rel="noopener">https://github.com/alpacahq/pylivetrader/issues/73</a><br>更新模块命令示例：pip3 install -U packageName</li>
+<li>rl<br>强化学习介绍：<a href="https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/</a><br>安装过程中出现问题：<br><img src="https://i.imgur.com/zUSvf3W.png" alt=""><br>解决办法：pip3 install keras-rl<br><a href="https://pypi.org/project/keras-rl/" target="_blank" rel="noopener">https://pypi.org/project/keras-rl/</a></li>
+<li>Ray<br><a href="https://rise.cs.berkeley.edu/projects/ray/" target="_blank" rel="noopener">https://rise.cs.berkeley.edu/projects/ray/</a><br>Ray是加州伯克利分校的RISE实验室退出的一个分布式执行平台。<br>Ray RLib是一个可扩展的强化学习库，可在多个机器上运行与openAI gym完全兼容，支持Tensorflow和PyTorch。<br>Ray.tune是一个高效的分布式超参数搜索库，提供了API以执行深度学习、强化学习和其它计算密集型任务。<br>安装过程出现问题：<br><img src="https://i.imgur.com/lCTgRYA.png" alt=""><br><a href="https://github.com/ray-project/ray/issues/2683" target="_blank" rel="noopener">https://github.com/ray-project/ray/issues/2683</a><br>见以上issue，目前ray模块不支持windows，于Linux or windows的Linux子系统可安装<br><a href="https://pypi.org/simple/ray/" target="_blank" rel="noopener">https://pypi.org/simple/ray/</a><br>使用Ray中的DQNAgent时，报错’PolicyEvaluator’ object has no attribute ‘sampler’</li>
+<li>keras</li>
+</ul>
+<h3 id="Traci-API"><a href="#Traci-API" class="headerlink" title="Traci API"></a>Traci API</h3><h4 id="connection重点函数"><a href="#connection重点函数" class="headerlink" title="connection重点函数"></a>connection重点函数</h4><ul>
+<li>simulationStep(self, step=0.)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Make a simulation step and simulate up to the given second in sim time.</span><br><span class="line">If the given value is 0 or absent, exactly one step is performed.</span><br><span class="line">Values smaller than or equal to the current sim time result in no action.</span><br></pre></td></tr></table></figure>
+<h4 id="simulation重点函数"><a href="#simulation重点函数" class="headerlink" title="simulation重点函数"></a>simulation重点函数</h4><ul>
+<li><p>getCurrentTime(self)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> getCurrentTime() -&gt; integer</span><br><span class="line"></span><br><span class="line">Returns the current simulation time in ms.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getLoadedNumber(self)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getLoadedNumber() -&gt; integer</span><br><span class="line"></span><br><span class="line">Returns the number of vehicles which were loaded in this time step.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="lane重点函数"><a href="#lane重点函数" class="headerlink" title="lane重点函数"></a>lane重点函数</h4><ul>
+<li><p>getLastStepVehicleNumber(self, laneID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getLastStepVehicleNumber(string) -&gt; integer</span><br><span class="line"></span><br><span class="line">Returns the total number of vehicles for the last time step on the given lane.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getLastStepHaltingNumber(self, laneID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getLastStepHaltingNumber(string) -&gt; integer</span><br><span class="line"></span><br><span class="line">Returns the total number of halting vehicles for the last time step on the given lane.</span><br><span class="line">A speed of less than 0.1 m/s is considered a halt.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="vehicle重点函数"><a href="#vehicle重点函数" class="headerlink" title="vehicle重点函数"></a>vehicle重点函数</h4><ul>
+<li><p>getWaitingTime(self, vehID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getWaitingTime() -&gt; double</span><br><span class="line">计算车辆等待时间（若车辆有意停在服务区/停车区，则不作等待时间算）</span><br><span class="line">The waiting time of a vehicle is defined as the time (in seconds) spent with a</span><br><span class="line">speed below 0.1m/s since the last time it was faster than 0.1m/s.</span><br><span class="line">(basically, the waiting time of a vehicle is reset to 0 every time it moves).</span><br><span class="line">A vehicle that is stopping intentionally with a &lt;stop&gt; does not accumulate waiting time.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getAccumulatedWaitingTime(self, vehID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getAccumulatedWaitingTime() -&gt; double</span><br><span class="line">计算一定时间间隔内某车的累计等待时间，时间间隔的以waiting-time-memory设置</span><br><span class="line">The accumulated waiting time of a vehicle collects the vehicle&apos;s waiting time over a</span><br><span class="line">certain time interval (interval length is set per option &apos;--waiting-time-memory&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="trafficlight重点函数"><a href="#trafficlight重点函数" class="headerlink" title="trafficlight重点函数"></a>trafficlight重点函数</h4><ul>
+<li><p>getIDList(self)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getIDList() -&gt; list(string)</span><br><span class="line"></span><br><span class="line">Returns a list of all objects in the network.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getPhase(self,tlsID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getPhase(string) -&gt; integer</span><br><span class="line">注意！此函数返回的是相位索引！</span><br><span class="line">Returns the index of the current phase within the list of all phases of the </span><br><span class="line">current program.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getPhaseDuration(self, tlsID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getPhaseDuration(string) -&gt; double</span><br><span class="line">返回当前相位的总共持续时间</span><br><span class="line">Returns the total duration of the current phase (in seconds). This value is not</span><br><span class="line">affected by the elapsed or remaining duration of the current phase.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>setPhase(self,tlsID,index)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setPhase(string, integer) -&gt; None</span><br><span class="line"></span><br><span class="line">Switches to the phase with the given index in the list of all phases</span><br><span class="line">for the current program.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>setPhaseDuration(self,tlsID,phaseDuration)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setPhaseDuration(string, double) -&gt; None</span><br><span class="line">设置当前相位的剩余持续时间（秒），对之后周期的此相位的无影响！</span><br><span class="line">Set the remaining phase duration of the current phase in seconds.</span><br><span class="line">This value has no effect on subsquent repetitions of this phase.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getControlledLanes(self, tlsID)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getControlledLanes(string) -&gt; c</span><br><span class="line"></span><br><span class="line">Returns the list of lanes which are controlled by the named traffic light.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>setCompleteRedYellowGreenDefinition(self, tlsID, tls)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setCompleteRedYellowGreenDefinition(string, Logic) -&gt; None</span><br><span class="line"></span><br><span class="line">Sets a new program for the given tlsID from a Logic object.</span><br><span class="line">See getCompleteRedYellowGreenDefinition.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="traci重点类构造函数"><a href="#traci重点类构造函数" class="headerlink" title="traci重点类构造函数"></a>traci重点类构造函数</h4><ul>
+<li><p>Phase</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phase</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, duration, state, minDur=<span class="number">-1</span>, maxDur=<span class="number">-1</span>, next=<span class="number">-1</span>)</span>:</span></span><br><span class="line">        self.duration = duration</span><br><span class="line">        self.state = state</span><br><span class="line">        self.minDur = minDur  <span class="comment"># minimum duration (only for actuated tls)</span></span><br><span class="line">        self.maxDur = maxDur  <span class="comment"># maximum duration (only for actuated tls)</span></span><br><span class="line">        self.next = next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"Phase(duration=%s, state='%s', minDur=%s, maxDur=%s, next=%s)"</span> %</span><br><span class="line">                (self.duration, self.state, self.minDur, self.maxDur, self.next))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Logic</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logic</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, programID, type, currentPhaseIndex, phases=None, subParameter=None)</span>:</span></span><br><span class="line">        self.programID = programID</span><br><span class="line">        self.type = type</span><br><span class="line">        self.currentPhaseIndex = currentPhaseIndex</span><br><span class="line">        self.phases = phases <span class="keyword">if</span> phases <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">else</span> []</span><br><span class="line">        self.subParameter = subParameter <span class="keyword">if</span> subParameter <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">else</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPhases</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.phases</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getSubID</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.programID</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getType</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.type</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getParameters</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.subParameter</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getParameter</span><span class="params">(self, key, default=None)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.subParameter.get(key, default)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"Logic(programID='%s', type=%s, currentPhaseIndex=%s, phases=%s, subParameter=%s)"</span> %</span><br><span class="line">                (self.programID, self.type, self.currentPhaseIndex, self.phases, self.subParameter))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="自定义类结构"><a href="#自定义类结构" class="headerlink" title="自定义类结构"></a>自定义类结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrafficSignal</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, env, ts_id, delta_time, min_green, max_green, phases)</span>:</span></span><br><span class="line">        self.id = ts_id</span><br><span class="line">        self.env = env</span><br><span class="line">        self.time_on_phase = <span class="number">0</span></span><br><span class="line">        self.delta_time = delta_time</span><br><span class="line">        self.min_green = min_green</span><br><span class="line">        self.max_green = max_green</span><br><span class="line">        self.green_phase = <span class="number">0</span></span><br><span class="line">        self.num_green_phases = len(phases) // <span class="number">2</span></span><br><span class="line">        self.edges = self._compute_edges()</span><br><span class="line">        self.edges_capacity = self._compute_edges_capacity()</span><br><span class="line"></span><br><span class="line">        logic = traci.trafficlight.Logic(<span class="string">"ProgramID"</span>, <span class="number">0</span>, <span class="number">00</span>, phases)</span><br><span class="line">        traci.trafficlight.setCompleteRedYellowGreenDefinition(self.id, logic)</span><br><span class="line">·</span><br></pre></td></tr></table></figure>
+<h4 id="自定义计算模块"><a href="#自定义计算模块" class="headerlink" title="自定义计算模块"></a>自定义计算模块</h4><ul>
+<li><p>edges_capacity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">边容量</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lane_density</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">车道密度</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>stopped_vehicles_num</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">平均停车数</span><br><span class="line">新的绿灯相位到来时每条边上的车道在仿真的上一步的停车数之和</span><br><span class="line">[sum([traci.lane.getLastStepHaltingNumber(lane) for lane in self.edges[p]]) for p in range(self.num_green_phases)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>road_waiting_time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">道路平均等待/延迟时间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>total_stopped</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">总共停车次数</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>………………………………………………</p>
+<h4 id="模块封装"><a href="#模块封装" class="headerlink" title="模块封装"></a>模块封装</h4><ul>
+<li><p>update_phase</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">改变相位</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>waiting_time_reward</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于车均等待/延迟时间的奖励函数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>queue_average_reward</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于平均排队长度的奖励函数</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li><a href="https://sourceforge.net/projects/sumo/files/traffic_data/scenarios/" target="_blank" rel="noopener">https://sourceforge.net/projects/sumo/files/traffic_data/scenarios/</a></li>
+<li><a href="http://opendata.dc.gov/datasets/31ccad579ec449938c13a0ac82c9f46e_16" target="_blank" rel="noopener">http://opendata.dc.gov/datasets/31ccad579ec449938c13a0ac82c9f46e_16</a></li>
+<li><a href="https://sumo.dlr.de/wiki/Data/Scenarios" target="_blank" rel="noopener">https://sumo.dlr.de/wiki/Data/Scenarios</a><h2 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h2><h3 id="Towards-a-unified-Evaluation-of-Traffic-Light-Algorithms"><a href="#Towards-a-unified-Evaluation-of-Traffic-Light-Algorithms" class="headerlink" title="Towards a unified Evaluation of Traffic Light Algorithms"></a>Towards a unified Evaluation of Traffic Light Algorithms</h3></li>
+<li>keywords<br>traffic lights evaluation，traffic simulation，performance metrics</li>
+<li>metrics to monitor the traffic light algorithms<br>waiting time,queue size,delay,travel time<br><img src="https://i.imgur.com/lOhQ5tk.png" alt=""></li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h3><ul>
+<li>没有设置SUMO_HOME<br>如在linux系统中，export “SUMO_HOME=/usr/share/sumo”即可</li>
+<li>Could not access configuration ‘XXXXX配置文件XXXXX’<br><img src="https://i.imgur.com/mQqkMFx.png" alt=""></li>
+<li>Error: Answered with error to command 0xa2: Traffic light ‘0’ is not known</li>
+<li>ImportError: cannot import name ‘Timestamp’ from ‘pandas.lib’<br><img src="https://i.imgur.com/7H6zoUQ.png" alt=""><br>解决办法：删除下图中的.lib</li>
+<li>Could not connect to TraCI server at localhost:XXXXX</li>
+</ul>
+<h3 id="命令通道"><a href="#命令通道" class="headerlink" title="命令通道"></a>命令通道</h3><ul>
+<li>单车道单交叉路口<br>python3 experiments/ql_single-intersection.py -route /home/zhuge/Documents/TrafficSim/sumo-rl/nets/single-intersection/single-intersection.rou.xml -gui</li>
+<li>双车道单交叉路口<br>python3 experiments/ql_single-intersection.py -route /home/zhuge/Documents/TrafficSim/sumo-rl/nets/2way-single-intersection/single-intersection.rou.xml -gui</li>
+<li>双车道4*4路网——并行计算DQN</li>
+<li>双车道4*4路网——并行计算A</li>
+</ul>
+<h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h4 id="强化学习大体流程"><a href="#强化学习大体流程" class="headerlink" title="强化学习大体流程"></a>强化学习大体流程</h4><h4 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h4><ul>
+<li>状态空间定义<br>状态空间即环境状态的量化描述，针对交通灯问题，可把状态空间定义为车辆密度</li>
+<li>动作空间定义</li>
+<li>转移函数设计</li>
+<li>奖励函数设计<br>针对此问题，交通灯优化的程度可以从路口的车辆平均等待时间/车均延迟/排队长度等方面反映出来，故奖励函数可围绕这几个方面设计.<h4 id="仿真参数"><a href="#仿真参数" class="headerlink" title="仿真参数"></a>仿真参数</h4></li>
+<li>seconds<br>仿真程序持续秒数，固定秒数，一般时间长一点会更体现效果</li>
+<li>alpha<br>学习率</li>
+<li>gamma<br>折扣率</li>
+<li>epsilon<br>探索率</li>
+<li>reward<br>奖励函数，</li>
+<li>runs<br>示例命令：python3 experiments/ql_2way-single-intersection.py -route /home/zhuge/Documents/TrafficSim/sumo-rl/nets/2way-single-intersection/single-intersection.rou.xml -g 0.9 -r waitingtime -runs 10<h4 id="openAI库gym"><a href="#openAI库gym" class="headerlink" title="openAI库gym"></a>openAI库gym</h4>gym是一个提供强化学习环境的类库<a href="https://gym.openai.com/，内置的经典环境有CartPole-v0、MountainCar-v0（https://gym.openai.com/envs/MountainCar-v0/）" target="_blank" rel="noopener">https://gym.openai.com/，内置的经典环境有CartPole-v0、MountainCar-v0（https://gym.openai.com/envs/MountainCar-v0/）</a></li>
+<li>MultiAgentEnv<br><a href="https://github.com/openai/multiagent-particle-envs" target="_blank" rel="noopener">https://github.com/openai/multiagent-particle-envs</a><h4 id="参数搜索"><a href="#参数搜索" class="headerlink" title="参数搜索"></a>参数搜索</h4>Parameter Server for Distributed Machine Learning：<a href="http://www.cs.cmu.edu/~muli/file/ps.pdf" target="_blank" rel="noopener">http://www.cs.cmu.edu/~muli/file/ps.pdf</a><h4 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h4>评价交通灯算法优劣<br>示例命令：python3 plot.py -f 2way-single-intersection\a3cteste9.csv</li>
+</ul>
+<h3 id="v0-1闭环步骤"><a href="#v0-1闭环步骤" class="headerlink" title="v0.1闭环步骤"></a>v0.1闭环步骤</h3><h4 id="输出起始相位和终止相位"><a href="#输出起始相位和终止相位" class="headerlink" title="输出起始相位和终止相位"></a>输出起始相位和终止相位</h4><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="已有的交通信号控制系统-算法"><a href="#已有的交通信号控制系统-算法" class="headerlink" title="已有的交通信号控制系统/算法"></a>已有的交通信号控制系统/算法</h3><ul>
+<li>UTOPIA<br><a href="https://www.swarco.com/products/software/urban-traffic-management/utopia" target="_blank" rel="noopener">https://www.swarco.com/products/software/urban-traffic-management/utopia</a></li>
+</ul>
+<h3 id="相关可参考项目"><a href="#相关可参考项目" class="headerlink" title="相关可参考项目"></a>相关可参考项目</h3><ul>
+<li><a href="https://github.com/flow-project/flow" target="_blank" rel="noopener">https://github.com/flow-project/flow</a></li>
+<li><a href="https://github.com/sumoprojects/SumoEasyMiner" target="_blank" rel="noopener">https://github.com/sumoprojects/SumoEasyMiner</a></li>
+<li><a href="https://github.com/JDGlick/sumo_reinforcement_learning" target="_blank" rel="noopener">https://github.com/JDGlick/sumo_reinforcement_learning</a></li>
+<li><a href="https://github.com/lcodeca/MoSTScenario" target="_blank" rel="noopener">https://github.com/lcodeca/MoSTScenario</a></li>
+<li><a href="https://github.com/LucasAlegre/sumo-rl/tree/master/experiments" target="_blank" rel="noopener">https://github.com/LucasAlegre/sumo-rl/tree/master/experiments</a></li>
+<li><a href="https://github.com/Starofall/CrowdNav" target="_blank" rel="noopener">https://github.com/Starofall/CrowdNav</a></li>
+<li><a href="https://github.com/openai/universe" target="_blank" rel="noopener">https://github.com/openai/universe</a></li>
+</ul>
+<h3 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h3><p>Ray：<a href="https://www.jiqizhixin.com/articles/2018-01-10-2" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2018-01-10-2</a><br>RLlib简介：一个可组合和可扩展的强化学习计算库：<a href="https://www.oreilly.com.cn/ideas/?p=1503" target="_blank" rel="noopener">https://www.oreilly.com.cn/ideas/?p=1503</a></p>
+<p>Berkeley RISE：<a href="https://rise.cs.berkeley.edu/" target="_blank" rel="noopener">https://rise.cs.berkeley.edu/</a></p>
+<p>15行代码实现一个参数服务器：<a href="https://ray-project.github.io/2018/07/15/parameter-server-in-fifteen-lines.html" target="_blank" rel="noopener">https://ray-project.github.io/2018/07/15/parameter-server-in-fifteen-lines.html</a><br>Faulty Reward Fuction in the wild：<a href="https://blog.openai.com/faulty-reward-functions/" target="_blank" rel="noopener">https://blog.openai.com/faulty-reward-functions/</a><br>腾讯开源高性能计算平台Angel：<a href="https://www.jiqizhixin.com/articles/2016-12-20-4" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2016-12-20-4</a><br>滴滴参数服务器：<a href="https://www.ctolib.com/topics-132722.html" target="_blank" rel="noopener">https://www.ctolib.com/topics-132722.html</a></p>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><ol>
+<li>采用已有奖励函数，实现强化学习若干回合，输出<strong>各个回合</strong>的<strong>首尾状态各信号相位配时</strong>以及<strong>得分（停车次数、等待时间、排队长度）</strong>，可视化展现，看随着强化学习次数的增加表现是否有越来越好的趋势</li>
+<li>更新建立函数，参考网上论文（以前看过的），找一种看起来合理的更改看能否提高表现</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Summary/" rel="tag"># Summary</a>
+          
+            <a href="/tags/SUMO/" rel="tag"># SUMO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/11/Scrapy For Distributed Spider Summary/" rel="next" title="Scrapy For Distributed Spider Summary">
+                <i class="fa fa-chevron-left"></i> Scrapy For Distributed Spider Summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/18/浪潮/" rel="prev" title="下一个浪潮">
+                下一个浪潮 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解"><span class="nav-number">1.</span> <span class="nav-text">了解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用途"><span class="nav-number">1.1.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关论文"><span class="nav-number">1.2.</span> <span class="nav-text">相关论文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教程"><span class="nav-number">2.</span> <span class="nav-text">教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习平台"><span class="nav-number">2.1.</span> <span class="nav-text">学习平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">2.2.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用python模块"><span class="nav-number">2.4.</span> <span class="nav-text">常用python模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Traci-API"><span class="nav-number">2.5.</span> <span class="nav-text">Traci API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#connection重点函数"><span class="nav-number">2.5.1.</span> <span class="nav-text">connection重点函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#simulation重点函数"><span class="nav-number">2.5.2.</span> <span class="nav-text">simulation重点函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lane重点函数"><span class="nav-number">2.5.3.</span> <span class="nav-text">lane重点函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vehicle重点函数"><span class="nav-number">2.5.4.</span> <span class="nav-text">vehicle重点函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trafficlight重点函数"><span class="nav-number">2.5.5.</span> <span class="nav-text">trafficlight重点函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#traci重点类构造函数"><span class="nav-number">2.5.6.</span> <span class="nav-text">traci重点类构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义类结构"><span class="nav-number">2.5.7.</span> <span class="nav-text">自定义类结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义计算模块"><span class="nav-number">2.5.8.</span> <span class="nav-text">自定义计算模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块封装"><span class="nav-number">2.5.9.</span> <span class="nav-text">模块封装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据"><span class="nav-number">3.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文阅读"><span class="nav-number">4.</span> <span class="nav-text">论文阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Towards-a-unified-Evaluation-of-Traffic-Light-Algorithms"><span class="nav-number">4.1.</span> <span class="nav-text">Towards a unified Evaluation of Traffic Light Algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number">5.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到问题"><span class="nav-number">5.1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令通道"><span class="nav-number">5.2.</span> <span class="nav-text">命令通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强化学习"><span class="nav-number">5.3.</span> <span class="nav-text">强化学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强化学习大体流程"><span class="nav-number">5.3.1.</span> <span class="nav-text">强化学习大体流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重点"><span class="nav-number">5.3.2.</span> <span class="nav-text">重点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#仿真参数"><span class="nav-number">5.3.3.</span> <span class="nav-text">仿真参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#openAI库gym"><span class="nav-number">5.3.4.</span> <span class="nav-text">openAI库gym</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数搜索"><span class="nav-number">5.3.5.</span> <span class="nav-text">参数搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计分析"><span class="nav-number">5.3.6.</span> <span class="nav-text">统计分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v0-1闭环步骤"><span class="nav-number">5.4.</span> <span class="nav-text">v0.1闭环步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出起始相位和终止相位"><span class="nav-number">5.4.1.</span> <span class="nav-text">输出起始相位和终止相位</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#已有的交通信号控制系统-算法"><span class="nav-number">6.1.</span> <span class="nav-text">已有的交通信号控制系统/算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关可参考项目"><span class="nav-number">6.2.</span> <span class="nav-text">相关可参考项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展阅读"><span class="nav-number">6.3.</span> <span class="nav-text">拓展阅读</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务"><span class="nav-number">7.</span> <span class="nav-text">任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

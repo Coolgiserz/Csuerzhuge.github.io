@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="OOP,Web,Notes,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Javascript简要总结Web前端基础HTML：结构层，CSS：表现层，Javascript：行为层。 js特点脚本编程语言，其解释器内置到Web浏览器中  动画、交互、动态视觉效果增强HTML的功能 提供即时反馈的功能（PHP等服务端语言则依赖于客户端和服务端的通信，延迟较强）  js库流行库 Jquery“Write less, do more!”。解决浏览器兼容问题。Jquery UI插">
+<meta name="keywords" content="OOP,Web,Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript notes">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/Javascripts-notes/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="Javascript简要总结Web前端基础HTML：结构层，CSS：表现层，Javascript：行为层。 js特点脚本编程语言，其解释器内置到Web浏览器中  动画、交互、动态视觉效果增强HTML的功能 提供即时反馈的功能（PHP等服务端语言则依赖于客户端和服务端的通信，延迟较强）  js库流行库 Jquery“Write less, do more!”。解决浏览器兼容问题。Jquery UI插">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/js_c1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/js_c2.jpg">
+<meta property="og:updated_time" content="2019-04-01T04:41:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript notes">
+<meta name="twitter:description" content="Javascript简要总结Web前端基础HTML：结构层，CSS：表现层，Javascript：行为层。 js特点脚本编程语言，其解释器内置到Web浏览器中  动画、交互、动态视觉效果增强HTML的功能 提供即时反馈的功能（PHP等服务端语言则依赖于客户端和服务端的通信，延迟较强）  js库流行库 Jquery“Write less, do more!”。解决浏览器兼容问题。Jquery UI插">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/images/js_c1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/Javascripts-notes/">
+
+
+
+
+
+  <title>Javascript notes | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/Javascripts-notes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T20:38:40+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/OOP/" itemprop="url" rel="index">
+                    <span itemprop="name">OOP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/23/Javascripts-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/23/Javascripts-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/23/Javascripts-notes/" class="leancloud_visitors" data-flag-title="Javascript notes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  6,061
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  26
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Javascript简要总结"><a href="#Javascript简要总结" class="headerlink" title="Javascript简要总结"></a>Javascript简要总结</h2><h3 id="Web前端基础"><a href="#Web前端基础" class="headerlink" title="Web前端基础"></a>Web前端基础</h3><p>HTML：结构层，CSS：表现层，Javascript：行为层。</p>
+<h3 id="js特点"><a href="#js特点" class="headerlink" title="js特点"></a>js特点</h3><p>脚本编程语言，其解释器内置到Web浏览器中</p>
+<ul>
+<li>动画、交互、动态视觉效果增强HTML的功能</li>
+<li>提供即时反馈的功能（PHP等服务端语言则依赖于客户端和服务端的通信，延迟较强）</li>
+</ul>
+<h3 id="js库"><a href="#js库" class="headerlink" title="js库"></a>js库</h3><h4 id="流行库"><a href="#流行库" class="headerlink" title="流行库"></a>流行库</h4><ul>
+<li><p>Jquery<br>“Write less, do more!”。解决浏览器兼容问题。Jquery UI插件可轻易创建复杂的用户界面元素。<br>Jquery使用统计：<a href="https://trends.builtwith.com/javascript/jQuery" target="_blank" rel="noopener">https://trends.builtwith.com/javascript/jQuery</a></p>
+</li>
+<li><p>Mootools<br>面向流畅的动画和视觉效果<br><a href="https://mootools.net/" target="_blank" rel="noopener">https://mootools.net/</a></p>
+</li>
+<li><p>Angular.js</p>
+</li>
+<li><p>Backbone.js</p>
+</li>
+<li><p>Dojo Toolkit</p>
+</li>
+<li><p>raphaeljs.com</p>
+</li>
+<li><p>ml5.js<br><a href="https://ml5js.org/" target="_blank" rel="noopener">https://ml5js.org/</a></p>
+</li>
+<li><p>tensorflow.js<br><a href="https://www.tensorflow.org/js" target="_blank" rel="noopener">https://www.tensorflow.org/js</a></p>
+</li>
+</ul>
+<h4 id="非流行库"><a href="#非流行库" class="headerlink" title="非流行库"></a>非流行库</h4><ul>
+<li>kind editor<br><a href="https://github.com/kindsoft/kindeditor" target="_blank" rel="noopener">https://github.com/kindsoft/kindeditor</a></li>
+</ul>
+<h3 id="jQuery用户界面库"><a href="#jQuery用户界面库" class="headerlink" title="jQuery用户界面库"></a>jQuery用户界面库</h3><ul>
+<li>Kendo UI<br><a href="https://demos.telerik.com/kendo-ui/" target="_blank" rel="noopener">https://demos.telerik.com/kendo-ui/</a></li>
+<li>Wijmo UI<br><a href="https://www.grapecity.com/en/wijmo" target="_blank" rel="noopener">https://www.grapecity.com/en/wijmo</a></li>
+<li>jQWidgets<br><a href="https://www.jqwidgets.com/" target="_blank" rel="noopener">https://www.jqwidgets.com/</a></li>
+</ul>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><ul>
+<li><p>书本<br>HTML和CSS：《Head First HTML with CSS and XHTML》<br>CSS技巧：《CSS3:The Missing Manual》<br>HTML5智能表单：《HTML5 Forms》<br>javascript与jQuery实战：《The Missing Manual》</p>
+</li>
+<li><p>网站<br>The Missing Manual团队：<a href="http://www.missingmanuals.com/" target="_blank" rel="noopener">http://www.missingmanuals.com/</a><br>HTML Dog CSS：<a href="https://www.htmldog.com/" target="_blank" rel="noopener">https://www.htmldog.com/</a><br>CSS selector：<a href="http://css.maxdesign.com.au/selectutorial/" target="_blank" rel="noopener">http://css.maxdesign.com.au/selectutorial/</a><br>CSS position：<a href="http://www.elated.com/articles/css-positioning" target="_blank" rel="noopener">http://www.elated.com/articles/css-positioning</a><br>CSS transition：<a href="http://www.css3files.com/transition/" target="_blank" rel="noopener">http://www.css3files.com/transition/</a><br><a href="https://frontendmasters.com/books/front-end-handbook/2018/learning/" target="_blank" rel="noopener">https://frontendmasters.com/books/front-end-handbook/2018/learning/</a><br><a href="https://github.com/sawmac/js3e" target="_blank" rel="noopener">https://github.com/sawmac/js3e</a></p>
+</li>
+</ul>
+<h2 id="基本语法示例"><a href="#基本语法示例" class="headerlink" title="基本语法示例"></a>基本语法示例</h2><h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><ul>
+<li><p>var<br>var定义的变量可修改，不初始化会输出undefined，不报错</p>
+</li>
+<li><p>let<br>块级作用域，函数内部使用let定义对函数外部无影响</p>
+</li>
+<li><p>const<br>const定义的变量不可以修改且必须初始化</p>
+</li>
+</ul>
+<h3 id="示例：请求消息"><a href="#示例：请求消息" class="headerlink" title="示例：请求消息"></a>示例：请求消息</h3><p>变量如何相应用户？prompt()函数可用于收集用户信息并根据输入改变页面。该函数会产生与alert()类似的对话框，然而它不仅可显示消息，还可获取答案<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> name = prompt(<span class="string">"Who are you?"</span>,<span class="string">"default value"</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="../../images/js_c1.jpg" alt="prompt效果"></p>
+<h3 id="示例：数组操作"><a href="#示例：数组操作" class="headerlink" title="示例：数组操作"></a>示例：数组操作</h3><h4 id="在数组末尾添加项"><a href="#在数组末尾添加项" class="headerlink" title="在数组末尾添加项"></a>在数组末尾添加项</h4><p>push()函数，允许向数组末尾添加多个项</p>
+<h4 id="在数组开头添加项"><a href="#在数组开头添加项" class="headerlink" title="在数组开头添加项"></a>在数组开头添加项</h4><p>unshift()函数，允许在数组开头添加多项</p>
+<h4 id="从数组删除元素"><a href="#从数组删除元素" class="headerlink" title="从数组删除元素"></a>从数组删除元素</h4><p>pop()从末尾删除一项，shift()从开头删除一项，并返回该项</p>
+<p><img src="../../images/js_c2.jpg" alt="数组操作效果"><br>这种数组操作可实现队列效果FIFO，应用在如音乐播放器的顺序播放等具体场景，</p>
+<h2 id="DOM对象"><a href="#DOM对象" class="headerlink" title="DOM对象"></a>DOM对象</h2><h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><h4 id="location"><a href="#location" class="headerlink" title="location"></a>location</h4><p>跳转到新的Web页面</p>
+<h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><h4 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h4><p>允许多个操作被集中处理（把事件处理器添加到一个父级元素上，避免把事件处理器添加到多个子级元素上），在对象层的不同级别捕获事件</p>
+<h3 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h3><h2 id="面向对象程序设计"><a href="#面向对象程序设计" class="headerlink" title="面向对象程序设计"></a>面向对象程序设计</h2><h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><h3 id="响应函数"><a href="#响应函数" class="headerlink" title="响应函数"></a>响应函数</h3><h4 id="onSuccess"><a href="#onSuccess" class="headerlink" title="onSuccess"></a>onSuccess</h4><h4 id="onError"><a href="#onError" class="headerlink" title="onError"></a>onError</h4><h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><ul>
+<li><p>status code<br><a href="https://stackoverflow.com/questions/2000609/jquery-ajax-status-code-0" target="_blank" rel="noopener">https://stackoverflow.com/questions/2000609/jquery-ajax-status-code-0</a></p>
+</li>
+<li><p>readyState<br><a href="https://stackoverflow.com/questions/38498408/random-jquery-ajax-error-readystate-0?rq=1" target="_blank" rel="noopener">https://stackoverflow.com/questions/38498408/random-jquery-ajax-error-readystate-0?rq=1</a></p>
+</li>
+</ul>
+<h2 id="jQuery基础"><a href="#jQuery基础" class="headerlink" title="jQuery基础"></a>jQuery基础</h2><h3 id="如何获取jQuery？"><a href="#如何获取jQuery？" class="headerlink" title="如何获取jQuery？"></a>如何获取jQuery？</h3><ol>
+<li>使用CDN（Content Distribution Network，内容分发网络）</li>
+</ol>
+<ul>
+<li><p>节省Web服务器时间<br>访问者可能在访问量谷歌微软或其他Web站点的时候已经缓存了jQuery文件，再次访问你的服务器就可直接使用缓存</p>
+</li>
+<li><p>不适合离线工作站点<br>因需要访问互联网方能工作</p>
+</li>
+</ul>
+<ol start="2">
+<li>下载jQuery文件到自己的计算机并添加到Web站点中 </li>
+</ol>
+<h3 id="如何对页面元素进行选择？"><a href="#如何对页面元素进行选择？" class="headerlink" title="如何对页面元素进行选择？"></a>如何对页面元素进行选择？</h3><h4 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h4><ol>
+<li>ID选择器</li>
+<li>元素选择器</li>
+<li>类选择器</li>
+</ol>
+<h4 id="高级选择器"><a href="#高级选择器" class="headerlink" title="高级选择器"></a>高级选择器</h4><ol>
+<li>派生选择器 </li>
+<li>孩子选择器&gt;</li>
+<li>相邻兄弟选择器+</li>
+<li>属性选择器[]</li>
+</ol>
+<h4 id="jQuery过滤器根据特定的特征进行过滤选择"><a href="#jQuery过滤器根据特定的特征进行过滤选择" class="headerlink" title="jQuery过滤器根据特定的特征进行过滤选择"></a>jQuery过滤器根据特定的特征进行过滤选择</h4><p>even过滤器选择元素集合里的所有偶数元素，odd选择奇数元素。<br>first选择第一个，last选择最后一个元素。<br>has找到包含其他选择器的元素。</p>
+<h3 id="如何添加或删除页面内容？"><a href="#如何添加或删除页面内容？" class="headerlink" title="如何添加或删除页面内容？"></a>如何添加或删除页面内容？</h3><p>jQuery提供了操作页面元素及内容的函数，包括替换HTML、精确找到与选择元素相关的HTML，删除标签、内容等功能。</p>
+<h4 id="html"><a href="#html" class="headerlink" title="html()"></a>html()</h4><p>从选择的元素处获取HTML文本，但要注意，如果有多个元素则只能获取文本中的第一个元素。如果该函数接收参数，则会替换元素中的html</p>
+<h4 id="text"><a href="#text" class="headerlink" title="text()"></a>text()</h4><h4 id="append"><a href="#append" class="headerlink" title="append()"></a>append()</h4><p>把HTML作为选择元素的最后一个孩子元素添加<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#example'</span>).prepend(<span class="string">'&lt;p&gt;Add to the last.&lt;/p&gt;'</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="prepend"><a href="#prepend" class="headerlink" title="prepend()"></a>prepend()</h4><p>在选择的开始标签之后直接添加HTML<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#example'</span>).prepend(<span class="string">'&lt;p&gt;Add to the first.&lt;/p&gt;'</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p>删除元素</p>
+<h4 id="replaceWith"><a href="#replaceWith" class="headerlink" title="replaceWith()"></a>replaceWith()</h4><p>以新内容替换选择的元素</p>
+<h4 id="clone"><a href="#clone" class="headerlink" title="clone()"></a>clone()</h4><p>复制一个选择的元素</p>
+<h3 id="如何设置和读取标签属性？"><a href="#如何设置和读取标签属性？" class="headerlink" title="如何设置和读取标签属性？"></a>如何设置和读取标签属性？</h3><h4 id="addClass"><a href="#addClass" class="headerlink" title="addClass()"></a>addClass()</h4><p>为元素添加一个特定的类</p>
+<h4 id="removeClass"><a href="#removeClass" class="headerlink" title="removeClass()"></a>removeClass()</h4><p>从元素删除特定的类</p>
+<h4 id="css"><a href="#css" class="headerlink" title="css()"></a>css()</h4><p>允许为元素设置css属性。可传递json格式的列表一次性改变多个css属性</p>
+<h4 id="attr"><a href="#attr" class="headerlink" title="attr()"></a>attr()</h4><p>返回HTML中设置的属性值</p>
+<h4 id="removeAttr"><a href="#removeAttr" class="headerlink" title="removeAttr()"></a>removeAttr()</h4><p>从标签删除一个属性</p>
+<h3 id="如何操纵选中的每个元素"><a href="#如何操纵选中的每个元素" class="headerlink" title="如何操纵选中的每个元素"></a>如何操纵选中的每个元素</h3><p>通常来说这类任务通过for循环遍历完成，但jQuery提供了独特功能。each()</p>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><h4 id="this和-this"><a href="#this和-this" class="headerlink" title="this和$(this)"></a>this和$(this)</h4><h3 id="自动提取引用"><a href="#自动提取引用" class="headerlink" title="自动提取引用"></a>自动提取引用</h3><h3 id="如何让页面通过事件动起来？"><a href="#如何让页面通过事件动起来？" class="headerlink" title="如何让页面通过事件动起来？"></a>如何让页面通过事件动起来？</h3><h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><ul>
+<li>单击事件click</li>
+<li>双击事件dblclivk</li>
+<li>mousedown<br>click事件的前一半</li>
+<li>mouseup</li>
+<li>mouseover</li>
+<li>mouseover</li>
+<li>mousemove</li>
+</ul>
+<h4 id="文档事件和窗口事件"><a href="#文档事件和窗口事件" class="headerlink" title="文档事件和窗口事件"></a>文档事件和窗口事件</h4><p>浏览器窗口本身会理解一些事件，包括载入窗口时和访问者离开窗口时所触发的事件</p>
+<ul>
+<li><p>load<br>当Web浏览器完成下载Web页面文件的全部内容后，load事件触发</p>
+</li>
+<li><p>resize<br>单击最大化按钮或则拖动调整大小的指针来改变浏览器窗口大小时，就触发了resize事件。</p>
+</li>
+<li><p>scroll<br>拖动滚动条或鼠标滚轮滚动时触发scroll</p>
+</li>
+<li><p>unload<br>当用户单击了链接到其他页面的链接、关闭一个浏览器标签页或者关闭浏览器窗口时，触发unload事件。可用于警告访问者已经填写了一个表单但还没有提交等情况。</p>
+</li>
+</ul>
+<h4 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h4><ul>
+<li>submit</li>
+<li>reset</li>
+<li>change</li>
+<li>focus</li>
+<li>blur</li>
+</ul>
+<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><ul>
+<li>keypress</li>
+<li>keyup</li>
+<li>keydown</li>
+</ul>
+<h4 id="按jQuery风格处理事件"><a href="#按jQuery风格处理事件" class="headerlink" title="按jQuery风格处理事件"></a>按jQuery风格处理事件</h4><p>通常来说，jQuery处理事件的风格可按以下三个步骤走</p>
+<ol>
+<li>使用选择器选择一个或多个元素</li>
+<li><p>分配一个事件<br>如为id为menu的元素添加点击事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#menu'</span>).click();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向事件传递一个函数，定义当事件触发时会发生些什么<br>可以传递之前定义过的函数名字，也可传递一个匿名函数</p>
+</li>
+</ol>
+<h3 id="示例：事件"><a href="#示例：事件" class="headerlink" title="示例：事件"></a>示例：事件</h3><p>双击<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">'html'</span>).dblclick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> da = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">            alert(<span class="string">'you had double click!'</span> + da.toDateString());</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="更多jQuery事件概念"><a href="#更多jQuery事件概念" class="headerlink" title="更多jQuery事件概念"></a>更多jQuery事件概念</h3><p>jQuery包括了一些特殊专用函数，贯彻write less, do more的理念。</p>
+<h4 id="等待HTML载入"><a href="#等待HTML载入" class="headerlink" title="等待HTML载入"></a>等待HTML载入</h4><p>onload事件要等到页面完全下载后才执行，而jQuery的ready()函数知道HTML载入浏览器就允许页面脚本，无需等待图像或视频的载入。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ready()的简写方式</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//你的代码</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="鼠标悬浮和移开"><a href="#鼠标悬浮和移开" class="headerlink" title="鼠标悬浮和移开"></a>鼠标悬浮和移开</h4><ul>
+<li>hover()</li>
+</ul>
+<h4 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h4><p>当Web浏览器触发事件时，有关事件的信息被记录下来并存储与事件对象中，jQuery中时间对象可以给指定处理事件的函数使用。<br>如下一段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在浏览器窗口的任何地方单击，单击对象被存储到evt对象中</span></span><br><span class="line"><span class="comment">//pageX和pageY分别返回光标水平和垂直位置</span></span><br><span class="line">$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = evt.pageX;</span><br><span class="line">    <span class="keyword">var</span> y = evt.pageY;</span><br><span class="line">    $(<span class="string">'.main'</span>).append(<span class="string">'&lt;p&gt;('</span>+x+<span class="string">','</span>+y+<span class="string">')&lt;/p&gt;'</span>);</span><br><span class="line"> &#125;)</span><br><span class="line"> <span class="comment">//需注意，evt只是一个变量，而非javascript关键字，可用任何想用的</span></span><br><span class="line"> <span class="comment">//名字，如event或e等等</span></span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>事件属性</th>
+<th>说明</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageX</td>
+<td>浏览器窗口左边界到鼠标距离</td>
+<td></td>
+</tr>
+<tr>
+<td>pageY</td>
+<td>浏览器窗口上边界到鼠标距离</td>
+<td></td>
+</tr>
+<tr>
+<td>screenX</td>
+<td>屏幕左边界到鼠标的距离</td>
+<td></td>
+</tr>
+<tr>
+<td>screenY</td>
+<td>屏幕上边界到鼠标的距离</td>
+<td></td>
+</tr>
+<tr>
+<td>which</td>
+<td>用于确定按下的键的数值代码</td>
+<td>得到的只是数值代码，如果想要键盘上实际字母、符号、数值，可用String.fromCharCode(evt.which)完成</td>
+</tr>
+<tr>
+<td>target</td>
+<td>作为事件的“目标”对象</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>把数据传递给事件处理函数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="阻止事件的常规行为"><a href="#阻止事件的常规行为" class="headerlink" title="阻止事件的常规行为"></a>阻止事件的常规行为</h4><p>一些HTML元素对事件有预先编程的响应。例如，单击一个链接时通常会载入一个新的页面，单击表单的提交按钮会把表单数据发送给Web服务器。如果不希望Web浏览器进行常规行为i，可使用preventDefault()来阻止常规响应。应用场景如：用户没填写完一个表单即点击了提交按钮，此时不太希望将不完整的数据发送给服务器端。</p>
+<h4 id="删除事件"><a href="#删除事件" class="headerlink" title="删除事件"></a>删除事件</h4><p>有时需要删除之前已经分配给一个标签的事件，off()函数可以做到这一点。</p>
+<h4 id="阻止一个事件的传播"><a href="#阻止一个事件的传播" class="headerlink" title="阻止一个事件的传播"></a>阻止一个事件的传播</h4><p>stopPropagation()可组织事件传递到一个祖先标签上</p>
+<h4 id="高级事件管理"><a href="#高级事件管理" class="headerlink" title="高级事件管理"></a>高级事件管理</h4><p>on()函数允许指定一个事件以及响应该事件的一个函数，而且允许传递供事件处理函数使用的额外数据。on()函数的基本调用格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#selector'</span>).on(<span class="string">'click'</span>,selector,data,functionName);</span><br></pre></td></tr></table></figure></p>
+<p>如果只想用on函数来附加一个事件和函数，则格式如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#selector'</span>).on(<span class="string">'click'</span>,functionName);</span><br></pre></td></tr></table></figure></p>
+<h4 id="示例：一页的FAQ"><a href="#示例：一页的FAQ" class="headerlink" title="示例：一页的FAQ"></a>示例：一页的FAQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">'.answer'</span>).hide();</span><br><span class="line">            $(<span class="string">'.main  h2'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//to judge the status of the answer</span></span><br><span class="line">                <span class="keyword">var</span> $answer = $(<span class="keyword">this</span>).next(<span class="string">'.answer'</span>);</span><br><span class="line">                <span class="keyword">if</span>($answer.is(<span class="string">':hidden'</span>))&#123;</span><br><span class="line">                    <span class="comment">// $answer.show();</span></span><br><span class="line">                    $answer.slideDown();<span class="comment">//slideDown以滑动的方式隐藏元素</span></span><br><span class="line">                    $(<span class="keyword">this</span>).addClass(<span class="string">'close'</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">// $answer.hide();</span></span><br><span class="line">                    <span class="comment">// $answer.fadeOut();</span></span><br><span class="line">                    $answer.slideUp();</span><br><span class="line">                    $(<span class="keyword">this</span>).removeClass(<span class="string">'close'</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;); <span class="comment">// end ready</span></span><br><span class="line"> &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>####<br>有趣的东西：<a href="http://letteringjs.com/" target="_blank" rel="noopener">http://letteringjs.com/</a></p>
+<h3 id="动画和效果"><a href="#动画和效果" class="headerlink" title="动画和效果"></a>动画和效果</h3><p>要制作出令人惊艳的动画和视觉效果，需要了解jQuery的一些内置效果和动画函数，以及如何将CSS3动画和jQuery工具融合实现流畅的动画效果。</p>
+<h4 id="jQuery效果"><a href="#jQuery效果" class="headerlink" title="jQuery效果"></a>jQuery效果</h4><p>诸如下拉式导航菜单、弹出式工具提示和自动幻灯片播放等让页面元素出现和小时的任务都依赖于按照意愿显示和隐藏元素的能力。jQuery提供了一些函数来实现隐藏和显示元素的目的。要使用这些效果，可将其应用到jQuery的一个选择。<br>每个效果函数都接受一个可选的速度设置参数和回调函数，速度表示该效果完成所需要的时间，回调则表示该效果完成后所要执行的函数。如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'selector'</span>).fadeOut(<span class="string">'slow'</span>);<span class="comment">//600ms</span></span><br><span class="line">$(<span class="string">'selector'</span>).fadeOut(<span class="string">'fas'</span>);<span class="comment">//200ms</span></span><br><span class="line">$(<span class="string">'selector'</span>).fadeOut(<span class="string">'normal'</span>);<span class="comment">//400ms</span></span><br><span class="line">$(<span class="string">'selector'</span>).fadeOut(<span class="number">10000</span>);<span class="comment">//十秒淡出</span></span><br></pre></td></tr></table></figure></p>
+<p>注意，当使用一种效果使得元素消失时，浏览器并没有删除该元素，元素仍然存在于DOM中，代码存在于内存，只是其display属性设置成了none。<br>总结效果有</p>
+<ol>
+<li>基本显示和隐藏</li>
+</ol>
+<ul>
+<li>show()</li>
+<li>hide()</li>
+<li>toggle()</li>
+</ul>
+<ol start="2">
+<li>淡入淡出元素</li>
+</ol>
+<ul>
+<li>fadeIn()</li>
+<li>fadeOut()</li>
+<li>fadeToggle()<br>组合了淡入淡出效果</li>
+<li>fadeTo()<br>把图像淡化到一定透明度，需提供一个速度参数和目标透明度参数。</li>
+</ul>
+<ol start="3">
+<li>滑动元素</li>
+</ol>
+<ul>
+<li>slideDown()</li>
+<li>slideUp()</li>
+<li>slideToggle()<br>如果当前元素是隐藏的，应用slideUp()函数，如果当前元素可见应用slideDown()函数。常与之搭档的还有toggleClass()函数，如果有特定的类则移除，无特定的类则添加。</li>
+</ul>
+<h4 id="css的绝对定位"><a href="#css的绝对定位" class="headerlink" title="css的绝对定位"></a>css的绝对定位</h4><p><a href="https://www.elated.com/articles/css-positioning/" target="_blank" rel="noopener">https://www.elated.com/articles/css-positioning/</a></p>
+<h4 id="示例：登录滑块"><a href="#示例：登录滑块" class="headerlink" title="示例：登录滑块"></a>示例：登录滑块</h4><p>通过单击鼠标实现滑入或滑出视线的一个面板。<br><!-- 1. 选择带有 --><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">'#open'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">            evt.preventDefault();</span><br><span class="line">            $(<span class="string">'#login form'</span>).slideToggle(<span class="number">300</span>);</span><br><span class="line">            $(<span class="keyword">this</span>).toggleClass(<span class="string">'close'</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;); <span class="comment">// end ready</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p>jQuery提供了一个animate()函数，允许对任何css属性进行连续变化，接受像素、em和百分比值的数值。可对文本大小、页面上元素的位置、对象的透明度或者边框的宽度设计动画。</p>
+<h4 id="在效果完成后执行一个操作"><a href="#在效果完成后执行一个操作" class="headerlink" title="在效果完成后执行一个操作"></a>在效果完成后执行一个操作</h4><h4 id="示例：动画仪盘表"><a href="#示例：动画仪盘表" class="headerlink" title="示例：动画仪盘表"></a>示例：动画仪盘表</h4><ol>
+<li>选择一个<div>标签</div></li>
+<li>添加一个hover事件<br>hover事件是jQuery的一个特殊函数，当访问者将鼠标悬停在该元素时，允许执行一组操作，当访问者将鼠标从元素上移走时会执行另一组操作。实际上就是mouseEnter和mouseLeave的组合。</li>
+<li>为mouseEnter事件添加animate函数</li>
+<li>为mouseLeave事件添加animate函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">'#dashboard'</span>).hover(</span><br><span class="line">            <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'Mouse enter'</span>);</span><br><span class="line"></span><br><span class="line">                $(<span class="keyword">this</span>).stop().animate(&#123;</span><br><span class="line">                        <span class="string">'left'</span>: <span class="string">'0'</span>,</span><br><span class="line">                        <span class="string">'backgroundColor'</span>: <span class="string">'rgb(27,45,94)'</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="number">500</span>,</span><br><span class="line">                );</span><br><span class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">'Mouse leave'</span>);</span><br><span class="line">                $(<span class="keyword">this</span>).stop().animate(&#123;</span><br><span class="line">                        <span class="string">'left'</span>: <span class="string">'-100px'</span>,</span><br><span class="line">                        <span class="string">'backgroundColor'</span>: <span class="string">'rgb(255,253,2)'</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="number">500</span>,</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    ; <span class="comment">// end ready</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="jQuery与CSS3的过渡和动画"><a href="#jQuery与CSS3的过渡和动画" class="headerlink" title="jQuery与CSS3的过渡和动画"></a>jQuery与CSS3的过渡和动画</h3><p>CSS不具有事件。hover伪类可在mouseEnter上使用一种样式，mouseLeave时返回先前的样式。active伪类可以模拟一个点击。但对于双击、滚动、键盘制表等没有类似的CSS。</p>
+<h4 id="jQUery和CSS的转换"><a href="#jQUery和CSS的转换" class="headerlink" title="jQUery和CSS的转换"></a>jQUery和CSS的转换</h4><p>CSS过渡可激发CSS特性变化。如为元素添加新样式并触发改变</p>
+<h4 id="jQuery和CSS动画"><a href="#jQuery和CSS动画" class="headerlink" title="jQuery和CSS动画"></a>jQuery和CSS动画</h4><p>CSS动画提供更多的控制而不是简单的转换</p>
+<h3 id="常见jQuery任务"><a href="#常见jQuery任务" class="headerlink" title="常见jQuery任务"></a>常见jQuery任务</h3><p>增强图片、链接、导航栏的功能</p>
+<h4 id="交换图像"><a href="#交换图像" class="headerlink" title="交换图像"></a>交换图像</h4><p>最常见的一种就是图像翻滚</p>
+<ul>
+<li><p>改变图像的src属性<br>注意：当使用js改变图像的src属性时，图片的位置是相对于页面的位置而非相对于js文件的位置。通过更高图像了响应事件，幻灯片效果是不是就是这一做的呢？</p>
+</li>
+<li><p>使用jQuery交换图像<br>除了更改src属性，还可通过replaceWith函数替换html达到更改图像的效果。replaceWith函数返回被替代的图像，所以，如果希望之后还要继续操作就图像，可以用一个变量来对其进行存储。</p>
+</li>
+<li><p>预载入图像<br>预载入图像强迫浏览器在我们计划显示该图像之前下载它，当图像下载完时它存放在Web浏览器的缓存中，这样后续对该文件的访问请求由访问者的硬盘驱动器提供而非由Web服务器提供，即减少了等待时间。</p>
+</li>
+</ul>
+<h4 id="翻滚图像"><a href="#翻滚图像" class="headerlink" title="翻滚图像"></a>翻滚图像</h4><p>翻滚图像是通过鼠标移动到图像上来触发的一种图像交换，即给mouseover事件分配一个图像交换</p>
+<h4 id="示例：添加翻滚图像"><a href="#示例：添加翻滚图像" class="headerlink" title="示例：添加翻滚图像"></a>示例：添加翻滚图像</h4><h3 id="jQuery插件"><a href="#jQuery插件" class="headerlink" title="jQuery插件"></a>jQuery插件</h3><p>jQuery维护的插件：<a href="http://plugins.jquery.com/" target="_blank" rel="noopener">http://plugins.jquery.com/</a><br>jPanel插件：</p>
+<h4 id="创建响应式导航栏"><a href="#创建响应式导航栏" class="headerlink" title="创建响应式导航栏"></a>创建响应式导航栏</h4><p>下拉式菜单隐藏链接，直到人们要求这些链接出现；可使用jQuery插件完成多种效果，如：<a href="https://www.smartmenus.org/。" target="_blank" rel="noopener">https://www.smartmenus.org/。</a></p>
+<ul>
+<li>smartmenus文档<br><a href="https://www.smartmenus.org/doc/" target="_blank" rel="noopener">https://www.smartmenus.org/doc/</a></li>
+</ul>
+<h4 id="jQUery导航插件"><a href="#jQUery导航插件" class="headerlink" title="jQUery导航插件"></a>jQUery导航插件</h4><p><a href="https://speckyboy.com/responsive-navigation-jquery-plugins/" target="_blank" rel="noopener">https://speckyboy.com/responsive-navigation-jquery-plugins/</a><br>面板样式菜单：<a href="http://jpanelmenu.com/" target="_blank" rel="noopener">http://jpanelmenu.com/</a><br>Multi-level Push Menu插件：<a href="http://multi-level-push-menu.make.rs/" target="_blank" rel="noopener">http://multi-level-push-menu.make.rs/</a></p>
+<h3 id="扩展Web表单"><a href="#扩展Web表单" class="headerlink" title="扩展Web表单"></a>扩展Web表单</h3><p>表单主要用于收集信息，如完成一次在线销售的配送信息、接收访问者反馈、信息录入等。所以要考虑如何使得Web表单尽可能容易使用。</p>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><p>form、标签用于构建表单，input、textarea、select通常是表单的组成元素。</p>
+<h4 id="聚焦字段"><a href="#聚焦字段" class="headerlink" title="聚焦字段"></a>聚焦字段</h4><h4 id="隐藏表单字段"><a href="#隐藏表单字段" class="headerlink" title="隐藏表单字段"></a>隐藏表单字段</h4><h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4><p>HTML5包含了许多可用于表单验证且可以跳过js的内置函数。也有不少jQuery验证插件，如Validation：<a href="http://jqueryvalidation.org/。它可以检查一个表单以确保所有必须字段都已填充完毕，并检查确保访问者的输入符合特定要求" target="_blank" rel="noopener">http://jqueryvalidation.org/。它可以检查一个表单以确保所有必须字段都已填充完毕，并检查确保访问者的输入符合特定要求</a></p>
+<ul>
+<li><p>验证手机号码<br><a href="https://stackoverflow.com/questions/280759/jquery-validate-how-to-add-a-rule-for-regular-expression-validation" target="_blank" rel="noopener">https://stackoverflow.com/questions/280759/jquery-validate-how-to-add-a-rule-for-regular-expression-validation</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 手机号码验证</span></span><br><span class="line">$.validator.addMethod(<span class="string">"isMobile"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">value, element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> length = value.length;</span><br><span class="line">    <span class="keyword">var</span> mobile = <span class="regexp">/^(13[0-9]&#123;9&#125;)|(18[0-9]&#123;9&#125;)|(14[0-9]&#123;9&#125;)|(17[0-9]&#123;9&#125;)|(15[0-9]&#123;9&#125;)$/</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.optional(element) || (length == <span class="number">11</span> &amp;&amp; mobile.test(value));</span><br><span class="line">&#125;, <span class="string">"请输入有效的手机号码!!"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扩展验证</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$.extend($.validator.messages, &#123;</span><br><span class="line">    required: <span class="string">"这是必填字段"</span>,</span><br><span class="line">    remote: <span class="string">"请修正此字段"</span>,</span><br><span class="line">    email: <span class="string">"请输入有效的电子邮件地址"</span>,</span><br><span class="line">    url: <span class="string">"请输入有效的网址"</span>,</span><br><span class="line">    date: <span class="string">"请输入有效的日期"</span>,</span><br><span class="line">    dateISO: <span class="string">"请输入有效的日期 (YYYY-MM-DD)"</span>,</span><br><span class="line">    number: <span class="string">"请输入有效的数字"</span>,</span><br><span class="line">    digits: <span class="string">"只能输入数字"</span>,</span><br><span class="line">    creditcard: <span class="string">"请输入有效的信用卡号码"</span>,</span><br><span class="line">    equalTo: <span class="string">"你的输入不相同"</span>,</span><br><span class="line">    extension: <span class="string">"请输入有效的后缀"</span>,</span><br><span class="line">    maxlength: $.validator.format(<span class="string">"最多可以输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    minlength: $.validator.format(<span class="string">"最少要输入 &#123;0&#125; 个字符"</span>),</span><br><span class="line">    rangelength: $.validator.format(<span class="string">"请输入长度在 &#123;0&#125; 到 &#123;1&#125; 之间的字符串"</span>),</span><br><span class="line">    range: $.validator.format(<span class="string">"请输入范围在 &#123;0&#125; 到 &#123;1&#125; 之间的数值"</span>),</span><br><span class="line">    max: $.validator.format(<span class="string">"请输入不大于 &#123;0&#125; 的数值"</span>),</span><br><span class="line">    min: $.validator.format(<span class="string">"请输入不小于 &#123;0&#125; 的数值"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jquery validation异步方式验证用户名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#register'</span>).validate(&#123;</span><br><span class="line">    rules: &#123;</span><br><span class="line">        username: &#123;</span><br><span class="line">            required: <span class="literal">true</span>,</span><br><span class="line">            maxlength: <span class="number">10</span>,</span><br><span class="line">            remote: &#123;</span><br><span class="line">                url: <span class="string">'checkuser.php'</span>,</span><br><span class="line">                type: <span class="string">"post"</span>,</span><br><span class="line">                data: &#123;                     <span class="comment">//要传递的数据</span></span><br><span class="line">                    username: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> $(<span class="string">"#username"</span>).val();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        email: &#123;</span><br><span class="line">            required: <span class="literal">true</span>,</span><br><span class="line">            email: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        password: &#123;</span><br><span class="line">            required: <span class="literal">true</span>,</span><br><span class="line">            rangelength: [<span class="number">6</span>, <span class="number">18</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        confirm_password: &#123;<span class="attr">equalTo</span>: <span class="string">'#password'</span>&#125;,</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    messages: &#123;</span><br><span class="line">        username: &#123;</span><br><span class="line">            required: <span class="string">"请给一个账户名"</span>,</span><br><span class="line">            maxlength: <span class="string">"请输入不超过10个字符"</span>,</span><br><span class="line">            remote: <span class="string">"此账户名已存在"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        email: &#123;</span><br><span class="line">            required: <span class="string">"请提供您的邮箱地址"</span>,</span><br><span class="line">            email: <span class="string">"此邮箱地址无效"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        password: &#123;</span><br><span class="line">            required: <span class="string">'请设置账号密码'</span>,</span><br><span class="line">            rangelength: <span class="string">'密码长度应该是6-18位哦'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        confirm_password: &#123;</span><br><span class="line">            equalTo: <span class="string">'两次密码不匹配！'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    errorPlacement: <span class="function"><span class="keyword">function</span> (<span class="params">error, element</span>) </span>&#123;</span><br><span class="line">        error.appendTo(element.parent());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>错误提示位置<br>errorPlacement用于控制错误信息提示的位置</p>
+</li>
+<li><p>确保验证不通过时不允许提交</p>
+</li>
+<li><p>添加自定义方法进行表单验证</p>
+</li>
+</ul>
+<h2 id="jQuery-UI"><a href="#jQuery-UI" class="headerlink" title="jQuery UI"></a>jQuery UI</h2><p>使用以上一点jQuery已经可以快乐地写一段时间的程序了，增强表单、图像、链接都相当简单。但如果要创建更复杂的用户界面元素并保持快乐，jQuery UI可以帮助做到这一点。<br>jQuery UI：<a href="http://jqueryui.com/" target="_blank" rel="noopener">http://jqueryui.com/</a></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>jQuery UI提供了大量效果、用户交互和界面元素，简化了构建交互式网络应用的过程。</p>
+<ul>
+<li>组件（Widget）</li>
+<li>交互（Interaction）</li>
+<li>效果（Effect）</li>
+</ul>
+<h3 id="创建对话框"><a href="#创建对话框" class="headerlink" title="创建对话框"></a>创建对话框</h3><h3 id="定制jQuery-UI外观"><a href="#定制jQuery-UI外观" class="headerlink" title="定制jQuery UI外观"></a>定制jQuery UI外观</h3><p><a href="http://jqueryui.com/themeroller/" target="_blank" rel="noopener">http://jqueryui.com/themeroller/</a></p>
+<h2 id="高级jQuery"><a href="#高级jQuery" class="headerlink" title="高级jQuery"></a>高级jQuery</h2><h3 id="Ajax（Asynchronous-Javascript-and-XML）"><a href="#Ajax（Asynchronous-Javascript-and-XML）" class="headerlink" title="Ajax（Asynchronous Javascript and XML）"></a>Ajax（Asynchronous Javascript and XML）</h3><p>Ajax最初产生于2005年，用来描述Google maps、Gmail等新一代Web站点所具备的基本特征。它表示Javascript、Web浏览器和Web服务器技术的混合交互。</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>Ajax允许一个Web页面向Web服务器提出请求并接收来自Web服务器的响应，然后无需载入新的Web页面即可更新数据，这样的站点给人更具响应性的感觉。如使用在线地图时，所有响应都无需载入新的Web页面。</p>
+<h4 id="用武之地"><a href="#用武之地" class="headerlink" title="用武之地"></a>用武之地</h4><ul>
+<li>显示新的HTML内容而不用载入页面</li>
+<li>提交一个表单并且立即显示结果</li>
+<li>登录而不用离开页面</li>
+<li><p>星级评定组件<br>一个插件：<a href="http://www.wbotelhos.com/raty" target="_blank" rel="noopener">http://www.wbotelhos.com/raty</a></p>
+</li>
+<li><p>遍历数据库信息</p>
+</li>
+</ul>
+<h4 id="和Web服务器通信"><a href="#和Web服务器通信" class="headerlink" title="和Web服务器通信"></a>和Web服务器通信</h4><p>Ajax程序的核心是XMLHttpRequest对象，有时简称XHR，是构建到当前Web浏览器中的一种功能，允许Javascript像Web服务器发送信息并反过来从Web服务器接收信息</p>
+<p>状态码定义：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="noopener">https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></p>
+<h4 id="Ajax的jQuery方式"><a href="#Ajax的jQuery方式" class="headerlink" title="Ajax的jQuery方式"></a>Ajax的jQuery方式</h4><p>XML是计算机交换数据的一种常用格式。和HTML一样，XML允许使用标签来区别信息。</p>
+<p><a href="https://www.wikihow.com/Create-a-Secure-Session-Management-System-in-PHP-and-MySQL" target="_blank" rel="noopener">https://www.wikihow.com/Create-a-Secure-Session-Management-System-in-PHP-and-MySQL</a></p>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><p>发送来自服务器的另一种常用格式叫做JSON，即JavaScript Object Notation。</p>
+<ul>
+<li><p>JSON.stringify(value[, replacer[, space]])<br>用于将javascript转换为JSON字符串</p>
+</li>
+<li><p>JSON.parse()<br>用于解析JSON字符串</p>
+</li>
+</ul>
+<h3 id="任务列表应用"><a href="#任务列表应用" class="headerlink" title="任务列表应用"></a>任务列表应用</h3><h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><h3 id="前端校验防用户非法输入"><a href="#前端校验防用户非法输入" class="headerlink" title="前端校验防用户非法输入"></a>前端校验防用户非法输入</h3><ul>
+<li>jquery validate<br>添加方法，使用正则表达式检查用户输入，使其只能为大小写字母、数字、下划线<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.validator.addMethod(<span class="string">"isValid"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">value, element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> valid = <span class="regexp">/^[a-zA-Z0-9_]&#123;1,10&#125;$/</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.optional(element) || (valid.test(value));</span><br><span class="line">&#125;, <span class="string">"请输入有效的用户名!!"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>利用开发者工具取css样式<br>避免id号重复</p>
+<h2 id="Debug-1"><a href="#Debug-1" class="headerlink" title="Debug"></a>Debug</h2><h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><ul>
+<li>异步Ajax有时无反应</li>
+<li>Console一闪而过</li>
+</ul>
+<h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
+<li><p>NS_ERROR_XPC_SECURITY_MANAGER_VETO: </p>
+</li>
+<li><p>Ajax请求返回{“readyState”:0,”status”:0,”statusText”:”error”}<br>readyState代表ajax未初始化<br>可能原因及解决：button的type为submit时会默认提交表单，而点击事件又绑定了ajax，如此会取消ajax。阻止默认提交表单即可，更改button的type为button</p>
+</li>
+</ul>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="简单表单验证完整示例"><a href="#简单表单验证完整示例" class="headerlink" title="简单表单验证完整示例"></a>简单表单验证完整示例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Valite<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../external/js/jquery-3.3.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"../external/css/bootstrap.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../external/js/jquery.validate.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    .error &#123;</span></span><br><span class="line"><span class="undefined">        color: #F00</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        $(<span class="string">':text:first'</span>).focus();</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 手机号码验证</span></span></span><br><span class="line"><span class="javascript">        $.validator.addMethod(<span class="string">"isMobile"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">value, element</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> length = value.length;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> mobile = <span class="regexp">/^(13[0-9]&#123;9&#125;)|(18[0-9]&#123;9&#125;)|(14[0-9]&#123;9&#125;)|(17[0-9]&#123;9&#125;)|(15[0-9]&#123;9&#125;)$/</span>;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="keyword">this</span>.optional(element) || (length == <span class="number">11</span> &amp;&amp; mobile.test(value));</span></span><br><span class="line"><span class="javascript">        &#125;, <span class="string">"请输入有效的手机号码!!"</span>);</span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#register'</span>).validate(&#123;</span></span><br><span class="line"><span class="undefined">            rules: &#123;</span></span><br><span class="line"><span class="undefined">                username: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">                    maxlength: 10,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">                    remote: &#123;</span></span><br><span class="line"><span class="javascript">                        url: <span class="string">'checkuser.php'</span>,</span></span><br><span class="line"><span class="javascript">                        type: <span class="string">"post"</span>,</span></span><br><span class="line"><span class="javascript">                        data: &#123;                     <span class="comment">//要传递的数据</span></span></span><br><span class="line"><span class="javascript">                            username: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                                <span class="comment">// let uname = $("#username").val();</span></span></span><br><span class="line"><span class="javascript">                                <span class="keyword">return</span> $(<span class="string">"#username"</span>).val();</span></span><br><span class="line"><span class="undefined">                            &#125;</span></span><br><span class="line"><span class="undefined">                        &#125;,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                realname: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                email: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">                    email: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                password: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="undefined">                    rangelength: [6, 18]</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="javascript">                confirm_password: &#123;<span class="attr">equalTo</span>: <span class="string">'#password'</span>&#125;,</span></span><br><span class="line"><span class="undefined">                mobile: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">                    digits: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">                    isMobile:<span class="literal">true</span></span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            messages: &#123;</span></span><br><span class="line"><span class="undefined">                username: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="string">"请给一个账户名"</span>,</span></span><br><span class="line"><span class="javascript">                    maxlength: <span class="string">"请输入不超过10个字符"</span>,</span></span><br><span class="line"><span class="javascript">                    remote: <span class="string">"此账户名已存在"</span></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                realname: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="string">"请输入您的真实姓名"</span>,</span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                email: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="string">"请提供您的邮箱地址"</span>,</span></span><br><span class="line"><span class="javascript">                    email: <span class="string">"此邮箱地址无效"</span></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                password: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="string">'请设置账号密码'</span>,</span></span><br><span class="line"><span class="javascript">                    rangelength: <span class="string">'密码长度应该是6-18位哦'</span></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                confirm_password: &#123;</span></span><br><span class="line"><span class="javascript">                    equalTo: <span class="string">'两次密码不匹配！'</span></span></span><br><span class="line"><span class="undefined">                &#125;,</span></span><br><span class="line"><span class="undefined">                mobile: &#123;</span></span><br><span class="line"><span class="javascript">                    required: <span class="string">'请输入您的手机号码'</span>,</span></span><br><span class="line"><span class="javascript">                    digits: <span class="string">'请输入有效的手机号码'</span>,</span></span><br><span class="line"><span class="javascript">                    isMobile:<span class="string">'请输入有效的手机号码!'</span></span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="javascript">            errorPlacement: <span class="function"><span class="keyword">function</span> (<span class="params">error, element</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">                error.appendTo(element.parent());</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#registerbtn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">            evt.preventDefault();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> is_valid = $(<span class="string">'#register'</span>).valid();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span> (is_valid) &#123;</span></span><br><span class="line"><span class="javascript">                $(<span class="keyword">this</span>).prop(<span class="string">'disabled'</span>, <span class="string">'disabled'</span>);</span></span><br><span class="line"><span class="undefined">                onRegister();</span></span><br><span class="line"><span class="javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(<span class="string">'请认真填写表单'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">onRegister</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> $username = $(<span class="string">'#username'</span>).val();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> $password = $(<span class="string">'#password'</span>).val();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> $realname = $(<span class="string">'#realname'</span>).val();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> $email = $(<span class="string">'#email'</span>).val();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> $mobile = $(<span class="string">'#mobile'</span>).val();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> registerStr = &#123;</span></span><br><span class="line"><span class="javascript">                <span class="string">"username"</span>: $username,</span></span><br><span class="line"><span class="javascript">                <span class="string">"password"</span>: $password,</span></span><br><span class="line"><span class="javascript">                <span class="string">"realname"</span>: $realname,</span></span><br><span class="line"><span class="javascript">                <span class="string">"email"</span>: $email,</span></span><br><span class="line"><span class="javascript">                <span class="string">"mobile"</span>: $mobile,</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            $.ajax(</span></span><br><span class="line"><span class="undefined">                &#123;</span></span><br><span class="line"><span class="javascript">                    url: <span class="string">"register.php"</span>,</span></span><br><span class="line"><span class="undefined">                    data: registerStr,</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">async</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">                    cache: <span class="literal">false</span>,</span></span><br><span class="line"><span class="javascript">                    dataType: <span class="string">"json"</span>,</span></span><br><span class="line"><span class="undefined">                    success: onSuccess,</span></span><br><span class="line"><span class="undefined">                    error: onError</span></span><br><span class="line"><span class="undefined">                &#125;);</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">onSuccess</span>(<span class="params">response</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> res = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(response));</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(res[<span class="string">"success"</span>]==<span class="literal">true</span>)&#123;</span></span><br><span class="line"><span class="javascript">                    alert(<span class="string">'注册成功！'</span>);</span></span><br><span class="line"><span class="javascript">                    $(<span class="built_in">window</span>.location).attr(<span class="string">'href'</span>,<span class="string">'login.html'</span>);</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">msg</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(<span class="string">'错误'</span>);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-8 col-md-8 col-sm-12 right"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"col-sm-offset-9 col-sm-4 "</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"register"</span> <span class="attr">class</span>=<span class="string">"form-horizontal"</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">onsubmit</span>=<span class="string">"register.php"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"username"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"col-sm-6"</span></span></span><br><span class="line"><span class="tag">                                                                                            <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag">                                                                                            <span class="attr">name</span>=<span class="string">"username"</span></span></span><br><span class="line"><span class="tag">                                                                                            <span class="attr">placeholder</span>=<span class="string">"请输入账户名"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"col-sm-6 "</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">type</span>=<span class="string">"password"</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"confirm_password"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>确认密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">name</span>=<span class="string">"confirm_password"</span> <span class="attr">id</span>=<span class="string">"confirm_password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 "</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">placeholder</span>=<span class="string">"请确认密码"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"realname"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>真实姓名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"col-sm-6 "</span></span></span><br><span class="line"><span class="tag">                                                                                             <span class="attr">id</span>=<span class="string">"realname"</span> <span class="attr">type</span>=<span class="string">"text"</span></span></span><br><span class="line"><span class="tag">                                                                                             <span class="attr">name</span>=<span class="string">"realname"</span></span></span><br><span class="line"><span class="tag">                                                                                             <span class="attr">placeholder</span>=<span class="string">"请输入真实姓名"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>邮箱：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"col-sm-6 "</span> <span class="attr">name</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">                                                                                        <span class="attr">id</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">                                                                                        <span class="attr">type</span>=<span class="string">"email"</span></span></span><br><span class="line"><span class="tag">                                                                                        <span class="attr">placeholder</span>=<span class="string">"请输入邮箱"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"mobile"</span> <span class="attr">class</span>=<span class="string">"col-sm-6 control-label"</span>&gt;</span>电话号码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"col-sm-6 "</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">name</span>=<span class="string">"mobile"</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">id</span>=<span class="string">"mobile"</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">type</span>=<span class="string">"tel"</span></span></span><br><span class="line"><span class="tag">                                                                                           <span class="attr">placeholder</span>=<span class="string">"请输入您的电话号码"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-offset-11 col-sm-2"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"registerbtn"</span> <span class="attr">id</span>=<span class="string">"registerbtn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="优秀开源项目"><a href="#优秀开源项目" class="headerlink" title="优秀开源项目"></a>优秀开源项目</h2><p>Mockjs：<a href="https://github.com/nuysoft/Mock" target="_blank" rel="noopener">https://github.com/nuysoft/Mock</a><br>Easy-Mock：<a href="https://github.com/easy-mock/easy-mock" target="_blank" rel="noopener">https://github.com/easy-mock/easy-mock</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/Notes/" rel="tag"># Notes</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/20/PHP-notes/" rel="next" title="PHP notes">
+                <i class="fa fa-chevron-left"></i> PHP notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/05/Question-For-2019-04/" rel="prev" title="Question For 2019-04">
+                Question For 2019-04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript简要总结"><span class="nav-number">1.</span> <span class="nav-text">Javascript简要总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web前端基础"><span class="nav-number">1.1.</span> <span class="nav-text">Web前端基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js特点"><span class="nav-number">1.2.</span> <span class="nav-text">js特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js库"><span class="nav-number">1.3.</span> <span class="nav-text">js库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流行库"><span class="nav-number">1.3.1.</span> <span class="nav-text">流行库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非流行库"><span class="nav-number">1.3.2.</span> <span class="nav-text">非流行库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery用户界面库"><span class="nav-number">1.4.</span> <span class="nav-text">jQuery用户界面库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习资料"><span class="nav-number">1.5.</span> <span class="nav-text">学习资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法示例"><span class="nav-number">2.</span> <span class="nav-text">基本语法示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">2.1.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：请求消息"><span class="nav-number">2.2.</span> <span class="nav-text">示例：请求消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：数组操作"><span class="nav-number">2.3.</span> <span class="nav-text">示例：数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在数组末尾添加项"><span class="nav-number">2.3.1.</span> <span class="nav-text">在数组末尾添加项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在数组开头添加项"><span class="nav-number">2.3.2.</span> <span class="nav-text">在数组开头添加项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从数组删除元素"><span class="nav-number">2.3.3.</span> <span class="nav-text">从数组删除元素</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM对象"><span class="nav-number">3.</span> <span class="nav-text">DOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Window"><span class="nav-number">3.1.</span> <span class="nav-text">Window</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">3.1.1.</span> <span class="nav-text">location</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document"><span class="nav-number">3.2.</span> <span class="nav-text">document</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">4.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件捕获"><span class="nav-number">4.1.</span> <span class="nav-text">事件捕获</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡"><span class="nav-number">4.1.1.</span> <span class="nav-text">冒泡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获"><span class="nav-number">4.2.</span> <span class="nav-text">捕获</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象程序设计"><span class="nav-number">5.</span> <span class="nav-text">面向对象程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">5.1.</span> <span class="nav-text">原型模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">6.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#响应函数"><span class="nav-number">6.1.</span> <span class="nav-text">响应函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onSuccess"><span class="nav-number">6.1.1.</span> <span class="nav-text">onSuccess</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onError"><span class="nav-number">6.1.2.</span> <span class="nav-text">onError</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debug"><span class="nav-number">6.2.</span> <span class="nav-text">Debug</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery基础"><span class="nav-number">7.</span> <span class="nav-text">jQuery基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何获取jQuery？"><span class="nav-number">7.1.</span> <span class="nav-text">如何获取jQuery？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何对页面元素进行选择？"><span class="nav-number">7.2.</span> <span class="nav-text">如何对页面元素进行选择？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本选择器"><span class="nav-number">7.2.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高级选择器"><span class="nav-number">7.2.2.</span> <span class="nav-text">高级选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery过滤器根据特定的特征进行过滤选择"><span class="nav-number">7.2.3.</span> <span class="nav-text">jQuery过滤器根据特定的特征进行过滤选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何添加或删除页面内容？"><span class="nav-number">7.3.</span> <span class="nav-text">如何添加或删除页面内容？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">7.3.1.</span> <span class="nav-text">html()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">7.3.2.</span> <span class="nav-text">text()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#append"><span class="nav-number">7.3.3.</span> <span class="nav-text">append()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prepend"><span class="nav-number">7.3.4.</span> <span class="nav-text">prepend()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove"><span class="nav-number">7.3.5.</span> <span class="nav-text">remove()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#replaceWith"><span class="nav-number">7.3.6.</span> <span class="nav-text">replaceWith()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clone"><span class="nav-number">7.3.7.</span> <span class="nav-text">clone()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何设置和读取标签属性？"><span class="nav-number">7.4.</span> <span class="nav-text">如何设置和读取标签属性？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#addClass"><span class="nav-number">7.4.1.</span> <span class="nav-text">addClass()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#removeClass"><span class="nav-number">7.4.2.</span> <span class="nav-text">removeClass()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css"><span class="nav-number">7.4.3.</span> <span class="nav-text">css()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#attr"><span class="nav-number">7.4.4.</span> <span class="nav-text">attr()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#removeAttr"><span class="nav-number">7.4.5.</span> <span class="nav-text">removeAttr()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何操纵选中的每个元素"><span class="nav-number">7.5.</span> <span class="nav-text">如何操纵选中的每个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名函数"><span class="nav-number">7.5.1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this和-this"><span class="nav-number">7.5.2.</span> <span class="nav-text">this和$(this)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动提取引用"><span class="nav-number">7.6.</span> <span class="nav-text">自动提取引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何让页面通过事件动起来？"><span class="nav-number">7.7.</span> <span class="nav-text">如何让页面通过事件动起来？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">7.7.1.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档事件和窗口事件"><span class="nav-number">7.7.2.</span> <span class="nav-text">文档事件和窗口事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单事件"><span class="nav-number">7.7.3.</span> <span class="nav-text">表单事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#键盘事件"><span class="nav-number">7.7.4.</span> <span class="nav-text">键盘事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按jQuery风格处理事件"><span class="nav-number">7.7.5.</span> <span class="nav-text">按jQuery风格处理事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：事件"><span class="nav-number">7.8.</span> <span class="nav-text">示例：事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多jQuery事件概念"><span class="nav-number">7.9.</span> <span class="nav-text">更多jQuery事件概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#等待HTML载入"><span class="nav-number">7.9.1.</span> <span class="nav-text">等待HTML载入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标悬浮和移开"><span class="nav-number">7.9.2.</span> <span class="nav-text">鼠标悬浮和移开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件对象"><span class="nav-number">7.9.3.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止事件的常规行为"><span class="nav-number">7.9.4.</span> <span class="nav-text">阻止事件的常规行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除事件"><span class="nav-number">7.9.5.</span> <span class="nav-text">删除事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止一个事件的传播"><span class="nav-number">7.9.6.</span> <span class="nav-text">阻止一个事件的传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高级事件管理"><span class="nav-number">7.9.7.</span> <span class="nav-text">高级事件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：一页的FAQ"><span class="nav-number">7.9.8.</span> <span class="nav-text">示例：一页的FAQ</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画和效果"><span class="nav-number">7.10.</span> <span class="nav-text">动画和效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery效果"><span class="nav-number">7.10.1.</span> <span class="nav-text">jQuery效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css的绝对定位"><span class="nav-number">7.10.2.</span> <span class="nav-text">css的绝对定位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：登录滑块"><span class="nav-number">7.10.3.</span> <span class="nav-text">示例：登录滑块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动画"><span class="nav-number">7.10.4.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在效果完成后执行一个操作"><span class="nav-number">7.10.5.</span> <span class="nav-text">在效果完成后执行一个操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：动画仪盘表"><span class="nav-number">7.10.6.</span> <span class="nav-text">示例：动画仪盘表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery与CSS3的过渡和动画"><span class="nav-number">7.11.</span> <span class="nav-text">jQuery与CSS3的过渡和动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQUery和CSS的转换"><span class="nav-number">7.11.1.</span> <span class="nav-text">jQUery和CSS的转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery和CSS动画"><span class="nav-number">7.11.2.</span> <span class="nav-text">jQuery和CSS动画</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见jQuery任务"><span class="nav-number">7.12.</span> <span class="nav-text">常见jQuery任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交换图像"><span class="nav-number">7.12.1.</span> <span class="nav-text">交换图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#翻滚图像"><span class="nav-number">7.12.2.</span> <span class="nav-text">翻滚图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：添加翻滚图像"><span class="nav-number">7.12.3.</span> <span class="nav-text">示例：添加翻滚图像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery插件"><span class="nav-number">7.13.</span> <span class="nav-text">jQuery插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建响应式导航栏"><span class="nav-number">7.13.1.</span> <span class="nav-text">创建响应式导航栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQUery导航插件"><span class="nav-number">7.13.2.</span> <span class="nav-text">jQUery导航插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展Web表单"><span class="nav-number">7.14.</span> <span class="nav-text">扩展Web表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#表单"><span class="nav-number">7.14.1.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚焦字段"><span class="nav-number">7.14.2.</span> <span class="nav-text">聚焦字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隐藏表单字段"><span class="nav-number">7.14.3.</span> <span class="nav-text">隐藏表单字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单验证"><span class="nav-number">7.14.4.</span> <span class="nav-text">表单验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-UI"><span class="nav-number">8.</span> <span class="nav-text">jQuery UI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">8.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对话框"><span class="nav-number">8.2.</span> <span class="nav-text">创建对话框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制jQuery-UI外观"><span class="nav-number">8.3.</span> <span class="nav-text">定制jQuery UI外观</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级jQuery"><span class="nav-number">9.</span> <span class="nav-text">高级jQuery</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax（Asynchronous-Javascript-and-XML）"><span class="nav-number">9.1.</span> <span class="nav-text">Ajax（Asynchronous Javascript and XML）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">9.1.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用武之地"><span class="nav-number">9.1.2.</span> <span class="nav-text">用武之地</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#和Web服务器通信"><span class="nav-number">9.1.3.</span> <span class="nav-text">和Web服务器通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax的jQuery方式"><span class="nav-number">9.1.4.</span> <span class="nav-text">Ajax的jQuery方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">9.1.5.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务列表应用"><span class="nav-number">9.2.</span> <span class="nav-text">任务列表应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全"><span class="nav-number">10.</span> <span class="nav-text">安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端校验防用户非法输入"><span class="nav-number">10.1.</span> <span class="nav-text">前端校验防用户非法输入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧"><span class="nav-number">11.</span> <span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debug-1"><span class="nav-number">12.</span> <span class="nav-text">Debug</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现象"><span class="nav-number">12.1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">12.2.</span> <span class="nav-text">Error</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">13.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单表单验证完整示例"><span class="nav-number">13.1.</span> <span class="nav-text">简单表单验证完整示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优秀开源项目"><span class="nav-number">14.</span> <span class="nav-text">优秀开源项目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Question,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x00 MathScalablenode2vec主页：http://snap.stanford.edu/node2vec/论文地址：https://arxiv.org/pdf/1607.00653.pdf 下游机器学习任务指的是什么？二阶随机游走的特点是？多标签分类任务和链接预测任务的意义为?学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？什么是特征工程？PCA与IsoMap的区别">
+<meta name="keywords" content="Question">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Question-For-2019-01">
+<meta property="og:url" content="http://yoursite.com/2019/01/11/Question-For-2019-01/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="0x00 MathScalablenode2vec主页：http://snap.stanford.edu/node2vec/论文地址：https://arxiv.org/pdf/1607.00653.pdf 下游机器学习任务指的是什么？二阶随机游走的特点是？多标签分类任务和链接预测任务的意义为?学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？什么是特征工程？PCA与IsoMap的区别">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/node2vec_alg.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/multi_label_test.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/link_predict.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/references.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/ant1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/images/ant2.jpg">
+<meta property="og:updated_time" content="2019-01-23T02:42:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Question-For-2019-01">
+<meta name="twitter:description" content="0x00 MathScalablenode2vec主页：http://snap.stanford.edu/node2vec/论文地址：https://arxiv.org/pdf/1607.00653.pdf 下游机器学习任务指的是什么？二阶随机游走的特点是？多标签分类任务和链接预测任务的意义为?学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？什么是特征工程？PCA与IsoMap的区别">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/images/node2vec_alg.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/11/Question-For-2019-01/">
+
+
+
+
+
+  <title>Question-For-2019-01 | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/11/Question-For-2019-01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Question-For-2019-01</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-11T10:11:12+08:00">
+                2019-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/11/Question-For-2019-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/11/Question-For-2019-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/11/Question-For-2019-01/" class="leancloud_visitors" data-flag-title="Question-For-2019-01">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2,044
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00-Math"><a href="#0x00-Math" class="headerlink" title="0x00 Math"></a>0x00 Math</h2><h2 id="Scalable"><a href="#Scalable" class="headerlink" title="Scalable"></a>Scalable</h2><p>node2vec主页：<a href="http://snap.stanford.edu/node2vec/" target="_blank" rel="noopener">http://snap.stanford.edu/node2vec/</a><br>论文地址：<a href="https://arxiv.org/pdf/1607.00653.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1607.00653.pdf</a></p>
+<h3 id="下游机器学习任务指的是什么？"><a href="#下游机器学习任务指的是什么？" class="headerlink" title="下游机器学习任务指的是什么？"></a>下游机器学习任务指的是什么？</h3><h3 id="二阶随机游走的特点是？"><a href="#二阶随机游走的特点是？" class="headerlink" title="二阶随机游走的特点是？"></a>二阶随机游走的特点是？</h3><h3 id="多标签分类任务和链接预测任务的意义为"><a href="#多标签分类任务和链接预测任务的意义为" class="headerlink" title="多标签分类任务和链接预测任务的意义为?"></a>多标签分类任务和链接预测任务的意义为?</h3><h3 id="学习-生成图的边的特征表示和结点的特征表示各自着重的点是哪些？"><a href="#学习-生成图的边的特征表示和结点的特征表示各自着重的点是哪些？" class="headerlink" title="学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？"></a>学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？</h3><h3 id="什么是特征工程？"><a href="#什么是特征工程？" class="headerlink" title="什么是特征工程？"></a>什么是特征工程？</h3><h3 id="PCA与IsoMap的区别？"><a href="#PCA与IsoMap的区别？" class="headerlink" title="PCA与IsoMap的区别？"></a>PCA与IsoMap的区别？</h3><h3 id="谱聚类的所作出的假设是？"><a href="#谱聚类的所作出的假设是？" class="headerlink" title="谱聚类的所作出的假设是？"></a>谱聚类的所作出的假设是？</h3><p>假设图切对于分类有用。这种假设在大多数情景下是合理的，但对于跨网络的任务下泛化能力不能让人满意。</p>
+<h3 id="Skip-gram和CBOW的基本思想有何差异？"><a href="#Skip-gram和CBOW的基本思想有何差异？" class="headerlink" title="Skip-gram和CBOW的基本思想有何差异？"></a>Skip-gram和CBOW的基本思想有何差异？</h3><h3 id="Skip-gram的基本假设是？"><a href="#Skip-gram的基本假设是？" class="headerlink" title="Skip-gram的基本假设是？"></a>Skip-gram的基本假设是？</h3><p>具有相同上下文环境的单词是相似的。</p>
+<h3 id="常用结点采样策略有哪些？"><a href="#常用结点采样策略有哪些？" class="headerlink" title="常用结点采样策略有哪些？"></a>常用结点采样策略有哪些？</h3><h3 id="最大化观测结点u的网络邻域空间中的对数概率的两个标准假设"><a href="#最大化观测结点u的网络邻域空间中的对数概率的两个标准假设" class="headerlink" title="最大化观测结点u的网络邻域空间中的对数概率的两个标准假设"></a>最大化观测结点u的网络邻域空间中的对数概率的两个标准假设</h3><ul>
+<li><p>条件独立性<br>观测结点u的一个邻域空间与观测到u的其它任何邻域空间都是相互独立的</p>
+</li>
+<li><p>特征空间中对称<br>一个结点与其邻域中的结点在特征空间中具有对称的效应</p>
+</li>
+</ul>
+<h3 id="负采样的思想是？"><a href="#负采样的思想是？" class="headerlink" title="负采样的思想是？"></a>负采样的思想是？</h3><h3 id="经典的结点邻域搜索策略分别是？工作场景是？"><a href="#经典的结点邻域搜索策略分别是？工作场景是？" class="headerlink" title="经典的结点邻域搜索策略分别是？工作场景是？"></a>经典的结点邻域搜索策略分别是？工作场景是？</h3><ul>
+<li><p>BFS</p>
+</li>
+<li><p>DFS</p>
+<h3 id="强化学习、半监督学习、监督学习、非监督学习的区别"><a href="#强化学习、半监督学习、监督学习、非监督学习的区别" class="headerlink" title="强化学习、半监督学习、监督学习、非监督学习的区别"></a>强化学习、半监督学习、监督学习、非监督学习的区别</h3></li>
+</ul>
+<h3 id="有关相似性"><a href="#有关相似性" class="headerlink" title="有关相似性"></a>有关相似性</h3><p>结构上的相似的结点不一定是连通的。</p>
+<h3 id="node2vec的随机游走讲的是什么？"><a href="#node2vec的随机游走讲的是什么？" class="headerlink" title="node2vec的随机游走讲的是什么？"></a>node2vec的随机游走讲的是什么？</h3><p>随机游走长度l，搜索偏差alpha，二阶随机游走参数p、q（直觉上控制着游走的速度/游离起始结点邻域的速度，参数大致上相当于对BFS和DFS作了一个插值，对网络中结点的标识的关系起辨别作用）</p>
+<ul>
+<li><p>Return Parameter p<br>将p值设置为高值（&gt;max(q,1)）可确保游走的下两步中快速回访同一个结点的可能性减少（除非游走中的下一个结点已经没有其它邻居了），这种策略鼓励更先进的探索，避免了两跳冗余;若p&lt;min(q,1)，会导致游走徘徊在起始结点的局部邻域中。</p>
+</li>
+<li><p>In-out Parameter q<br>参数q允许搜索区分“向内”结点和“向外”结点。</p>
+</li>
+<li><p>Benefits of random walks<br>比BFS/DFS好</p>
+</li>
+</ul>
+<h3 id="node2vec算法过程是？"><a href="#node2vec算法过程是？" class="headerlink" title="node2vec算法过程是？"></a>node2vec算法过程是？</h3><p>算法的每个阶段可并行，提供了较好的可扩展性。当p==q==1时，即相当于DeepWalk（node2vec的一种特例）<br><img src="../../images/node2vec_alg.jpg" alt="node2vec算法伪代码"></p>
+<ul>
+<li><p>输入</p>
+<ul>
+<li>图G=(V,E,W)</li>
+<li>维度d（斯坦福默认128）</li>
+<li>每个结点的游走周期r/游走迭代次数（斯坦福默认10）</li>
+<li>游走长度l（斯坦福默认80）</li>
+<li>上下文环境大小k（斯坦福默认10）</li>
+<li>返回概率p（斯坦福默认1）</li>
+<li>离开概率q（斯坦福默认1）</li>
+</ul>
+</li>
+<li><p>过程</p>
+<ul>
+<li>预处理计算转移概率矩阵</li>
+<li>模拟随机游走</li>
+<li>采用随机梯度下降进行优化</li>
+</ul>
+</li>
+<li><p>输出</p>
+</li>
+</ul>
+<h3 id="node2vec学到了什么特征？"><a href="#node2vec学到了什么特征？" class="headerlink" title="node2vec学到了什么特征？"></a>node2vec学到了什么特征？</h3><h3 id="Negative-sampling和Hierarchical-sampling有什么优势？"><a href="#Negative-sampling和Hierarchical-sampling有什么优势？" class="headerlink" title="Negative sampling和Hierarchical sampling有什么优势？"></a>Negative sampling和Hierarchical sampling有什么优势？</h3><h3 id="针对node2vec的随机梯度下降如何实现？"><a href="#针对node2vec的随机梯度下降如何实现？" class="headerlink" title="针对node2vec的随机梯度下降如何实现？"></a>针对node2vec的随机梯度下降如何实现？</h3><h3 id="论文针对多标签分类问题对哪些数据集作了实验"><a href="#论文针对多标签分类问题对哪些数据集作了实验" class="headerlink" title="论文针对多标签分类问题对哪些数据集作了实验"></a>论文针对多标签分类问题对哪些数据集作了实验</h3><p><img src="../../images/multi_label_test.jpg" alt="论文实验数据集"></p>
+<ul>
+<li>PPI网络</li>
+<li>维基百科</li>
+</ul>
+<h3 id="node2vec的参数稳定性如何？"><a href="#node2vec的参数稳定性如何？" class="headerlink" title="node2vec的参数稳定性如何？"></a>node2vec的参数稳定性如何？</h3><ul>
+<li><p>dimension<br>到约100时就基本饱和了</p>
+</li>
+<li><p>walks<br>提高次数及长度会提高表现</p>
+</li>
+</ul>
+<h3 id="论文针对链接预测问题对哪些数据集作了实验"><a href="#论文针对链接预测问题对哪些数据集作了实验" class="headerlink" title="论文针对链接预测问题对哪些数据集作了实验"></a>论文针对链接预测问题对哪些数据集作了实验</h3><p><img src="../../images/link_predict.jpg" alt="论文实验数据集"></p>
+<h3 id="讨论和总结"><a href="#讨论和总结" class="headerlink" title="讨论和总结"></a>讨论和总结</h3><p>将网络中的特征学习问题转成搜索优化问题</p>
+<h4 id="Area-Under-Curve-AUC-scores是什么？"><a href="#Area-Under-Curve-AUC-scores是什么？" class="headerlink" title="Area Under Curve (AUC) scores是什么？"></a>Area Under Curve (AUC) scores是什么？</h4><h4 id="Hadamard-operator是什么？"><a href="#Hadamard-operator是什么？" class="headerlink" title="Hadamard operator是什么？"></a>Hadamard operator是什么？</h4><p>哈达玛算子：<a href="http://xuewen.cnki.net/CMFD-1016230425.nh.html" target="_blank" rel="noopener">http://xuewen.cnki.net/CMFD-1016230425.nh.html</a></p>
+<h4 id="各种模型对比"><a href="#各种模型对比" class="headerlink" title="各种模型对比"></a>各种模型对比</h4><p>DeepWalk和LINE都可以看作对网络采用严格的搜索策略，DeepWalk主张采用均匀随机游走，这种策略一个很明显的局限性是我们无法对探索的邻域大小进行控制。LINE主要主张采用广度优先的搜索策略。node2vec的搜索策略提供了参数p和q使得我们对网络邻域的探索可控，并且这些搜索参数都有直观上得的解释，在最复杂的网络上面的表现也胜于其它模型，node2vec对于参数的摄动具有较好的扩展性和鲁棒性。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><img src="../../images/references.jpg" alt="参考文献"></p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="Cart回归的思想？"><a href="#Cart回归的思想？" class="headerlink" title="Cart回归的思想？"></a>Cart回归的思想？</h3><p><a href="https://www.cnblogs.com/pinard/p/6050306.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/6050306.html</a></p>
+<h3 id="随机森林的思想是？"><a href="#随机森林的思想是？" class="headerlink" title="随机森林的思想是？"></a>随机森林的思想是？</h3><h3 id="遗传算法Matlab实现"><a href="#遗传算法Matlab实现" class="headerlink" title="遗传算法Matlab实现"></a>遗传算法Matlab实现</h3><p><a href="https://blog.csdn.net/hanpu_liang/article/details/78173909" target="_blank" rel="noopener">https://blog.csdn.net/hanpu_liang/article/details/78173909</a><br><a href="https://blog.csdn.net/acelit/article/details/78187715" target="_blank" rel="noopener">https://blog.csdn.net/acelit/article/details/78187715</a></p>
+<h3 id="蚁群算法应用"><a href="#蚁群算法应用" class="headerlink" title="蚁群算法应用"></a>蚁群算法应用</h3><p><a href="http://www.ecsponline.com/yz/B676AB9119BF04182AD772E52B7C7451F000.pdf" target="_blank" rel="noopener">http://www.ecsponline.com/yz/B676AB9119BF04182AD772E52B7C7451F000.pdf</a><br><a href="https://zh.wikipedia.org/wiki/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95#%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95#%E8%B0%83%E5%BA%A6%E9%97%AE%E9%A2%98</a><br><img src="../../images/ant1.jpg" alt="蚁群算法应用"><br><img src="../../images/ant2.jpg" alt="蚁群算法应用"></p>
+<h3 id="最大流问题的基本概念有哪些？"><a href="#最大流问题的基本概念有哪些？" class="headerlink" title="最大流问题的基本概念有哪些？"></a>最大流问题的基本概念有哪些？</h3><p>残留网络、增广路径、最大流最小割<br><a href="https://blog.csdn.net/smartxxyx/article/details/9293665" target="_blank" rel="noopener">https://blog.csdn.net/smartxxyx/article/details/9293665</a><br>java实现：<a href="https://blog.csdn.net/smartxxyx/article/details/9293805" target="_blank" rel="noopener">https://blog.csdn.net/smartxxyx/article/details/9293805</a><br>复杂网络常见数据和程序代码网站：<a href="https://blog.csdn.net/qingqingpiaoguo/article/details/61418783" target="_blank" rel="noopener">https://blog.csdn.net/qingqingpiaoguo/article/details/61418783</a><br>复杂网络可视化：<a href="http://www.visualcomplexity.com/vc/" target="_blank" rel="noopener">http://www.visualcomplexity.com/vc/</a></p>
+<h3 id="综合评价方法中，以下方法的原理以及区别在于？"><a href="#综合评价方法中，以下方法的原理以及区别在于？" class="headerlink" title="综合评价方法中，以下方法的原理以及区别在于？"></a>综合评价方法中，以下方法的原理以及区别在于？</h3><ul>
+<li>熵值法</li>
+<li>数据包络分析法</li>
+<li>层次分析法</li>
+<li>模糊综合评价法</li>
+<li>灰色关联分析法</li>
+</ul>
+<h3 id="通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？"><a href="#通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？" class="headerlink" title="通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？"></a>通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？</h3><p>washington-projection-pursuit：<a href="https://www.stat.washington.edu/wxs/Visualization-papers/projection-pursuit.pdf" target="_blank" rel="noopener">https://www.stat.washington.edu/wxs/Visualization-papers/projection-pursuit.pdf</a><br>stanford-projection-pursuit：<a href="http://www.slac.stanford.edu/pubs/slacpubs/1250/slac-pub-1312.pdf" target="_blank" rel="noopener">http://www.slac.stanford.edu/pubs/slacpubs/1250/slac-pub-1312.pdf</a></p>
+<h2 id="0x01-RS"><a href="#0x01-RS" class="headerlink" title="0x01 RS"></a>0x01 RS</h2><h3 id="NDVI对于植被覆盖变化检测的误差如何评价？"><a href="#NDVI对于植被覆盖变化检测的误差如何评价？" class="headerlink" title="NDVI对于植被覆盖变化检测的误差如何评价？"></a>NDVI对于植被覆盖变化检测的误差如何评价？</h3><h3 id="如何在GEE中将多源遥感数据融合以弥补数据不足的情形？"><a href="#如何在GEE中将多源遥感数据融合以弥补数据不足的情形？" class="headerlink" title="如何在GEE中将多源遥感数据融合以弥补数据不足的情形？"></a>如何在GEE中将多源遥感数据融合以弥补数据不足的情形？</h3><h3 id="MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？"><a href="#MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？" class="headerlink" title="MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？"></a>MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？</h3><h3 id="什么是不透水层？"><a href="#什么是不透水层？" class="headerlink" title="什么是不透水层？"></a>什么是不透水层？</h3><p><a href="https://baike.baidu.com/item/%E4%B8%8D%E9%80%8F%E6%B0%B4%E5%B1%82" target="_blank" rel="noopener">https://baike.baidu.com/item/%E4%B8%8D%E9%80%8F%E6%B0%B4%E5%B1%82</a></p>
+<h3 id="不透水层与裸地的混淆如何解决？"><a href="#不透水层与裸地的混淆如何解决？" class="headerlink" title="不透水层与裸地的混淆如何解决？"></a>不透水层与裸地的混淆如何解决？</h3><p>有人提出了一种PII指数用于提取不透水层，精度比NDBI高，与裸地的混淆减少<br><a href="http://www.cqvip.com/qk/90069x/201704/672058411.html" target="_blank" rel="noopener">http://www.cqvip.com/qk/90069x/201704/672058411.html</a><br>地下水的情况与不透水层会具有什么样的关系？</p>
+<h3 id="如何区分水田和河流"><a href="#如何区分水田和河流" class="headerlink" title="如何区分水田和河流"></a>如何区分水田和河流</h3><h3 id="GEE中通过各颜色像素计算变化面积思路"><a href="#GEE中通过各颜色像素计算变化面积思路" class="headerlink" title="GEE中通过各颜色像素计算变化面积思路"></a>GEE中通过各颜色像素计算变化面积思路</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//pixelArea():Generate an image in which the value of each pixel is the area of that pixel in square meters.</span></span><br><span class="line"><span class="comment">//multiply(image2):Multiplies the first value by the second for each matched pair of bands in image1 and image2. If either image1 or image2 has only 1 band, then it is used against all the bands in the other image. If the images have the same number of bands, but not the same names, they're used pairwise in the natural order. The output bands are named for the longer of the two inputs, or if they're equal in length, in image1's order. The type of the output pixels is the union of the input types.</span></span><br><span class="line"><span class="comment">//updateMask(image):Updates an image's mask at all positions where the existing mask is not zero. The output image retains the metadata and footprint of the input image.</span></span><br><span class="line"><span class="comment">//reduceRegion():Apply a reducer to all the pixels in a specific region.Either the reducer must have the same number of inputs as the input image has bands, or it must have a single input and will be repeated for each band.Returns a dictionary of the reducer's outputs.</span></span><br><span class="line"><span class="comment">//addBands():Returns an image containing all bands copied from the first input and selected bands from the second input, optionally overwriting bands in the first image with the same name. The new image has the metadata and footprint from the first input image.</span></span><br><span class="line"><span class="keyword">var</span> area = ee.Image.pixelArea().divide(<span class="number">10000</span>)</span><br><span class="line">lake_mask = lake_mask.updateMask(lake_mask)</span><br><span class="line"><span class="keyword">var</span> lake_mask_ = lake_mask.multiply(area).select([<span class="number">0</span>],[<span class="string">'lake'</span>]);</span><br><span class="line"><span class="keyword">var</span> scum_ = lake_mask.updateMask(scum).multiply(area).select([<span class="number">0</span>],[<span class="string">'scum'</span>]);</span><br><span class="line"><span class="keyword">var</span> bleached_scum_ = lake_mask.updateMask(bleached_scum).multiply(area).select([<span class="number">0</span>],[<span class="string">'bleached_scum'</span>]);</span><br><span class="line"><span class="keyword">var</span> microphytobenthos_ = lake_mask.updateMask(microphytobenthos).multiply(area).select([<span class="number">0</span>],[<span class="string">'microphytobenthos'</span>]);</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> biomass_ = lake_mask.updateMask(highbiomass).multiply(area).select([<span class="number">0</span>],[<span class="string">'highbiomass'</span>]);</span><br><span class="line"><span class="keyword">var</span> area_image = lake_mask_.addBands(scum_)</span><br><span class="line">                     .addBands(bleached_scum_)</span><br><span class="line">                     .addBands(microphytobenthos_)</span><br><span class="line">                     .addBands(biomass_)</span><br><span class="line"><span class="keyword">var</span> areas = area_image.reduceRegion(&#123;</span><br><span class="line">  reducer:ee.Reducer.sum(),</span><br><span class="line">  geometry: image.geometry(),</span><br><span class="line">  scale: <span class="number">30</span>,</span><br><span class="line">  maxPixels:<span class="number">1e13</span></span><br><span class="line">&#125;)</span><br><span class="line">print(areas)</span><br></pre></td></tr></table></figure>
+<h2 id="0x02-Modeling"><a href="#0x02-Modeling" class="headerlink" title="0x02 Modeling"></a>0x02 Modeling</h2><h3 id="真实世界"><a href="#真实世界" class="headerlink" title="真实世界"></a>真实世界</h3><ul>
+<li>不透明</li>
+<li>多目标</li>
+<li>复杂</li>
+<li>动态</li>
+<li>空间地理考量</li>
+<li>政策和社会因素</li>
+</ul>
+<h2 id="0x03-待阅读文章"><a href="#0x03-待阅读文章" class="headerlink" title="0x03 待阅读文章"></a>0x03 待阅读文章</h2><p><a href="https://www.sciencedirect.com/science/article/pii/S0034425716301572" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S0034425716301572</a><br><a href="https://www.mdpi.com/2072-4292/6/9/7952/htm" target="_blank" rel="noopener">https://www.mdpi.com/2072-4292/6/9/7952/htm</a><br>Landsat：<a href="https://pubs.usgs.gov/fs/2015/3034/pdf/fs2015-3034.pdf?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://pubs.usgs.gov/fs/2015/3034/pdf/fs2015-3034.pdf?tdsourcetag=s_pctim_aiomsg</a><br><a href="http://blog.sina.com.cn/s/blog_764b1e9d0101c7e6.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_764b1e9d0101c7e6.html</a><br>node2vec：<a href="https://arxiv.org/pdf/1607.00653.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1607.00653.pdf</a><br>DeepWalk：<a href="https://blog.csdn.net/u013527419/article/details/76017528" target="_blank" rel="noopener">https://blog.csdn.net/u013527419/article/details/76017528</a><br>A New kinds of Science：<a href="https://www.wolframscience.com/nks/p1--an-outline-of-basic-ideas/" target="_blank" rel="noopener">https://www.wolframscience.com/nks/p1--an-outline-of-basic-ideas/</a></p>
+<h2 id="4"><a href="#4" class="headerlink" title="4 "></a>4 </h2><p>全球革新指数：<a href="https://www.wipo.int/publications/zh/details.jsp?id=4330" target="_blank" rel="noopener">https://www.wipo.int/publications/zh/details.jsp?id=4330</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Question/" rel="tag"># Question</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/02/MatLab常用操作API总结系列/" rel="next" title="MatLab常用操作API总结系列">
+                <i class="fa fa-chevron-left"></i> MatLab常用操作API总结系列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/12/空间分析Project总结/" rel="prev" title="Spatial Analysis Project Summary">
+                Spatial Analysis Project Summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-Math"><span class="nav-number">1.</span> <span class="nav-text">0x00 Math</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scalable"><span class="nav-number">2.</span> <span class="nav-text">Scalable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下游机器学习任务指的是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">下游机器学习任务指的是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二阶随机游走的特点是？"><span class="nav-number">2.2.</span> <span class="nav-text">二阶随机游走的特点是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多标签分类任务和链接预测任务的意义为"><span class="nav-number">2.3.</span> <span class="nav-text">多标签分类任务和链接预测任务的意义为?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习-生成图的边的特征表示和结点的特征表示各自着重的点是哪些？"><span class="nav-number">2.4.</span> <span class="nav-text">学习/生成图的边的特征表示和结点的特征表示各自着重的点是哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是特征工程？"><span class="nav-number">2.5.</span> <span class="nav-text">什么是特征工程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA与IsoMap的区别？"><span class="nav-number">2.6.</span> <span class="nav-text">PCA与IsoMap的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谱聚类的所作出的假设是？"><span class="nav-number">2.7.</span> <span class="nav-text">谱聚类的所作出的假设是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skip-gram和CBOW的基本思想有何差异？"><span class="nav-number">2.8.</span> <span class="nav-text">Skip-gram和CBOW的基本思想有何差异？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skip-gram的基本假设是？"><span class="nav-number">2.9.</span> <span class="nav-text">Skip-gram的基本假设是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用结点采样策略有哪些？"><span class="nav-number">2.10.</span> <span class="nav-text">常用结点采样策略有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大化观测结点u的网络邻域空间中的对数概率的两个标准假设"><span class="nav-number">2.11.</span> <span class="nav-text">最大化观测结点u的网络邻域空间中的对数概率的两个标准假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负采样的思想是？"><span class="nav-number">2.12.</span> <span class="nav-text">负采样的思想是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经典的结点邻域搜索策略分别是？工作场景是？"><span class="nav-number">2.13.</span> <span class="nav-text">经典的结点邻域搜索策略分别是？工作场景是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强化学习、半监督学习、监督学习、非监督学习的区别"><span class="nav-number">2.14.</span> <span class="nav-text">强化学习、半监督学习、监督学习、非监督学习的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有关相似性"><span class="nav-number">2.15.</span> <span class="nav-text">有关相似性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node2vec的随机游走讲的是什么？"><span class="nav-number">2.16.</span> <span class="nav-text">node2vec的随机游走讲的是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node2vec算法过程是？"><span class="nav-number">2.17.</span> <span class="nav-text">node2vec算法过程是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node2vec学到了什么特征？"><span class="nav-number">2.18.</span> <span class="nav-text">node2vec学到了什么特征？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Negative-sampling和Hierarchical-sampling有什么优势？"><span class="nav-number">2.19.</span> <span class="nav-text">Negative sampling和Hierarchical sampling有什么优势？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对node2vec的随机梯度下降如何实现？"><span class="nav-number">2.20.</span> <span class="nav-text">针对node2vec的随机梯度下降如何实现？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文针对多标签分类问题对哪些数据集作了实验"><span class="nav-number">2.21.</span> <span class="nav-text">论文针对多标签分类问题对哪些数据集作了实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node2vec的参数稳定性如何？"><span class="nav-number">2.22.</span> <span class="nav-text">node2vec的参数稳定性如何？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文针对链接预测问题对哪些数据集作了实验"><span class="nav-number">2.23.</span> <span class="nav-text">论文针对链接预测问题对哪些数据集作了实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#讨论和总结"><span class="nav-number">2.24.</span> <span class="nav-text">讨论和总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Area-Under-Curve-AUC-scores是什么？"><span class="nav-number">2.24.1.</span> <span class="nav-text">Area Under Curve (AUC) scores是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hadamard-operator是什么？"><span class="nav-number">2.24.2.</span> <span class="nav-text">Hadamard operator是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各种模型对比"><span class="nav-number">2.24.3.</span> <span class="nav-text">各种模型对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">2.25.</span> <span class="nav-text">参考文献</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cart回归的思想？"><span class="nav-number">3.1.</span> <span class="nav-text">Cart回归的思想？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机森林的思想是？"><span class="nav-number">3.2.</span> <span class="nav-text">随机森林的思想是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遗传算法Matlab实现"><span class="nav-number">3.3.</span> <span class="nav-text">遗传算法Matlab实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蚁群算法应用"><span class="nav-number">3.4.</span> <span class="nav-text">蚁群算法应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大流问题的基本概念有哪些？"><span class="nav-number">3.5.</span> <span class="nav-text">最大流问题的基本概念有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合评价方法中，以下方法的原理以及区别在于？"><span class="nav-number">3.6.</span> <span class="nav-text">综合评价方法中，以下方法的原理以及区别在于？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？"><span class="nav-number">3.7.</span> <span class="nav-text">通过加速遗传算法进行投影寻踪优化的过程中，加速次数、变异率、窗宽密度等对于最终投影值的影响有多大？如何设计合适的敏感度分析实验？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-RS"><span class="nav-number">4.</span> <span class="nav-text">0x01 RS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NDVI对于植被覆盖变化检测的误差如何评价？"><span class="nav-number">4.1.</span> <span class="nav-text">NDVI对于植被覆盖变化检测的误差如何评价？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在GEE中将多源遥感数据融合以弥补数据不足的情形？"><span class="nav-number">4.2.</span> <span class="nav-text">如何在GEE中将多源遥感数据融合以弥补数据不足的情形？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？"><span class="nav-number">4.3.</span> <span class="nav-text">MNDWI、NDWI、NDGI、NDBI、NDVI的作用是？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是不透水层？"><span class="nav-number">4.4.</span> <span class="nav-text">什么是不透水层？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不透水层与裸地的混淆如何解决？"><span class="nav-number">4.5.</span> <span class="nav-text">不透水层与裸地的混淆如何解决？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何区分水田和河流"><span class="nav-number">4.6.</span> <span class="nav-text">如何区分水田和河流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GEE中通过各颜色像素计算变化面积思路"><span class="nav-number">4.7.</span> <span class="nav-text">GEE中通过各颜色像素计算变化面积思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Modeling"><span class="nav-number">5.</span> <span class="nav-text">0x02 Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#真实世界"><span class="nav-number">5.1.</span> <span class="nav-text">真实世界</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-待阅读文章"><span class="nav-number">6.</span> <span class="nav-text">0x03 待阅读文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4"><span class="nav-number">7.</span> <span class="nav-text">4 </span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

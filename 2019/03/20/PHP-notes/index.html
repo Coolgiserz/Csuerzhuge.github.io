@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Web,Notes,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="世界上最好的语言开发工具——PhpStorm创建文件模板 json_encodejson_decode1234567891011121314//get the parameter//connect to db server//construct a sql statement//send the statement to db server //select count(1)//to judge">
+<meta name="keywords" content="Web,Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP notes">
+<meta property="og:url" content="http://yoursite.com/2019/03/20/PHP-notes/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="世界上最好的语言开发工具——PhpStorm创建文件模板 json_encodejson_decode1234567891011121314//get the parameter//connect to db server//construct a sql statement//send the statement to db server //select count(1)//to judge">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/php.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/parsephp.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/extension.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/php_pgsql.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/session1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/session2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/images/session_gc.jpg">
+<meta property="og:updated_time" content="2019-04-03T06:40:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP notes">
+<meta name="twitter:description" content="世界上最好的语言开发工具——PhpStorm创建文件模板 json_encodejson_decode1234567891011121314//get the parameter//connect to db server//construct a sql statement//send the statement to db server //select count(1)//to judge">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/images/php.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/20/PHP-notes/">
+
+
+
+
+
+  <title>PHP notes | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/PHP-notes/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP notes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-20T10:35:05+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/20/PHP-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/20/PHP-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/20/PHP-notes/" class="leancloud_visitors" data-flag-title="PHP notes">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3,743
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="世界上最好的语言"><a href="#世界上最好的语言" class="headerlink" title="世界上最好的语言"></a>世界上最好的语言</h2><h3 id="开发工具——PhpStorm"><a href="#开发工具——PhpStorm" class="headerlink" title="开发工具——PhpStorm"></a>开发工具——PhpStorm</h3><h4 id="创建文件模板"><a href="#创建文件模板" class="headerlink" title="创建文件模板"></a>创建文件模板</h4><p><img src="../../images/php.jpg" alt="文件模板"></p>
+<p>json_encode<br>json_decode<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//get the parameter</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//connect to db server</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//construct a sql statement</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//send the statement to db server </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//select count(1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//to judge the value,intval()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//pg_freeresult()</span></span><br><span class="line"><span class="comment">//pg_close()</span></span><br></pre></td></tr></table></figure></p>
+<p>JSON.stringify<br>JSON.parse</p>
+<h2 id="PHP操作数据库"><a href="#PHP操作数据库" class="headerlink" title="PHP操作数据库"></a>PHP操作数据库</h2><h3 id="连接postgres数据库"><a href="#连接postgres数据库" class="headerlink" title="连接postgres数据库"></a>连接postgres数据库</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收客户端发送的数据</span></span><br><span class="line">$user= $_REQUEST[<span class="string">"username"</span>];</span><br><span class="line">$passwd =  $_REQUEST[<span class="string">"password"</span>];</span><br><span class="line">$dbstr = <span class="string">"host=localhost port=5432 dbname=testweb user=testweb password=123456"</span>;</span><br><span class="line"><span class="comment">// 连接postgres数据库</span></span><br><span class="line">$conn = pg_connect($dbstr);</span><br><span class="line"><span class="comment">//判断连接状态</span></span><br><span class="line"><span class="keyword">if</span>(!$conn)&#123;</span><br><span class="line">    <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">        <span class="string">"Status"</span>=&gt;<span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"Code"</span>=&gt;<span class="number">100</span></span><br><span class="line">    ));</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">        <span class="string">"Status"</span>=&gt;<span class="keyword">true</span>,</span><br><span class="line">        <span class="string">"Code"</span>=&gt;<span class="number">200</span></span><br><span class="line">    ));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><ul>
+<li>Ubuntu配置apache2解析php<br>在Ubuntu下安装apache和php，默认情况下可能服务器并不能解析php</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libapache2-mod-php</span><br></pre></td></tr></table></figure>
+<p><img src="../../images/parsephp.jpg" alt="配置解析php"><br>然后重启apache<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>远程调试服务器脚本</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ini_set(<span class="string">"display_errors"</span>, <span class="string">"On"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需要使用某个数据库时，记得在php.ini中开启对应数据库扩展.<br><img src="../../images/extension.jpg" alt="开启数据库扩展"></p>
+</li>
+<li><p>PHP7，本地机器（Win10）成功运行，在Ubuntu18上找不到pg_connect()函数，已确定开启pgsql extension<br>解决办法，安装php-pgsql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt search pgsql</span><br><span class="line">sudo apt-get install php-pgsql</span><br><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="../../images/php_pgsql.jpg" alt="php-pgsql"><br><a href="https://stackoverflow.com/questions/7438059/fatal-error-call-to-undefined-function-pg-connect" target="_blank" rel="noopener">https://stackoverflow.com/questions/7438059/fatal-error-call-to-undefined-function-pg-connect</a></p>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><h4 id="提交查询语句"><a href="#提交查询语句" class="headerlink" title="提交查询语句"></a>提交查询语句</h4><ul>
+<li><p>pg_query()<br>返回查询结果资源号，若查询失败或者提供的连接号无效则返回false，若连接号有效，则可用pg_last_error()函数提取详细错误信息。<br><a href="https://secure.php.net/manual/zh/function.pg-query.php" target="_blank" rel="noopener">https://secure.php.net/manual/zh/function.pg-query.php</a></p>
+</li>
+<li><p>pg_query_params()<br>向服务器提交SQL命令并等待结果，并将参数与SQL命令分离<br><a href="https://secure.php.net/manual/zh/function.pg-query-params.php" target="_blank" rel="noopener">https://secure.php.net/manual/zh/function.pg-query-params.php</a></p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造一个SQL查询语句</span></span><br><span class="line">$sql = <span class="string">"select count(1) from todo_user where 'user'=$1 and passwd=$2"</span>;</span><br><span class="line">$result = pg_query_params($dbconn, $sql, <span class="keyword">array</span>($user,$passwd));</span><br><span class="line"><span class="keyword">if</span>(!$result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"数据库查询失败"</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数若执行失败会向控制台打印错误信息，可加‘@’符号</p>
+<h4 id="从查询结果中提取数据"><a href="#从查询结果中提取数据" class="headerlink" title="从查询结果中提取数据"></a>从查询结果中提取数据</h4><ul>
+<li><p>pg_fetch_row()<br>根据指定的result资源提取一行数据作为数组返回，每个得到的列依次存放在数组中，从偏移量0开始</p>
+</li>
+<li><p>pg_fetch_array()</p>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$row = (pg_fetch_row($result));</span><br><span class="line"><span class="keyword">if</span>(intval($row[<span class="number">0</span>])==<span class="number">0</span>)&#123;<span class="comment">//没有查到记录</span></span><br><span class="line">    <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">        <span class="string">"Status"</span>=&gt;<span class="keyword">false</span>,</span><br><span class="line">        <span class="string">"Code"</span>=&gt;<span class="number">100</span></span><br><span class="line">    ));</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;<span class="comment">//存在此用户，登录成功</span></span><br><span class="line">    <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">        <span class="string">"Status"</span>=&gt;<span class="number">200</span>,</span><br><span class="line">    ));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="释放查询结果所释放的内存"><a href="#释放查询结果所释放的内存" class="headerlink" title="释放查询结果所释放的内存"></a>释放查询结果所释放的内存</h4><p>pg_free_result()函数仅在当你担心脚本执行时占用了过多内存时调用。脚本执行完毕后所有的查询结果占用的内存都会被自动释放。不过如果你确认在脚本中不会再用到查询结果了，你可以用 result 作为参数调用 pg_free_result() 来释放有关的内存。成功时返回 TRUE， 或者在失败时返回 FALSE。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pg_freeresult($result);</span><br><span class="line">pg_close($conn);</span><br></pre></td></tr></table></figure></p>
+<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><ul>
+<li><p>Warning: A non-numeric value encountered<br>类型问题，可能是采用了+作为连接符，使解释器误解，改用.更规范。或者使用如intval()之类的函数确保数据类型严格</p>
+</li>
+<li><p>‘Debugging connection was closed. Reason: Render process gone.’ while trying to upload big/multiple files using FileReader</p>
+</li>
+<li><p>Fatal error: Cannot use object of type stdClass as array<br>json_decode默认返回的参数是对象，其第二个参数可决定返回的类型是stdClass还是array，若第二个参数为true，则返回array<br><a href="https://www.php.net/manual/zh/function.json-decode.php" target="_blank" rel="noopener">https://www.php.net/manual/zh/function.json-decode.php</a><br>类似地，注意PHP函数返回的数据类型</p>
+</li>
+<li><p>pg_affected_rows(): supplied resource is not a valid PostgreSQL result resource<br>注意，函数接收的资源参数是有类型的，如pg_affected_rows函数只处理由insert、select、update所影响的行数<br><a href="https://www.php.net/manual/en/function.pg-affected-rows.php" target="_blank" rel="noopener">https://www.php.net/manual/en/function.pg-affected-rows.php</a></p>
+</li>
+<li><p>无效的整数类型输入语法<br>传入的数据类型不对，如要求整型数据却传递了字符串，可能造成解释器混淆。</p>
+</li>
+</ul>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><h2 id="PHP面向对象"><a href="#PHP面向对象" class="headerlink" title="PHP面向对象"></a>PHP面向对象</h2><p>采用PDO连接数据库</p>
+<h2 id="PHP会话控制"><a href="#PHP会话控制" class="headerlink" title="PHP会话控制"></a>PHP会话控制</h2><h3 id="用户身份认证"><a href="#用户身份认证" class="headerlink" title="用户身份认证"></a>用户身份认证</h3><p>HTTP是无状态的，来自同一个人的连续请求之间并没有自动的连接或关联关系，在页与页之间传递数据需要自行处理。一种糟糕的想法是每浏览一页便将用户名跟密码发送一遍以达到认证身份的目的，这样将敏感信息重复发送的方式给攻击者创造了很大的机会。更好的办法是采用HTTP基本认证和会话控制。HTTP内置身份认证功能，我们自己也可实现自定义的身份认证。</p>
+<h4 id="会话控制"><a href="#会话控制" class="headerlink" title="会话控制"></a>会话控制</h4><p>会话控制的思想是在Web站点的单个会话中跟踪用户，可以支持用户登陆后根据其身份验证级别或个人选项显示相应内容，还可以记录用户行为实现类似购物车等功能。PHP提供了大量原声会话控制函数以及$_SESSION超级全局变量</p>
+<h4 id="基本会话功能"><a href="#基本会话功能" class="headerlink" title="基本会话功能"></a>基本会话功能</h4><ul>
+<li><p>cookie<br>多个事务之间保持状态问题的不同解决方案</p>
+</li>
+<li><p>通过PHP设置cookie<br>setcookie()函数可在PHP中手工设置cookie，如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setcookie(<span class="string">'my_cookie'</span>,<span class="string">'cookie_value'</span>);<span class="comment">//调用setcookie函数并设置过期时间可以删除一个cookie</span></span><br><span class="line">$_COOKIE[<span class="string">'my_cookie'</span>];<span class="comment">//读取保存在cookie中的数据</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://secure.php.net/manual/zh/function.setcookie.php" target="_blank" rel="noopener">https://secure.php.net/manual/zh/function.setcookie.php</a></p>
+<ul>
+<li>会话中使用cookie</li>
+</ul>
+<p>cookie规范：<a href="https://tools.ietf.org/html/rfc6265" target="_blank" rel="noopener">https://tools.ietf.org/html/rfc6265</a></p>
+<ul>
+<li>保存会话ID<br>默认情况下，PHP会话使用cookie在客户端保存会话ID，PHP页提供了并内置方法将会话ID添加到URL中。若激活php.ini文件的session.use_trans_sid指令，会将会话ID自动添加到URL中。该指令默认为0（禁用）<br><img src="../../images/session1.jpg" alt="session_use_trans_sid"></li>
+</ul>
+<p><a href="http://php.net/session.use-trans-sid" target="_blank" rel="noopener">http://php.net/session.use-trans-sid</a></p>
+<h4 id="实现简单会话"><a href="#实现简单会话" class="headerlink" title="实现简单会话"></a>实现简单会话</h4><p>使用会话的基本步骤：</p>
+<ol>
+<li>启动一个会话<br>启动一个调用了session_start()函数的脚本<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检查当前是否有一个活跃会话，如果没有则创建会话并可通过超级全局数组$_SESSION访问。</span></span><br><span class="line"><span class="comment">//如果会话已经存在，session_start()函数将载入注册的会话变量</span></span><br><span class="line">session_start();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>启动会话的另外一个方法是，配置PHP使得有人访问站点时会话自动启动.<br><img src="../../images/session2.jpg" alt="session_auto_start"></p>
+<ol start="2">
+<li>注册会话变量<br>设置$_SESSION数组的元素，记录会话变量，直到会话结束或者手工取消会话。会话过期时间根据php.ini文件的session.gc_maxlifetime设置。<br><img src="../../images/session_gc.jpg" alt="session_gc_maxlifetime"></li>
+</ol>
+<ol start="3">
+<li><p>使用会话变量<br>通过isset()或empty()等方法检查会话变量是否已注册</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($SESSION[<span class="string">'mysession'</span>]))&#123;</span><br><span class="line">    <span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取消变量注册及销毁会话</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">unset</span>($+SESSION[<span class="string">'mysession'</span>]);<span class="comment">//销毁变量</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>要一次性销毁所有会话变量，可进行如下操作<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_SESSION = <span class="keyword">array</span>();</span><br></pre></td></tr></table></figure></p>
+<p>完成会话使用后，需要销毁所有变量，并调用session_destroy()函数清楚会话ID</p>
+<h2 id="Javascript与PHP集成"><a href="#Javascript与PHP集成" class="headerlink" title="Javascript与PHP集成"></a>Javascript与PHP集成</h2><h2 id="简易登录注册示例"><a href="#简易登录注册示例" class="headerlink" title="简易登录注册示例"></a>简易登录注册示例</h2><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><h4 id="新建数据表"><a href="#新建数据表" class="headerlink" title="新建数据表"></a>新建数据表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> todo_user (</span><br><span class="line">	<span class="string">"id"</span> <span class="built_in">serial</span> primary <span class="keyword">key</span>,</span><br><span class="line">	<span class="string">"user"</span> <span class="built_in">varchar</span>(<span class="number">30</span>) <span class="keyword">unique</span>,</span><br><span class="line">	<span class="string">"passwd"</span> <span class="built_in">varchar</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd) <span class="keyword">values</span> (<span class="string">'hhhh'</span>,<span class="string">'987654'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd) <span class="keyword">values</span>(<span class="string">'test'</span>,<span class="string">'123456'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> todo_user;</span><br></pre></td></tr></table></figure>
+<h4 id="更改数据表"><a href="#更改数据表" class="headerlink" title="更改数据表"></a>更改数据表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> public.todo_user <span class="keyword">ADD</span> email <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> public.todo_user <span class="keyword">ADD</span> phonenum <span class="built_in">numeric</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> public.todo_user <span class="keyword">ADD</span> realname <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据记录"><a href="#删除数据记录" class="headerlink" title="删除数据记录"></a>删除数据记录</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd) <span class="keyword">values</span> (<span class="string">'hhhh'</span>,<span class="string">'987654'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd) <span class="keyword">values</span>(<span class="string">'test'</span>,<span class="string">'123456'</span>);</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> todo_user <span class="keyword">where</span> <span class="string">"user"</span>=<span class="string">''</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="重建数据表"><a href="#重建数据表" class="headerlink" title="重建数据表"></a>重建数据表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">exists</span> todo_user;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> todo_user(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">serial</span> primary <span class="keyword">key</span>,</span><br><span class="line">	<span class="string">"user"</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span>,</span><br><span class="line">	<span class="string">"passwd"</span> <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="string">"realname"</span> <span class="built_in">varchar</span>(<span class="number">18</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="string">"email"</span>  <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="string">"mobile"</span>  <span class="built_in">varchar</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd,realname,email,mobile) <span class="keyword">values</span> (<span class="string">'ge8'</span>,<span class="string">'987654'</span>,<span class="string">'乐乐'</span>,<span class="string">'2781909@qq.com'</span>,<span class="string">'74125896321'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> todo_user(<span class="string">"user"</span>,passwd,realname,email,mobile) <span class="keyword">values</span> (<span class="string">'test'</span>,<span class="string">'123456'</span>,<span class="string">'傻傻'</span>,<span class="string">'118190@qq.com'</span>,<span class="string">'13224741258'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="批量插入测试数据"><a href="#批量插入测试数据" class="headerlink" title="批量插入测试数据"></a>批量插入测试数据</h4><p>生成一个大文件</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><p>postgres的SQL方言与MySQL、SQLserver等有较大不同，表名、字段名的规范写法都要用双引号引起（单引号不行！）。对字段名用双引号引起可防止可能存在的关键字冲突，PHP构造SQL语句时如果不对表名如果不采用双引号引起，可能会发生很多不开心的事！</p>
+<h3 id="连接数据库封装"><a href="#连接数据库封装" class="headerlink" title="连接数据库封装"></a>连接数据库封装</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/22</span></span><br><span class="line"><span class="comment"> * File: dbconn.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">define(<span class="string">'HOST'</span>,<span class="string">'127.0.0.1'</span>);</span><br><span class="line">define(<span class="string">'PORT'</span>,<span class="string">'5432'</span>);</span><br><span class="line">define(<span class="string">'DB_NAME'</span>,<span class="string">'dbdb'</span>);</span><br><span class="line">define(<span class="string">'DB_USER'</span>,<span class="string">'testuser'</span>);</span><br><span class="line">define(<span class="string">'DB_PASSWD'</span>,<span class="string">'testpwd'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="登录功能实现"><a href="#登录功能实现" class="headerlink" title="登录功能实现"></a>登录功能实现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/22</span></span><br><span class="line"><span class="comment"> * File: login.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$user= $_REQUEST[<span class="string">"username"</span>];</span><br><span class="line">$passwd =  $_REQUEST[<span class="string">"password"</span>];</span><br><span class="line"><span class="keyword">include</span>(<span class="string">'dbconn.php'</span>);</span><br><span class="line">$dbstr = <span class="string">"host="</span>.HOST.<span class="string">" port="</span>.PORT.<span class="string">" dbname="</span>.DB_NAME.<span class="string">" user="</span>.DB_USER;</span><br><span class="line">$dbconn = pg_connect($dbstr);<span class="comment">//@pg_connect</span></span><br><span class="line"><span class="keyword">if</span>(!$dbconn)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"请稍后再试"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造一个SQL查询语句</span></span><br><span class="line">$sql = <span class="string">"select count(1) from "</span>.<span class="string">"todo_user"</span>.<span class="string">" where "</span>.<span class="string">'"user"'</span>.<span class="string">'=$1 and passwd=$2'</span>;<span class="comment">//实际开发中，应该保存密码的哈希值而非明文密码</span></span><br><span class="line">$result = pg_query_params($dbconn, $sql, <span class="keyword">array</span>($user,$passwd)); <span class="comment">//网站上线时改成@pg_query_params，防信息泄露</span></span><br><span class="line"><span class="keyword">if</span>(!$result)&#123;</span><br><span class="line">    <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">        <span class="string">"Status"</span>=&gt;<span class="string">"Error"</span>,</span><br><span class="line">    ));</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    $row = (pg_fetch_row($result));</span><br><span class="line">    <span class="keyword">if</span>(intval($row[<span class="number">0</span>])==<span class="number">0</span>)&#123;<span class="comment">//没有查到记录</span></span><br><span class="line">        <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">            <span class="string">"Status"</span>=&gt;<span class="keyword">false</span>,</span><br><span class="line">            <span class="string">"Code"</span>=&gt;<span class="number">100</span></span><br><span class="line">        ));</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;<span class="comment">//存在此用户，登录成功</span></span><br><span class="line">        <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">"username"</span>=&gt;$user,</span><br><span class="line">            <span class="string">"Status"</span>=&gt;<span class="number">200</span>,</span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">    pg_freeresult($result);</span><br><span class="line">    pg_close($dbconn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="异步方式检查账户名是否重复——后端"><a href="#异步方式检查账户名是否重复——后端" class="headerlink" title="异步方式检查账户名是否重复——后端"></a>异步方式检查账户名是否重复——后端</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/22</span></span><br><span class="line"><span class="comment"> * File: checkuser.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$user = $_REQUEST[<span class="string">"username"</span>];</span><br><span class="line"><span class="keyword">include</span>(<span class="string">'dbconn.php'</span>);</span><br><span class="line">$dbstr = <span class="string">"host="</span>.HOST.<span class="string">" port="</span>.PORT.<span class="string">" dbname="</span>.DB_NAME.<span class="string">" user="</span>.DB_USER;</span><br><span class="line">$dbconn = pg_connect($dbstr);<span class="comment">//@pg_connect</span></span><br><span class="line"><span class="keyword">if</span> (!$dbconn) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"请稍后再试"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 构造一个SQL查询语句检查用户名是否存在</span></span><br><span class="line">$sql = <span class="string">'select count(1) from todo_user where "user"=$1'</span>;</span><br><span class="line">$result = pg_query_params($dbconn, $sql, <span class="keyword">array</span>($user));<span class="comment">//@pg_query_params</span></span><br><span class="line"><span class="keyword">if</span> (!$result) &#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $row = pg_fetch_all($result);</span><br><span class="line">    $row = $row[<span class="number">0</span>][<span class="string">"count"</span>];</span><br><span class="line">    <span class="keyword">if</span> ($row == <span class="number">0</span>) &#123;<span class="comment">//没有查到记录</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">//存在此用户，提示用户换一个账号名</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pg_freeresult($result);</span><br><span class="line">    pg_close($dbconn);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="简单注册功能实现"><a href="#简单注册功能实现" class="headerlink" title="简单注册功能实现"></a>简单注册功能实现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/22</span></span><br><span class="line"><span class="comment"> * File: register.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">'dbconn.php'</span>);</span><br><span class="line">$dbstr = <span class="string">"host="</span>.HOST.<span class="string">" port="</span>.PORT.<span class="string">" dbname="</span>.DB_NAME.<span class="string">" user="</span>.DB_USER;</span><br><span class="line">$dbconn = pg_connect($dbstr);</span><br><span class="line">$user = $_REQUEST[<span class="string">"username"</span>];</span><br><span class="line">$passwd =  $_REQUEST[<span class="string">"password"</span>];</span><br><span class="line">$realname =  $_REQUEST[<span class="string">"realname"</span>];</span><br><span class="line">$email= $_REQUEST[<span class="string">"email"</span>];</span><br><span class="line">$mobile =  $_REQUEST[<span class="string">"mobile"</span>];</span><br><span class="line"><span class="keyword">if</span>(!$dbconn)&#123;<span class="comment">//数据库连接错误</span></span><br><span class="line">    <span class="comment">//处理错误信息</span></span><br><span class="line">&#125; <span class="keyword">else</span>&#123;<span class="comment">//数据库连接成功</span></span><br><span class="line">    <span class="keyword">if</span>($user==<span class="string">""</span>)&#123;<span class="comment">//除此以外，应该对用户数据做更多过滤</span></span><br><span class="line">        <span class="keyword">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    $sql = <span class="string">"insert into todo_user"</span>.<span class="string">" "</span>.<span class="string">'("user",passwd,realname,email,mobile) '</span>.<span class="string">" values($1,$2,$3,$4,$5)"</span>;<span class="comment">//需要注意postgresql里面的SQL语句风格</span></span><br><span class="line">    $data = <span class="keyword">array</span>(</span><br><span class="line">        $user,</span><br><span class="line">        $passwd,</span><br><span class="line">        $realname,</span><br><span class="line">        $email,</span><br><span class="line">        $mobile</span><br><span class="line">    );</span><br><span class="line">    $result = pg_query_params($dbconn, $sql,$data );</span><br><span class="line">    <span class="keyword">if</span>(!$result)&#123;</span><br><span class="line">        <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">"success"</span>=&gt;<span class="keyword">false</span>,</span><br><span class="line">            <span class="string">"message"</span>=&gt;pg_last_error(),</span><br><span class="line">        ));</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> json_encode(<span class="keyword">array</span>(</span><br><span class="line">            <span class="string">"success"</span>=&gt;<span class="keyword">true</span>,</span><br><span class="line">            <span class="string">"message"</span>=&gt;<span class="string">"insert success!"</span></span><br><span class="line">        ));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="成功登录页面"><a href="#成功登录页面" class="headerlink" title="成功登录页面"></a>成功登录页面</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/22</span></span><br><span class="line"><span class="comment"> * File: index.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">session_start();<span class="comment">//启动一个会话</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;我的主页&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;欢迎!&lt;/h1&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//检查会话变量</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_SESSION[<span class="string">'user'</span>]))&#123;<span class="comment">//检查$_SESSION变量是否设置，及当前会话是否包含一个已注册用户</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;你好, '</span>.$_SESSION[<span class="string">'user'</span>].<span class="string">'&lt;/p&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;&lt;a href="logout.php"&gt;退出登录&lt;/a&gt;&lt;/p&gt;'</span>;</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span>&#123;<span class="comment">//用户未登录，提示其登录</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;请先登录！&lt;/p&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;&lt;a href="login.html"&gt;登录&lt;/a&gt;&lt;/p&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="退出登录功能实现"><a href="#退出登录功能实现" class="headerlink" title="退出登录功能实现"></a>退出登录功能实现</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/23</span></span><br><span class="line"><span class="comment"> * File: logout.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_SESSION[<span class="string">'user'</span>]))&#123;</span><br><span class="line">    $old_user = $_SESSION[<span class="string">'user'</span>];</span><br><span class="line">    <span class="keyword">unset</span>($_SESSION[<span class="string">'user'</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">session_destroy();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by PhpStorm.</span></span><br><span class="line"><span class="comment"> * User: CoolCats</span></span><br><span class="line"><span class="comment"> * Date: 2019/3/23</span></span><br><span class="line"><span class="comment"> * File: logout.php</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">session_start();</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_SESSION[<span class="string">'user'</span>])) &#123;</span><br><span class="line">    $old_user = $_SESSION[<span class="string">'user'</span>];</span><br><span class="line">    <span class="keyword">unset</span>($_SESSION[<span class="string">'user'</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">session_destroy();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;登出&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;登出页&lt;/h1&gt;</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($old_user)) &#123;    <span class="comment">//用户退出登录的情况</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;你已经退出登录&lt;/p&gt;'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;                    <span class="comment">//用户还没登录的情况</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;p&gt;你还没有登录&lt;/p&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;p&gt;&lt;a href=<span class="string">"login.html"</span>&gt;登录&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="PHP安全函数"><a href="#PHP安全函数" class="headerlink" title="PHP安全函数"></a>PHP安全函数</h2><ul>
+<li><p>htmlspecialchars()与htmlspecialchars_decode()<br>对部分特殊字符进行转义</p>
+</li>
+<li><p>htmlentities()与html_entity_decode()<br>转义所有的HTML字符</p>
+</li>
+</ul>
+<h2 id="WebQQ-Demo"><a href="#WebQQ-Demo" class="headerlink" title="WebQQ Demo"></a>WebQQ Demo</h2><h3 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h3><h4 id="通知推送"><a href="#通知推送" class="headerlink" title="通知推送"></a>通知推送</h4><p>通知具有类型，如好友管理的通知（好友添加请求、好友删除通知）；群聊通知（成为管理员、群转让、群升级）；</p>
+<h4 id="好友管理"><a href="#好友管理" class="headerlink" title="好友管理"></a>好友管理</h4><ul>
+<li><p>好友列表</p>
+</li>
+<li><p>添加好友<br>用户1按照用户名查找用户2是否存在，并向其发送添加好友的通知；用户2接收到通知，决策是否要添加好友。</p>
+</li>
+<li><p>删除好友<br>激活好友管理模块，在好友列表中增加checkbox，勾选要删除的好友<br>#### </p>
+</li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- user.sql</span></span><br><span class="line"><span class="comment">-- uuid：https://www.uuidgenerator.net/</span></span><br><span class="line"><span class="comment">-- epoch：https://www.epochconverter.com/</span></span><br><span class="line"><span class="comment">-- qq_user 用户账户信息--还应加上权限</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> qq_user(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">serial</span> primary <span class="keyword">key</span>,</span><br><span class="line">	username <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">unique</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">	<span class="string">"password"</span> <span class="built_in">varchar</span>(<span class="number">128</span>) <span class="keyword">not</span> <span class="literal">null</span>,		<span class="comment">-- </span></span><br><span class="line">	createtime <span class="keyword">timestamp</span> <span class="keyword">default</span> <span class="keyword">now</span>()	<span class="comment">-- 账号创建时间</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span>  <span class="keyword">if</span> <span class="keyword">exists</span> user_detail;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> user_detail(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">serial</span> primary <span class="keyword">key</span>,	<span class="comment">-- </span></span><br><span class="line">	realname <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,		<span class="comment">-- 真实姓名</span></span><br><span class="line">	gender <span class="built_in">varchar</span>(<span class="number">5</span>) <span class="keyword">check</span> (gender <span class="keyword">in</span> (<span class="string">'男'</span>,<span class="string">'女'</span>)) ,		<span class="comment">-- 性别</span></span><br><span class="line">	email <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">not</span> <span class="literal">null</span>,			<span class="comment">-- 邮箱</span></span><br><span class="line">	mobile <span class="built_in">varchar</span>(<span class="number">11</span>) <span class="keyword">not</span> <span class="literal">null</span>,		<span class="comment">-- 手机号码</span></span><br><span class="line">	industry <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,		<span class="comment">-- 行业</span></span><br><span class="line">	profession <span class="built_in">varchar</span>(<span class="number">32</span>),				<span class="comment">-- 职业</span></span><br><span class="line">	signature <span class="built_in">varchar</span>(<span class="number">32</span>),				<span class="comment">-- 个性签名 </span></span><br><span class="line">	img <span class="built_in">varchar</span>(<span class="number">32</span>)				<span class="comment">-- 个人头像</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- relation.sql</span></span><br><span class="line"><span class="comment">-- qq_friendships 关系</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> qq_friendships(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">serial</span> primary <span class="keyword">key</span>,</span><br><span class="line">	user1 <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,			<span class="comment">-- 用户1</span></span><br><span class="line">	user2 <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">not</span> <span class="literal">null</span>,			<span class="comment">-- 用户2</span></span><br><span class="line">	buildtime <span class="keyword">timestamp</span> <span class="keyword">default</span> <span class="keyword">now</span>()	<span class="comment">-- 成为好友的时间</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="UI设计"><a href="#UI设计" class="headerlink" title="UI设计"></a>UI设计</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*Connector.js</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line">Connector = <span class="function"><span class="keyword">function</span>(<span class="params">opts</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">    me._opts = $.extends(&#123;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>uuid.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">DlgLogin.js</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">me._opts</span><br><span class="line">me._userID</span><br><span class="line">me._pwdID</span><br><span class="line">me._dlg</span><br><span class="line">Connector = <span class="function"><span class="keyword">function</span> (<span class="params">opts</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">    me._opts = $.extend(&#123;</span><br><span class="line">        url: <span class="string">"php/WebQQServer.php"</span></span><br><span class="line">    &#125;, opts)</span><br><span class="line">    $.ajax(&#123;<span class="comment">//send the post request to the server</span></span><br><span class="line">        url: me._opts.url,</span><br><span class="line">        method: <span class="string">"POST"</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            request: <span class="built_in">JSON</span>.stringify(me._opts.data)</span><br><span class="line">        &#125;,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> json = <span class="built_in">JSON</span>.parse(data);</span><br><span class="line">            <span class="keyword">if</span> (json.success) &#123;</span><br><span class="line">                <span class="keyword">if</span> (me._opts.success) &#123;</span><br><span class="line">                    me._opts.success(json);</span><br><span class="line">                    <span class="comment">//处理登录成功逻辑</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                    alert(json.message);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (me._opts.failure) &#123;</span><br><span class="line">                    me._opts.failure(json);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    alert(json.message);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"网络异常"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>myQQ.css</p>
+<p>Server.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Server</span></span>&#123;</span><br><span class="line">    <span class="comment">//requests</span></span><br><span class="line">    <span class="comment">//response</span></span><br><span class="line">    <span class="comment">//successTips()</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>UserServer extends Server</p>
+<p>open<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set the request</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// open the connection</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// run the server</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure></p>
+<p>用户简介<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//个人头像</span></span><br><span class="line"><span class="comment">//真实姓名：</span></span><br><span class="line"><span class="comment">//性别</span></span><br><span class="line"><span class="comment">//邮箱</span></span><br><span class="line"><span class="comment">//手机号码</span></span><br><span class="line"><span class="comment">//行业</span></span><br><span class="line"><span class="comment">//职业</span></span><br><span class="line"><span class="comment">//个性签名</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="好友列表返回"><a href="#好友列表返回" class="headerlink" title="好友列表返回"></a>好友列表返回</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 目标，返回好友的id、用户名</span></span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">	* </span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	qq_user A,</span><br><span class="line">	qq_friendships B,</span><br><span class="line">	qq_user C</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	A.id = B.user1 </span><br><span class="line"><span class="keyword">and</span> A.username = <span class="string">'test'</span></span><br><span class="line"><span class="keyword">and</span> B.user2 = C.id;</span><br></pre></td></tr></table></figure>
+<p>showLoginDialog(){</p>
+<pre><code>logonSuccess:function(json){
+
+}
+</code></pre><p>}</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//登陆成功后后端记下session</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//DlgFriendsList</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//USER_GET_FRIEND_LIST</span></span><br><span class="line">_getFriendsList = <span class="function"><span class="keyword">function</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP安全开发"><a href="#PHP安全开发" class="headerlink" title="PHP安全开发"></a>PHP安全开发</h2><h3 id="防信息泄露"><a href="#防信息泄露" class="headerlink" title="防信息泄露"></a>防信息泄露</h3><h4 id="防止“用户”浏览web服务器目录"><a href="#防止“用户”浏览web服务器目录" class="headerlink" title="防止“用户”浏览web服务器目录"></a>防止“用户”浏览web服务器目录</h4><ul>
+<li>法一<br>在目录底下添加索引文件如index.html或index.php,使用户进入改目录自动被导向索引文件。（当然可以配置，不一定叫index）<br><a href="https://payloads.online/archivers/2018-04-27/1" target="_blank" rel="noopener">https://payloads.online/archivers/2018-04-27/1</a></li>
+</ul>
+<h3 id="防SQL注入"><a href="#防SQL注入" class="headerlink" title="防SQL注入"></a>防SQL注入</h3><h3 id="防请求头绕过"><a href="#防请求头绕过" class="headerlink" title="防请求头绕过"></a>防请求头绕过</h3><h3 id="防任意代码执行"><a href="#防任意代码执行" class="headerlink" title="防任意代码执行"></a>防任意代码执行</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/Notes/" rel="tag"># Notes</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/《She-walks-in-beauty》/" rel="next" title="《She walks in beauty》">
+                <i class="fa fa-chevron-left"></i> 《She walks in beauty》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/Javascripts-notes/" rel="prev" title="Javascript notes">
+                Javascript notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#世界上最好的语言"><span class="nav-number">1.</span> <span class="nav-text">世界上最好的语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发工具——PhpStorm"><span class="nav-number">1.1.</span> <span class="nav-text">开发工具——PhpStorm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建文件模板"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建文件模板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP操作数据库"><span class="nav-number">2.</span> <span class="nav-text">PHP操作数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接postgres数据库"><span class="nav-number">2.1.</span> <span class="nav-text">连接postgres数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number">2.1.1.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">2.2.</span> <span class="nav-text">查询数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提交查询语句"><span class="nav-number">2.2.1.</span> <span class="nav-text">提交查询语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从查询结果中提取数据"><span class="nav-number">2.2.2.</span> <span class="nav-text">从查询结果中提取数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放查询结果所释放的内存"><span class="nav-number">2.2.3.</span> <span class="nav-text">释放查询结果所释放的内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">2.3.</span> <span class="nav-text">插入数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP面向对象"><span class="nav-number">3.</span> <span class="nav-text">PHP面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP会话控制"><span class="nav-number">4.</span> <span class="nav-text">PHP会话控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户身份认证"><span class="nav-number">4.1.</span> <span class="nav-text">用户身份认证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#会话控制"><span class="nav-number">4.1.1.</span> <span class="nav-text">会话控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本会话功能"><span class="nav-number">4.1.2.</span> <span class="nav-text">基本会话功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现简单会话"><span class="nav-number">4.1.3.</span> <span class="nav-text">实现简单会话</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript与PHP集成"><span class="nav-number">5.</span> <span class="nav-text">Javascript与PHP集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简易登录注册示例"><span class="nav-number">6.</span> <span class="nav-text">简易登录注册示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库操作"><span class="nav-number">6.1.</span> <span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建数据表"><span class="nav-number">6.1.1.</span> <span class="nav-text">新建数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更改数据表"><span class="nav-number">6.1.2.</span> <span class="nav-text">更改数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除数据记录"><span class="nav-number">6.1.3.</span> <span class="nav-text">删除数据记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重建数据表"><span class="nav-number">6.1.4.</span> <span class="nav-text">重建数据表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量插入测试数据"><span class="nav-number">6.1.5.</span> <span class="nav-text">批量插入测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">6.1.6.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接数据库封装"><span class="nav-number">6.2.</span> <span class="nav-text">连接数据库封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录功能实现"><span class="nav-number">6.3.</span> <span class="nav-text">登录功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步方式检查账户名是否重复——后端"><span class="nav-number">6.4.</span> <span class="nav-text">异步方式检查账户名是否重复——后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单注册功能实现"><span class="nav-number">6.5.</span> <span class="nav-text">简单注册功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成功登录页面"><span class="nav-number">6.6.</span> <span class="nav-text">成功登录页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出登录功能实现"><span class="nav-number">6.7.</span> <span class="nav-text">退出登录功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP安全函数"><span class="nav-number">7.</span> <span class="nav-text">PHP安全函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebQQ-Demo"><span class="nav-number">8.</span> <span class="nav-text">WebQQ Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能设计"><span class="nav-number">8.1.</span> <span class="nav-text">功能设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通知推送"><span class="nav-number">8.1.1.</span> <span class="nav-text">通知推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#好友管理"><span class="nav-number">8.1.2.</span> <span class="nav-text">好友管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">8.2.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI设计"><span class="nav-number">8.3.</span> <span class="nav-text">UI设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#好友列表返回"><span class="nav-number">8.3.1.</span> <span class="nav-text">好友列表返回</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP安全开发"><span class="nav-number">9.</span> <span class="nav-text">PHP安全开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#防信息泄露"><span class="nav-number">9.1.</span> <span class="nav-text">防信息泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#防止“用户”浏览web服务器目录"><span class="nav-number">9.1.1.</span> <span class="nav-text">防止“用户”浏览web服务器目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防SQL注入"><span class="nav-number">9.2.</span> <span class="nav-text">防SQL注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防请求头绕过"><span class="nav-number">9.3.</span> <span class="nav-text">防请求头绕过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防任意代码执行"><span class="nav-number">9.4.</span> <span class="nav-text">防任意代码执行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

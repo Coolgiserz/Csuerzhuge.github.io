@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MachineLearning,RemoteSensing,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x00 任意门https://earthengine.google.com/GEE FAQs：https://earthengine.google.com/faq/GLOBAL-SCALE INSIGHT：https://earthengine.google.com/timelapse/READY-TO-USE DATASETS：https://developers.google.com/ear">
+<meta name="keywords" content="MachineLearning,RemoteSensing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Earth Engine入门">
+<meta property="og:url" content="http://yoursite.com/2018/12/19/Google-Earth-Engine入门/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="0x00 任意门https://earthengine.google.com/GEE FAQs：https://earthengine.google.com/faq/GLOBAL-SCALE INSIGHT：https://earthengine.google.com/timelapse/READY-TO-USE DATASETS：https://developers.google.com/ear">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T14:07:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Earth Engine入门">
+<meta name="twitter:description" content="0x00 任意门https://earthengine.google.com/GEE FAQs：https://earthengine.google.com/faq/GLOBAL-SCALE INSIGHT：https://earthengine.google.com/timelapse/READY-TO-USE DATASETS：https://developers.google.com/ear">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/19/Google-Earth-Engine入门/">
+
+
+
+
+
+  <title>Google Earth Engine入门 | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/19/Google-Earth-Engine入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Google Earth Engine入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-19T18:14:48+08:00">
+                2018-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/GIS/" itemprop="url" rel="index">
+                    <span itemprop="name">GIS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/19/Google-Earth-Engine入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/19/Google-Earth-Engine入门/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/19/Google-Earth-Engine入门/" class="leancloud_visitors" data-flag-title="Google Earth Engine入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  788
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00-任意门"><a href="#0x00-任意门" class="headerlink" title="0x00 任意门"></a>0x00 任意门</h2><p><a href="https://earthengine.google.com/" target="_blank" rel="noopener">https://earthengine.google.com/</a><br>GEE FAQs：<a href="https://earthengine.google.com/faq/" target="_blank" rel="noopener">https://earthengine.google.com/faq/</a><br>GLOBAL-SCALE INSIGHT：<a href="https://earthengine.google.com/timelapse/" target="_blank" rel="noopener">https://earthengine.google.com/timelapse/</a><br>READY-TO-USE DATASETS：<a href="https://developers.google.com/earth-engine/datasets/" target="_blank" rel="noopener">https://developers.google.com/earth-engine/datasets/</a><br>API：<a href="https://developers.google.com/earth-engine/#api" target="_blank" rel="noopener">https://developers.google.com/earth-engine/#api</a><br>Code Editor：<a href="https://developers.google.com/earth-engine/playground" target="_blank" rel="noopener">https://developers.google.com/earth-engine/playground</a><br>Case Studies：<a href="https://earthengine.google.com/case_studies/" target="_blank" rel="noopener">https://earthengine.google.com/case_studies/</a><br>Github：<a href="https://github.com/google/earthengine-api/tree/master/python/examples/py/FeatureCollection" target="_blank" rel="noopener">https://github.com/google/earthengine-api/tree/master/python/examples/py/FeatureCollection</a></p>
+<h2 id="0x01-云平台使用"><a href="#0x01-云平台使用" class="headerlink" title="0x01 云平台使用"></a>0x01 云平台使用</h2><h2 id="云平台js版"><a href="#云平台js版" class="headerlink" title="云平台js版"></a>云平台js版</h2><h3 id="网上中文教程"><a href="#网上中文教程" class="headerlink" title="网上中文教程"></a>网上中文教程</h3><h4 id="入门系列"><a href="#入门系列" class="headerlink" title="入门系列"></a>入门系列</h4><p>快报：<a href="https://kuaibao.qq.com/s/20180613G20Q8100?refer=spider" target="_blank" rel="noopener">https://kuaibao.qq.com/s/20180613G20Q8100?refer=spider</a><br>GEE学习大纲：<a href="https://zhuanlan.zhihu.com/p/29000384" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/29000384</a><br>GEE学习笔记：<a href="https://www.douban.com/note/650833160/" target="_blank" rel="noopener">https://www.douban.com/note/650833160/</a></p>
+<h4 id="小功能教程"><a href="#小功能教程" class="headerlink" title="小功能教程"></a>小功能教程</h4><p>GEE生成图例：<a href="https://zhuanlan.zhihu.com/p/31186964" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31186964</a><br>计算多边形面积：<a href="https://www.earthdatascience.org/tutorials/basic-polygon-operations-google-earth-engine/" target="_blank" rel="noopener">https://www.earthdatascience.org/tutorials/basic-polygon-operations-google-earth-engine/</a></p>
+<h3 id="网上英文教程"><a href="#网上英文教程" class="headerlink" title="网上英文教程"></a>网上英文教程</h3><h4 id="Landsat算法"><a href="#Landsat算法" class="headerlink" title="Landsat算法"></a>Landsat算法</h4><p><a href="https://developers.google.com/earth-engine/landsat" target="_blank" rel="noopener">https://developers.google.com/earth-engine/landsat</a></p>
+<h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p><a href="https://developers.google.com/earth-engine/classification" target="_blank" rel="noopener">https://developers.google.com/earth-engine/classification</a></p>
+<h4 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h4><p><a href="https://developers.google.com/earth-engine/clustering" target="_blank" rel="noopener">https://developers.google.com/earth-engine/clustering</a></p>
+<h2 id="云平台Python环境"><a href="#云平台Python环境" class="headerlink" title="云平台Python环境"></a>云平台Python环境</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>安装鉴权验证依赖库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyCrypto</span><br></pre></td></tr></table></figure></p>
+<p>安装earth engine api<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install google-api-python-client</span><br><span class="line">pip install earthengine-api</span><br></pre></td></tr></table></figure></p>
+<p>Fail install pycrypto, install pycryptodome instead.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pycryptodome</span><br></pre></td></tr></table></figure></p>
+<p>初始化账户<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c “import ee; ee.Initialize()&quot;</span><br></pre></td></tr></table></figure></p>
+<p>运行一下命令，获取验证信息码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">earthengine authenticate</span><br></pre></td></tr></table></figure></p>
+<h2 id="0x02-论文汇总"><a href="#0x02-论文汇总" class="headerlink" title="0x02 论文汇总"></a>0x02 论文汇总</h2><h3 id="森林植被类"><a href="#森林植被类" class="headerlink" title="森林植被类"></a>森林植被类</h3><p>《2015 Mapping woody vegetation clearing in Queensland, Australia from Landsat imagery using the Google Earth Engine.pdf》</p>
+<h3 id="城市用地类"><a href="#城市用地类" class="headerlink" title="城市用地类"></a>城市用地类</h3><p>《2017 Mapping major land cover dynamics in Beijing using all Landsat images in Google Earth Engine.pdf》<br>《2016 Detecting the Boundaries of Urban Areas in India- A Dataset for Pixel-Based Image Classification in Google Earth Engine.pdf》</p>
+<h2 id="0x03-辅助工具"><a href="#0x03-辅助工具" class="headerlink" title="0x03 辅助工具"></a>0x03 辅助工具</h2><p>高德坐标拾取：<a href="https://lbs.amap.com/console/show/picker" target="_blank" rel="noopener">https://lbs.amap.com/console/show/picker</a></p>
+<h2 id="0x04-公开数据集"><a href="#0x04-公开数据集" class="headerlink" title="0x04 公开数据集"></a>0x04 公开数据集</h2><h3 id="遥感图像数据库"><a href="#遥感图像数据库" class="headerlink" title="遥感图像数据库"></a>遥感图像数据库</h3><p><a href="https://blog.csdn.net/Javahaoshuang3394/article/details/41418569" target="_blank" rel="noopener">https://blog.csdn.net/Javahaoshuang3394/article/details/41418569</a></p>
+<h3 id="网站汇总"><a href="#网站汇总" class="headerlink" title="网站汇总"></a>网站汇总</h3><p><a href="https://blog.csdn.net/ufv59to8/article/details/80193950" target="_blank" rel="noopener">https://blog.csdn.net/ufv59to8/article/details/80193950</a><br><a href="https://blog.csdn.net/vbskj/article/details/80403055" target="_blank" rel="noopener">https://blog.csdn.net/vbskj/article/details/80403055</a><br><a href="https://blog.csdn.net/haoji007/article/details/80565110" target="_blank" rel="noopener">https://blog.csdn.net/haoji007/article/details/80565110</a></p>
+<h3 id="分门别类训练数据集"><a href="#分门别类训练数据集" class="headerlink" title="分门别类训练数据集"></a>分门别类训练数据集</h3><p>武汉大学深度学习数据集：<a href="https://download.csdn.net/download/u010656161/10153410" target="_blank" rel="noopener">https://download.csdn.net/download/u010656161/10153410</a><br>UC Merced Land Use Dataset：<a href="http://weegee.vision.ucmerced.edu/datasets/landuse.html" target="_blank" rel="noopener">http://weegee.vision.ucmerced.edu/datasets/landuse.html</a><br>Road and Building Detection Datasets：<a href="https://www.cs.toronto.edu/~vmnih/data/" target="_blank" rel="noopener">https://www.cs.toronto.edu/~vmnih/data/</a><br> DOTA: A Large-scale Dataset for Object Detection in Aerial Images：<a href="http://captain.whu.edu.cn/DOTAweb/index.html" target="_blank" rel="noopener">http://captain.whu.edu.cn/DOTAweb/index.html</a><br> DeepGlobe卫星图像地表解析(道路提取、建筑物检测、地标分类)挑战赛：<a href="http://deepglobe.org/challenge.html" target="_blank" rel="noopener">http://deepglobe.org/challenge.html</a></p>
+<h2 id="0x05-实战"><a href="#0x05-实战" class="headerlink" title="0x05 实战"></a>0x05 实战</h2><p> <a href="https://hackmd.io/s/BJQI_VoWE" target="_blank" rel="noopener">https://hackmd.io/s/BJQI_VoWE</a></p>
+<h2 id="0x06-代码切片"><a href="#0x06-代码切片" class="headerlink" title="0x06 代码切片"></a>0x06 代码切片</h2><h3 id="绘制波谱图"><a href="#绘制波谱图" class="headerlink" title="绘制波谱图"></a>绘制波谱图</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Load and display a Landsat 8 image's reflective bands.</span></span><br><span class="line"><span class="comment">//LANDSAT/LC08/C01/T1_TOA/LC08_026047_20140216</span></span><br><span class="line"><span class="comment">//LANDSAT/LC08/C01/T1_SR</span></span><br><span class="line"><span class="keyword">var</span> start = <span class="string">'2018-01-09'</span>;</span><br><span class="line"><span class="keyword">var</span> end = <span class="string">'2019-01-09'</span>;</span><br><span class="line"><span class="keyword">var</span> landsat_sr = ee.ImageCollection(<span class="string">'LANDSAT/LC08/C01/T1_SR'</span>).filterDate(start,end).sort(<span class="string">'CLOUD_COVER'</span>);</span><br><span class="line"><span class="keyword">var</span> image = landsat_sr.mean().select([<span class="string">'B[1-7]'</span>]);</span><br><span class="line"><span class="keyword">var</span> clipjjd = image.clipToCollection(cjjjd);</span><br><span class="line"><span class="comment">// Map.addLayer(image, &#123;bands: ['B5', 'B4', 'B3'], min: 0, max: 0.5&#125;,'image');</span></span><br><span class="line"><span class="built_in">Map</span>.addLayer(clipjjd, &#123;<span class="attr">bands</span>: [<span class="string">'B4'</span>, <span class="string">'B3'</span>, <span class="string">'B2'</span>]&#125;,<span class="string">'cjjjd'</span>);</span><br><span class="line"><span class="built_in">Map</span>.centerObject(clipjjd);</span><br><span class="line"><span class="comment">// Define and display a FeatureCollection of three known locations.</span></span><br><span class="line"><span class="keyword">var</span> points = ee.FeatureCollection(</span><br><span class="line">  [</span><br><span class="line">    water,</span><br><span class="line">    vegetation,</span><br><span class="line">    urban</span><br><span class="line">  ]</span><br><span class="line">  );</span><br><span class="line"><span class="comment">//water.merge(vegetation).merge(urban);</span></span><br><span class="line"><span class="built_in">Map</span>.addLayer(points,&#123;&#125;,<span class="string">'point'</span>);</span><br><span class="line"><span class="comment">// Define customization options.</span></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  title: <span class="string">'长江经济带区域POI波谱图'</span>,</span><br><span class="line">  hAxis: &#123;<span class="attr">title</span>: <span class="string">'Wavelength (micrometers)'</span>&#125;,</span><br><span class="line">  vAxis: &#123;<span class="attr">title</span>: <span class="string">'Reflectance'</span>&#125;,</span><br><span class="line">  lineWidth: <span class="number">1</span>,</span><br><span class="line">  pointSize: <span class="number">4</span>,</span><br><span class="line">  series: &#123;</span><br><span class="line">    <span class="number">0</span>: &#123;<span class="attr">color</span>: <span class="string">'00FF00'</span>&#125;, <span class="comment">// water</span></span><br><span class="line">    <span class="number">1</span>: &#123;<span class="attr">color</span>: <span class="string">'0000FF'</span>&#125;, <span class="comment">// vegetation</span></span><br><span class="line">    <span class="number">2</span>: &#123;<span class="attr">color</span>: <span class="string">'FF0000'</span>&#125;, <span class="comment">// urban</span></span><br><span class="line">&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Define a list of Landsat 8 wavelengths for X-axis labels.</span></span><br><span class="line"><span class="keyword">var</span> wavelengths = [<span class="number">0.44</span>, <span class="number">0.48</span>, <span class="number">0.56</span>, <span class="number">0.65</span>, <span class="number">0.86</span>, <span class="number">1.61</span>, <span class="number">2.2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the chart and set options.</span></span><br><span class="line"><span class="keyword">var</span> spectraChart = ui.Chart.image.regions(</span><br><span class="line">    image, points, ee.Reducer.mean(), <span class="number">30</span>, <span class="string">'label'</span>, wavelengths)</span><br><span class="line">        .setChartType(<span class="string">'LineChart'</span>)</span><br><span class="line">        .setOptions(options);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Display the chart.</span></span><br><span class="line">print(spectraChart);</span><br><span class="line">Export.table.toAsset(points,<span class="string">'测试波谱图data'</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MachineLearning/" rel="tag"># MachineLearning</a>
+          
+            <a href="/tags/RemoteSensing/" rel="tag"># RemoteSensing</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/19/树数据结构总结/" rel="next" title="树数据结构总结">
+                <i class="fa fa-chevron-left"></i> 树数据结构总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/21/高德地图Js-API总结/" rel="prev" title="高德地图Js API总结">
+                高德地图Js API总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-任意门"><span class="nav-number">1.</span> <span class="nav-text">0x00 任意门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-云平台使用"><span class="nav-number">2.</span> <span class="nav-text">0x01 云平台使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云平台js版"><span class="nav-number">3.</span> <span class="nav-text">云平台js版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网上中文教程"><span class="nav-number">3.1.</span> <span class="nav-text">网上中文教程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#入门系列"><span class="nav-number">3.1.1.</span> <span class="nav-text">入门系列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小功能教程"><span class="nav-number">3.1.2.</span> <span class="nav-text">小功能教程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网上英文教程"><span class="nav-number">3.2.</span> <span class="nav-text">网上英文教程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Landsat算法"><span class="nav-number">3.2.1.</span> <span class="nav-text">Landsat算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习"><span class="nav-number">3.2.2.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非监督学习"><span class="nav-number">3.2.3.</span> <span class="nav-text">非监督学习</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云平台Python环境"><span class="nav-number">4.</span> <span class="nav-text">云平台Python环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">4.1.</span> <span class="nav-text">环境搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-论文汇总"><span class="nav-number">5.</span> <span class="nav-text">0x02 论文汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#森林植被类"><span class="nav-number">5.1.</span> <span class="nav-text">森林植被类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#城市用地类"><span class="nav-number">5.2.</span> <span class="nav-text">城市用地类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-辅助工具"><span class="nav-number">6.</span> <span class="nav-text">0x03 辅助工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-公开数据集"><span class="nav-number">7.</span> <span class="nav-text">0x04 公开数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遥感图像数据库"><span class="nav-number">7.1.</span> <span class="nav-text">遥感图像数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站汇总"><span class="nav-number">7.2.</span> <span class="nav-text">网站汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分门别类训练数据集"><span class="nav-number">7.3.</span> <span class="nav-text">分门别类训练数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-实战"><span class="nav-number">8.</span> <span class="nav-text">0x05 实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-代码切片"><span class="nav-number">9.</span> <span class="nav-text">0x06 代码切片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制波谱图"><span class="nav-number">9.1.</span> <span class="nav-text">绘制波谱图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+

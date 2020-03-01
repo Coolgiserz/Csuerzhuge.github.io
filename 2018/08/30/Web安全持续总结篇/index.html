@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=1.1.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=1.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=1.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=1.1.1" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Summary,Web,Security,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x00 Web基础知识概述1.    HTTP协议1.1HTTP历史1.2HTTP消息1.3HTTP状态码状态码用于描述客户端向服务端发送请求时的返回结果  1xx （信息性状态码） 2xx （成功状态码） 3xx （重定向状态码） 4xx （客户端错误状态码） 5xx （服务端错误状态码）  1.4学习资料《图解HTTP》《TCP/IP详解》借助代理软件分析HTTP请求 2.    计算机网络">
+<meta name="keywords" content="Summary,Web,Security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web安全持续总结篇">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Web安全持续总结篇/index.html">
+<meta property="og:site_name" content="CoolCats&#39;s Blog">
+<meta property="og:description" content="0x00 Web基础知识概述1.    HTTP协议1.1HTTP历史1.2HTTP消息1.3HTTP状态码状态码用于描述客户端向服务端发送请求时的返回结果  1xx （信息性状态码） 2xx （成功状态码） 3xx （重定向状态码） 4xx （客户端错误状态码） 5xx （服务端错误状态码）  1.4学习资料《图解HTTP》《TCP/IP详解》借助代理软件分析HTTP请求 2.    计算机网络">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/08/images/sqlmap.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/images/wireshark/main.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/images/wireshark/shotcut.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/images/wireshark/menu.jpg">
+<meta property="og:updated_time" content="2019-03-27T02:16:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web安全持续总结篇">
+<meta name="twitter:description" content="0x00 Web基础知识概述1.    HTTP协议1.1HTTP历史1.2HTTP消息1.3HTTP状态码状态码用于描述客户端向服务端发送请求时的返回结果  1xx （信息性状态码） 2xx （成功状态码） 3xx （重定向状态码） 4xx （客户端错误状态码） 5xx （服务端错误状态码）  1.4学习资料《图解HTTP》《TCP/IP详解》借助代理软件分析HTTP请求 2.    计算机网络">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/images/sqlmap.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '1.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/30/Web安全持续总结篇/">
+
+
+
+
+
+  <title>Web安全持续总结篇 | CoolCats's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoolCats's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Go see the world!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br>
+            
+            Music
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/Web安全持续总结篇/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoolCats">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoolCats's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Web安全持续总结篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-30T11:30:50+08:00">
+                2018-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/30/Web安全持续总结篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/30/Web安全持续总结篇/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/30/Web安全持续总结篇/" class="leancloud_visitors" data-flag-title="Web安全持续总结篇">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3,031
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x00-Web基础知识概述"><a href="#0x00-Web基础知识概述" class="headerlink" title="0x00 Web基础知识概述"></a>0x00 Web基础知识概述</h2><h3 id="1-HTTP协议"><a href="#1-HTTP协议" class="headerlink" title="1.    HTTP协议"></a>1.    HTTP协议</h3><h4 id="1-1HTTP历史"><a href="#1-1HTTP历史" class="headerlink" title="1.1HTTP历史"></a>1.1HTTP历史</h4><h4 id="1-2HTTP消息"><a href="#1-2HTTP消息" class="headerlink" title="1.2HTTP消息"></a>1.2HTTP消息</h4><h4 id="1-3HTTP状态码"><a href="#1-3HTTP状态码" class="headerlink" title="1.3HTTP状态码"></a>1.3HTTP状态码</h4><p>状态码用于描述客户端向服务端发送请求时的返回结果</p>
+<ul>
+<li>1xx （信息性状态码）</li>
+<li>2xx （成功状态码）</li>
+<li>3xx （重定向状态码）</li>
+<li>4xx （客户端错误状态码）</li>
+<li>5xx （服务端错误状态码）</li>
+</ul>
+<h4 id="1-4学习资料"><a href="#1-4学习资料" class="headerlink" title="1.4学习资料"></a>1.4学习资料</h4><p>《图解HTTP》《TCP/IP详解》<br>借助代理软件分析HTTP请求</p>
+<h3 id="2-计算机网络层次结构"><a href="#2-计算机网络层次结构" class="headerlink" title="2.    计算机网络层次结构"></a>2.    计算机网络层次结构</h3><h4 id="2-1应用层"><a href="#2-1应用层" class="headerlink" title="2.1应用层"></a>2.1应用层</h4><h4 id="2-2表示层"><a href="#2-2表示层" class="headerlink" title="2.2表示层"></a>2.2表示层</h4><h4 id="2-3会话层"><a href="#2-3会话层" class="headerlink" title="2.3会话层"></a>2.3会话层</h4><h4 id="2-4传输层"><a href="#2-4传输层" class="headerlink" title="2.4传输层"></a>2.4传输层</h4><h4 id="2-5网络层"><a href="#2-5网络层" class="headerlink" title="2.5网络层"></a>2.5网络层</h4><p>1）IP协议<br>TTL：用于定义数据包的生存周期，一旦TTL==0，则该数据包会被丢弃<br>数据包分片</p>
+<h4 id="2-6链路层"><a href="#2-6链路层" class="headerlink" title="2.6链路层"></a>2.6链路层</h4><h4 id="2-7物理层"><a href="#2-7物理层" class="headerlink" title="2.7物理层"></a>2.7物理层</h4><h3 id="3-Web编程语言"><a href="#3-Web编程语言" class="headerlink" title="3.    Web编程语言"></a>3.    Web编程语言</h3><h4 id="3-1前端"><a href="#3-1前端" class="headerlink" title="3.1前端"></a>3.1前端</h4><ul>
+<li>html</li>
+<li>css</li>
+<li>js</li>
+</ul>
+<p>入门资料w3cschool在线教程，后期框架官方文档jquery</p>
+<h4 id="3-2后端"><a href="#3-2后端" class="headerlink" title="3.2后端"></a>3.2后端</h4><ul>
+<li>php<br>主流后端脚本语言，弱类型、面向对象，入门快。学习资料：PHP和MYSQL web开发、犀牛书，phpStudy（方便研究各个版本的PHP特点差异）</li>
+<li><p>asp</p>
+</li>
+<li><p>java</p>
+</li>
+<li><p>python</p>
+</li>
+<li>go</li>
+<li>js</li>
+</ul>
+<h3 id="4-FAQs"><a href="#4-FAQs" class="headerlink" title="4.    FAQs"></a>4.    FAQs</h3><h2 id="0x01-Web安全基础"><a href="#0x01-Web安全基础" class="headerlink" title="0x01 Web安全基础"></a>0x01 Web安全基础</h2><h3 id="1-Web安全概述"><a href="#1-Web安全概述" class="headerlink" title="1.    Web安全概述"></a>1.    Web安全概述</h3><p>网络安全法：<a href="http://www.npc.gov.cn/npc/xinwen/2016-11/07/content_2001605.htm" target="_blank" rel="noopener">http://www.npc.gov.cn/npc/xinwen/2016-11/07/content_2001605.htm</a></p>
+<h3 id="2-输入处理与安全性"><a href="#2-输入处理与安全性" class="headerlink" title="2.    输入处理与安全性"></a>2.    输入处理与安全性</h3><h3 id="3-输出处理与安全性"><a href="#3-输出处理与安全性" class="headerlink" title="3.    输出处理与安全性"></a>3.    输出处理与安全性</h3><h3 id="4-SQL调用与安全性"><a href="#4-SQL调用与安全性" class="headerlink" title="4.    SQL调用与安全性"></a>4.    SQL调用与安全性</h3><h3 id="5-文件操作与安全性"><a href="#5-文件操作与安全性" class="headerlink" title="5.    文件操作与安全性"></a>5.    文件操作与安全性</h3><p>文件操作包括文件包含、文件读取、文件删除、文件下载和文件上传，这几种文件操作的漏洞都有一定的相似点，但每种漏洞都有各自的漏洞函数以及利用方式</p>
+<h3 id="6-系统命令调用与安全性"><a href="#6-系统命令调用与安全性" class="headerlink" title="6.    系统命令调用与安全性"></a>6.    系统命令调用与安全性</h3><h3 id="7-路由安全"><a href="#7-路由安全" class="headerlink" title="7.  路由安全"></a>7.  路由安全</h3><p>学习资料：图解HTTP协议、计算机网络(网络基础理论、要慢慢啃)、白帽子讲Web安全（介绍理念、经验）、Web应用安全权威指南（从开发者角度介绍Web安全，以及安全应用的构建）、黑客攻防…web篇、SQL注入攻击与防御（干货、比较全面地介绍SQl注入以及一优秀开源工具和商业软件，作者还同时是burpsuite的开发者）、XSS攻击与防御（邱xx写的，好像是吴瀚清的手下？）、PHP web应用代码审计、TCP/IP详解等等<br>重要的还有关注i春秋、Freebuf等信安极客网站</p>
+<h2 id="0x02-渗透测试基本工具"><a href="#0x02-渗透测试基本工具" class="headerlink" title="0x02 渗透测试基本工具"></a>0x02 渗透测试基本工具</h2><p>渗透测试基本工具主要分操作系统，软件，脚本。通常使用kali系统，windows下也可使用PentestBox（集成多款渗透测试工具，支持自己定制）或者安装APP版kali（在Windows商店，无图形界面也就几百兆吧，有bash环境和kali下的大部分工具，安装要关防火墙defender，也可安装GUI通过远程桌面连接whatever），自己写的脚本（复杂爆破，绕过防火墙等等）。下面依次应用层往下介绍一些经典工具。</p>
+<h3 id="1-Burpsuite"><a href="#1-Burpsuite" class="headerlink" title="1.    Burpsuite"></a>1.    Burpsuite</h3><p>综合渗透测试工具，主要功能模块有Proxy、Intruder、Scanner、Repeater等。一般可用于</p>
+<ul>
+<li>信息收集</li>
+<li>网络代理</li>
+<li>密码爆破</li>
+<li>编码转换</li>
+</ul>
+<p>Scanner组合Target常用于信息收集，Proxy用作网络代理，默认监听端口为8080，可安装证书到手机从而实现手机端网络代理，并监听https的流量。</p>
+<h3 id="2-SQLmap"><a href="#2-SQLmap" class="headerlink" title="2.    SQLmap"></a>2.    SQLmap</h3><p>sqlmap是一款针对数据库的安全测试工具以及管理工具，其功能主要分为四个模块：</p>
+<ul>
+<li>判断是否有可注入的参数；</li>
+<li>判断可用的注入技术； </li>
+<li>识别数据库的类型 </li>
+<li>进行数据库的管理。</li>
+</ul>
+<p>其支持的注入技术包括：基于布尔的注入、基于时间的注入、基于报错的注入、联合查询、内联查询。对环境的要求为python2.7。</p>
+<h4 id="2-1常用参数"><a href="#2-1常用参数" class="headerlink" title="2.1常用参数"></a>2.1常用参数</h4><ul>
+<li>-u<br>该参数后为要测试的url，示例python sqlmap.py -u “<a href="http://www.emmmmm.com&quot;" target="_blank" rel="noopener">http://www.emmmmm.com&quot;</a></li>
+<li>–data<br>该参数用于指定POST方法要传递的参数，示例python sqlmap.py -u “<a href="http://www.emmmmm.com&quot;" target="_blank" rel="noopener">http://www.emmmmm.com&quot;</a> –data=”param1=A&amp;param2=B”</li>
+<li>–cookie<br>该参数用于要带cookie访问网站的情况，示例python sqlmap.py -u “<a href="http://www.emmmmm.com&quot;" target="_blank" rel="noopener">http://www.emmmmm.com&quot;</a> –cookie=”cookie1=XXXXX;cookie2=XXXXXX”</li>
+<li>–current-user<br>指定该参数将测试能否爆出数据库当前用户名</li>
+<li>–current-db<br>指定该参数将测试当前数据库名</li>
+<li>–dbs<br>该参数爆出当前用户所能访问的所有数据库名</li>
+<li>-D<br>指定数据库名</li>
+<li>–tables<br>指定数据库名后要爆的表名</li>
+<li>-T</li>
+<li>–columns</li>
+<li>-C</li>
+<li>–dump</li>
+</ul>
+<h4 id="2-2本地数据库管理"><a href="#2-2本地数据库管理" class="headerlink" title="2.2本地数据库管理"></a>2.2本地数据库管理</h4><p>示例：sqlmap -d “mysql://username:password@hostname:port/database” –sql-shell<br>注意：执行以上命令要求安装pymysql模块，成功执行后即可进入数据库的shell管理模式<br><img src="../../images/sqlmap.jpg" alt="sqlmap连接数据库示例"></p>
+<h4 id="2-3高级参数"><a href="#2-3高级参数" class="headerlink" title="2.3高级参数"></a>2.3高级参数</h4><h4 id="2-4源代码目录结构"><a href="#2-4源代码目录结构" class="headerlink" title="2.4源代码目录结构"></a>2.4源代码目录结构</h4><h3 id="3-Wireshark"><a href="#3-Wireshark" class="headerlink" title="3.    Wireshark"></a>3.    Wireshark</h3><h4 id="1-1-学习资料"><a href="#1-1-学习资料" class="headerlink" title="1.1    学习资料"></a>1.1    学习资料</h4><p>1）    <a href="https://wiki.wireshark.org/" target="_blank" rel="noopener">https://wiki.wireshark.org/</a><br>2）    <a href="https://www.wireshark.org/docs" target="_blank" rel="noopener">https://www.wireshark.org/docs</a></p>
+<h4 id="1-2-基本功能介绍"><a href="#1-2-基本功能介绍" class="headerlink" title="1.2    基本功能介绍"></a>1.2    基本功能介绍</h4><p>1）    主界面<br><img src="../../images/wireshark/main.jpg" alt="Wireshark GUI"></p>
+<p>2）    基本使用技巧</p>
+<ul>
+<li><p>快捷键<br><img src="../../images/wireshark/shotcut.jpg" alt="Wireshark 快捷键"></p>
+</li>
+<li><p>主菜单<br><img src="../../images/wireshark/menu.jpg" alt="Wireshark 快捷键"></p>
+</li>
+</ul>
+<h3 id="4-CKnife"><a href="#4-CKnife" class="headerlink" title="4.    CKnife"></a>4.    CKnife</h3><h3 id="5-御剑"><a href="#5-御剑" class="headerlink" title="5.    御剑"></a>5.    御剑</h3><h2 id="0x03-安全漏洞及利用方法分析"><a href="#0x03-安全漏洞及利用方法分析" class="headerlink" title="0x03 安全漏洞及利用方法分析"></a>0x03 安全漏洞及利用方法分析</h2><h3 id="1-SQL注入"><a href="#1-SQL注入" class="headerlink" title="1.SQL注入"></a>1.SQL注入</h3><h4 id="1-1漏洞成因"><a href="#1-1漏洞成因" class="headerlink" title="1.1漏洞成因"></a>1.1漏洞成因</h4><p>编写操作数据库代码时，直接将外部可控参数与SQL语句拼接在一起，且没有经过有效的过滤。（服务器端的实现未将数据与代码逻辑分离，或对用户提交的参数过滤不严格，导致SQL语句结构的改变，执行非开发者本意的操作。）</p>
+<h4 id="1-2漏洞危害"><a href="#1-2漏洞危害" class="headerlink" title="1.2漏洞危害"></a>1.2漏洞危害</h4><p>数据泄露（用户个人隐私、敏感信息），服务器植入后门</p>
+<h4 id="1-3利用方法"><a href="#1-3利用方法" class="headerlink" title="1.3利用方法"></a>1.3利用方法</h4><p>针对不同的漏洞代码情况和运行情况，通常把SQL注入分为普通注入、布尔盲注、时间盲注、报错注入、宽字节注入、二次注入等。<br>1）    普通注入<br>2）    布尔盲注<br>3）    时间盲注<br>4）    报错注入<br>5）    宽字节注入<br>6）    二次注入<br>7） 堆注入</p>
+<h4 id="1-4防范措施"><a href="#1-4防范措施" class="headerlink" title="1.4防范措施"></a>1.4防范措施</h4><p>1）使用gpc/rutime魔术引号<br>2）使用安全的过滤函数和类 使用addslashes函数，过滤单引号、双引号、反斜杠、空字符（NULL），不过要在确认GPC没有开启的时候采用，而且要注意，此函数接受的参数必须时string类型    使用mysql_[real_]escape_string。mysql_escape_string    mysql_real_eacape_string都会过滤\x00,\n,\r,\,’,”,\xla。两个函数的区别在于，后者接受一个连接句柄并根据当前字符集转义字符串    使用intval函数，将变量转换成int类型，针对int类型的期望参数。 参考OWSAP安全专家开发的SQL注入过滤类<br>3）PDO prepare预编译 类似.NET的SqlParameter和java的prepareStatement。使用PDO模式执行SQL语句，不过要注意先使用ATTR_EMULATE_PREPARES来禁用PHP本地模拟prepare(利用函数setAttribute)<br>4）从数据库自身来说，应尽量使用最小权限原则，避免高权限用户直接连接数据库，如果有多个应用同时使用同一个数据库，也应该为不同应用分配不同的账户</p>
+<h3 id="2-XSS注入"><a href="#2-XSS注入" class="headerlink" title="2.XSS注入"></a>2.XSS注入</h3><h4 id="2-1漏洞成因"><a href="#2-1漏洞成因" class="headerlink" title="2.1漏洞成因"></a>2.1漏洞成因</h4><p>网页的部分显示内容依据外界输入值发生变化，而处理输出HTML的程序存在问题，未作有效的校检，则会滋生XSS漏洞</p>
+<h4 id="2-2漏洞危害"><a href="#2-2漏洞危害" class="headerlink" title="2.2漏洞危害"></a>2.2漏洞危害</h4><ul>
+<li>获取客户端信息（如用户浏览历史、真实ip、开放端口）</li>
+<li>Cookie信息被窃取，用户身份被冒名顶替</li>
+<li>攻击者获得用户的权限恶意使用Web应用的功能</li>
+<li>篡改网页（如恶意刷广告、劫持用户到恶意网站，实施钓鱼攻击窃取用户信息）</li>
+<li>控制受害者机器向其他网站发动攻击XSS蠕虫</li>
+</ul>
+<h4 id="2-3XSS分类"><a href="#2-3XSS分类" class="headerlink" title="2.3XSS分类"></a>2.3XSS分类</h4><ul>
+<li>反射型XSS<br>直接通过外部输入恶意代码，在浏览器输出时触发</li>
+<li>存储型XSS<br>将恶意代码上传或存储到漏洞服务器中，一般是出现在帖子评论、留言功能处，数据库中的恶意代码一旦被输出，访问该页面（评论页面、留言页面…）的用户，如果系统存在安全隐患，都会受其影响。严重性很高，可借此发动DDoS</li>
+<li>DOM型XSS<br>基于DOM文档对象模型的XSS，js可以通过DOM动态地修改页面的内容，且不依赖服务器端的数据，如果DOM接受的参数未经有效地过滤，则会滋生DOM-based XSS</li>
+</ul>
+<h4 id="2-3XSS攻击"><a href="#2-3XSS攻击" class="headerlink" title="2.3XSS攻击"></a>2.3XSS攻击</h4><ul>
+<li>利用&lt;&gt;标签注射html、js</li>
+<li>利用html标签属性值执行xss</li>
+<li>利用javascript:[code]伪协议绕过XSS过滤器</li>
+<li>空格回车Tab绕过</li>
+<li>对标签属性值进行转码处理</li>
+<li><p>利用css执行跨站脚本<br>利用css执行XSS比较隐秘，但css在各浏览器之间不能通用，甚至同意浏览器的不同版本都不能通用，因此限制较多</p>
+</li>
+<li><p>大小写绕过</p>
+</li>
+<li>双写绕过</li>
+<li>拆分法跨站<br>引入一个字符串变量，将payload拆分成多份，一步一步拼接成完整payload，实现xss。该方法适用于没有过滤&lt;&gt;等标签，但对字符长度有限制的情况</li>
+</ul>
+<h4 id="2-4防御XSS攻击"><a href="#2-4防御XSS攻击" class="headerlink" title="2.4防御XSS攻击"></a>2.4防御XSS攻击</h4><ul>
+<li>使用XSS Filter</li>
+<li>定制过滤策略</li>
+<li>注意Web安全编码规范</li>
+<li>防御DOM based</li>
+<li>Anti_XSS</li>
+<li>安装NoScript</li>
+<li>使用WAF</li>
+</ul>
+<h3 id="3-文件上传"><a href="#3-文件上传" class="headerlink" title="3.文件上传"></a>3.文件上传</h3><h4 id="3-1-漏洞成因"><a href="#3-1-漏洞成因" class="headerlink" title="3.1    漏洞成因"></a>3.1    漏洞成因</h4><p>对文件上传功能，未对上传文件的大小和单次或连续上传次数作限定，此时如恶意用户连续发起多次巨大文件上传则会造成拒绝服务攻击。<br>在用户客户端存在漏洞的情况下，恶意用户上传的恶意文件如果被访问，则可能造成JS执行或者病毒传播。<br>对于对文件类型限定不严格或将上传文件保存到公开目录中，恶意用户可上传脚本并在服务器端执行</p>
+<h4 id="3-2-攻击类型"><a href="#3-2-攻击类型" class="headerlink" title="3.2    攻击类型"></a>3.2    攻击类型</h4><ul>
+<li>恶意用户上传恶意脚本并执行</li>
+<li>DoS攻击</li>
+<li>诱使用户下载恶意文件</li>
+<li>越权下载文件</li>
+</ul>
+<h4 id="3-3-漏洞危害"><a href="#3-3-漏洞危害" class="headerlink" title="3.3    漏洞危害"></a>3.3    漏洞危害</h4><p>拒绝服务攻击、造成数据篡改、隐私泄露、网站挂马等危害</p>
+<h4 id="3-4-攻击方法"><a href="#3-4-攻击方法" class="headerlink" title="3.4    攻击方法"></a>3.4    攻击方法</h4><ul>
+<li>修改扩展名，尝试大小写绕过、0x00截断、双写绕过、特殊扩展名(php3|php5|…)等措施试图绕过对扩展名的校验</li>
+<li>修改MIME类型，试图绕过对MIME类型的校验</li>
+<li>上传脚本文件时，修改文件头为图片的文件头</li>
+<li>在图片上挂马</li>
+</ul>
+<h4 id="3-5-防御措施"><a href="#3-5-防御措施" class="headerlink" title="3.5    防御措施"></a>3.5    防御措施</h4><p>1）对上传文件的扩展名，采用白名单的机制过滤<br>2）同时检校上传文件的MIME类型<br>3）对文件头乃至文件内容作检校<br>4）将上传目录设置权限为不可执行目录（在linux系统中，撤销上传目录的x权限）<br>5）配置php.ini、httpd.conf等配置文件，限制上传文件的容量、次数、限制请求正文的容量，不使用文件上传功能时，在php.ini中将file_uploads配置项设置为off，禁止用户上传.htaccess文件改变局部目录的配置项<br>6）使用随机数加salt修改上传后的文件名<br>7）文件服务器与主干服务器分离并单独设置文件服务器的域名，由于同源策略的关系会限制XSS利用<br>8）不要把文件保存在公开目录中，读取时采用脚本</p>
+<h3 id="4-访问控制"><a href="#4-访问控制" class="headerlink" title="4.    访问控制"></a>4.    访问控制</h3><h3 id="5-CSRF"><a href="#5-CSRF" class="headerlink" title="5.  CSRF"></a>5.  CSRF</h3><h4 id="5-1-漏洞成因"><a href="#5-1-漏洞成因" class="headerlink" title="5.1    漏洞成因"></a>5.1    漏洞成因</h4><h4 id="5-2-漏洞危害"><a href="#5-2-漏洞危害" class="headerlink" title="5.2    漏洞危害"></a>5.2    漏洞危害</h4><h4 id="5-3-攻击手法"><a href="#5-3-攻击手法" class="headerlink" title="5.3    攻击手法"></a>5.3    攻击手法</h4><h4 id="5-4-防御措施"><a href="#5-4-防御措施" class="headerlink" title="5.4    防御措施"></a>5.4    防御措施</h4><ul>
+<li>使用POST方法代替GET</li>
+<li>检验HTTP referer</li>
+<li>使用Token值</li>
+<li>使用验证码</li>
+</ul>
+<h3 id="6-文件包含"><a href="#6-文件包含" class="headerlink" title="6.    文件包含"></a>6.    文件包含</h3><h4 id="6-1-漏洞成因"><a href="#6-1-漏洞成因" class="headerlink" title="6.1    漏洞成因"></a>6.1    漏洞成因</h4><h4 id="6-2-漏洞危害"><a href="#6-2-漏洞危害" class="headerlink" title="6.2    漏洞危害"></a>6.2    漏洞危害</h4><h4 id="6-3-攻击手法"><a href="#6-3-攻击手法" class="headerlink" title="6.3    攻击手法"></a>6.3    攻击手法</h4><h4 id="6-4-防御措施"><a href="#6-4-防御措施" class="headerlink" title="6.4    防御措施"></a>6.4    防御措施</h4><h3 id="7-命令注入"><a href="#7-命令注入" class="headerlink" title="7.    命令注入"></a>7.    命令注入</h3><p>域名劫持</p>
+<h2 id="0x04-渗透测试流程"><a href="#0x04-渗透测试流程" class="headerlink" title="0x04 渗透测试流程"></a>0x04 渗透测试流程</h2><p>学习资料：kali渗透测试的艺术，XXXX魔鬼训练营，SQLlab</p>
+<h2 id="0x05-网站推荐"><a href="#0x05-网站推荐" class="headerlink" title="0x05 网站推荐"></a>0x05 网站推荐</h2><p>usenixsecurity：<a href="https://www.usenix.org/conference/usenixsecurity19" target="_blank" rel="noopener">https://www.usenix.org/conference/usenixsecurity19</a><br>恶意软件分析大全集：<a href="https://github.com/rshipp/awesome-malware-analysis/blob/master/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E5%A4%A7%E5%90%88%E9%9B%86.md" target="_blank" rel="noopener">https://github.com/rshipp/awesome-malware-analysis/blob/master/%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E5%A4%A7%E5%90%88%E9%9B%86.md</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Summary/" rel="tag"># Summary</a>
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/Security/" rel="tag"># Security</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/01/hello-world/" rel="next" title="Hexo命令及帮助手册">
+                <i class="fa fa-chevron-left"></i> Hexo命令及帮助手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/05/Applied-GIS-and-Spatial-Analysis/" rel="prev" title="Applied GIS and Spatial Analysis">
+                Applied GIS and Spatial Analysis <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="CoolCats">
+            
+              <p class="site-author-name" itemprop="name">CoolCats</p>
+              <p class="site-description motion-element" itemprop="description">Veritas des Liberty</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://google.com.hk" title="Google" target="_blank">Google</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.sciencenet.cn" title="Sciencenet" target="_blank">Sciencenet</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://codepen.io/" title="CodePen" target="_blank">CodePen</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://earthengine.google.com/" title="GEE" target="_blank">GEE</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cs.yale.edu/homes/spielman/561/" title="SpectralGraph" target="_blank">SpectralGraph</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://leetcode.com/problemset/all/" title="LeetCode" target="_blank">LeetCode</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/CyC2018/CS-Notes" title="CS-Notes" target="_blank">CS-Notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cn.bing.com" title="Bing" target="_blank">Bing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="Baidu" target="_blank">Baidu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.csdn.net" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/FrontendMasters/front-end-handbook-2018" title="FrontEndMaster" target="_blank">FrontEndMaster</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-Web基础知识概述"><span class="nav-number">1.</span> <span class="nav-text">0x00 Web基础知识概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTTP协议"><span class="nav-number">1.1.</span> <span class="nav-text">1.    HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1HTTP历史"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1HTTP历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2HTTP消息"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2HTTP消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3HTTP状态码"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3HTTP状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4学习资料"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4学习资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-计算机网络层次结构"><span class="nav-number">1.2.</span> <span class="nav-text">2.    计算机网络层次结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1应用层"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1应用层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2表示层"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2表示层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3会话层"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3会话层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4传输层"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4传输层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5网络层"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5网络层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6链路层"><span class="nav-number">1.2.6.</span> <span class="nav-text">2.6链路层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7物理层"><span class="nav-number">1.2.7.</span> <span class="nav-text">2.7物理层</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Web编程语言"><span class="nav-number">1.3.</span> <span class="nav-text">3.    Web编程语言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1前端"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1前端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2后端"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2后端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-FAQs"><span class="nav-number">1.4.</span> <span class="nav-text">4.    FAQs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-Web安全基础"><span class="nav-number">2.</span> <span class="nav-text">0x01 Web安全基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Web安全概述"><span class="nav-number">2.1.</span> <span class="nav-text">1.    Web安全概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-输入处理与安全性"><span class="nav-number">2.2.</span> <span class="nav-text">2.    输入处理与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-输出处理与安全性"><span class="nav-number">2.3.</span> <span class="nav-text">3.    输出处理与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-SQL调用与安全性"><span class="nav-number">2.4.</span> <span class="nav-text">4.    SQL调用与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-文件操作与安全性"><span class="nav-number">2.5.</span> <span class="nav-text">5.    文件操作与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-系统命令调用与安全性"><span class="nav-number">2.6.</span> <span class="nav-text">6.    系统命令调用与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-路由安全"><span class="nav-number">2.7.</span> <span class="nav-text">7.  路由安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-渗透测试基本工具"><span class="nav-number">3.</span> <span class="nav-text">0x02 渗透测试基本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Burpsuite"><span class="nav-number">3.1.</span> <span class="nav-text">1.    Burpsuite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SQLmap"><span class="nav-number">3.2.</span> <span class="nav-text">2.    SQLmap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1常用参数"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1常用参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2本地数据库管理"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2本地数据库管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3高级参数"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.3高级参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4源代码目录结构"><span class="nav-number">3.2.4.</span> <span class="nav-text">2.4源代码目录结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Wireshark"><span class="nav-number">3.3.</span> <span class="nav-text">3.    Wireshark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-学习资料"><span class="nav-number">3.3.1.</span> <span class="nav-text">1.1    学习资料</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-基本功能介绍"><span class="nav-number">3.3.2.</span> <span class="nav-text">1.2    基本功能介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-CKnife"><span class="nav-number">3.4.</span> <span class="nav-text">4.    CKnife</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-御剑"><span class="nav-number">3.5.</span> <span class="nav-text">5.    御剑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-安全漏洞及利用方法分析"><span class="nav-number">4.</span> <span class="nav-text">0x03 安全漏洞及利用方法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SQL注入"><span class="nav-number">4.1.</span> <span class="nav-text">1.SQL注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1漏洞成因"><span class="nav-number">4.1.1.</span> <span class="nav-text">1.1漏洞成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2漏洞危害"><span class="nav-number">4.1.2.</span> <span class="nav-text">1.2漏洞危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3利用方法"><span class="nav-number">4.1.3.</span> <span class="nav-text">1.3利用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4防范措施"><span class="nav-number">4.1.4.</span> <span class="nav-text">1.4防范措施</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-XSS注入"><span class="nav-number">4.2.</span> <span class="nav-text">2.XSS注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1漏洞成因"><span class="nav-number">4.2.1.</span> <span class="nav-text">2.1漏洞成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2漏洞危害"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.2漏洞危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3XSS分类"><span class="nav-number">4.2.3.</span> <span class="nav-text">2.3XSS分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3XSS攻击"><span class="nav-number">4.2.4.</span> <span class="nav-text">2.3XSS攻击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4防御XSS攻击"><span class="nav-number">4.2.5.</span> <span class="nav-text">2.4防御XSS攻击</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-文件上传"><span class="nav-number">4.3.</span> <span class="nav-text">3.文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-漏洞成因"><span class="nav-number">4.3.1.</span> <span class="nav-text">3.1    漏洞成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-攻击类型"><span class="nav-number">4.3.2.</span> <span class="nav-text">3.2    攻击类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-漏洞危害"><span class="nav-number">4.3.3.</span> <span class="nav-text">3.3    漏洞危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-攻击方法"><span class="nav-number">4.3.4.</span> <span class="nav-text">3.4    攻击方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-防御措施"><span class="nav-number">4.3.5.</span> <span class="nav-text">3.5    防御措施</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-访问控制"><span class="nav-number">4.4.</span> <span class="nav-text">4.    访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-CSRF"><span class="nav-number">4.5.</span> <span class="nav-text">5.  CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-漏洞成因"><span class="nav-number">4.5.1.</span> <span class="nav-text">5.1    漏洞成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-漏洞危害"><span class="nav-number">4.5.2.</span> <span class="nav-text">5.2    漏洞危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-攻击手法"><span class="nav-number">4.5.3.</span> <span class="nav-text">5.3    攻击手法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-4-防御措施"><span class="nav-number">4.5.4.</span> <span class="nav-text">5.4    防御措施</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-文件包含"><span class="nav-number">4.6.</span> <span class="nav-text">6.    文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-漏洞成因"><span class="nav-number">4.6.1.</span> <span class="nav-text">6.1    漏洞成因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-漏洞危害"><span class="nav-number">4.6.2.</span> <span class="nav-text">6.2    漏洞危害</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-攻击手法"><span class="nav-number">4.6.3.</span> <span class="nav-text">6.3    攻击手法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-防御措施"><span class="nav-number">4.6.4.</span> <span class="nav-text">6.4    防御措施</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-命令注入"><span class="nav-number">4.7.</span> <span class="nav-text">7.    命令注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-渗透测试流程"><span class="nav-number">5.</span> <span class="nav-text">0x04 渗透测试流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-网站推荐"><span class="nav-number">6.</span> <span class="nav-text">0x05 网站推荐</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoolCats</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v1.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz',
+        appKey: 'clXj9YY53KFMpvetj92erIwM',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("bD8V6yCYokngp7y9TH6mFBzy-gzGzoHsz", "clXj9YY53KFMpvetj92erIwM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+  </body>
+</html>
+
